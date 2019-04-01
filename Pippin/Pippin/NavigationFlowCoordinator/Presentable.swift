@@ -1,9 +1,9 @@
 //
 //  Presentable.swift
-//  SchoolConnectOnBoarding
+//  Pippin
 //
-//  Created by Will Brandin on 12/13/18.
-//  Copyright © 2018 William Brandin. All rights reserved.
+//  Created by Will Brandin on 4/1/19.
+//  Copyright © 2019 SchoolConnect. All rights reserved.
 //
 
 import UIKit

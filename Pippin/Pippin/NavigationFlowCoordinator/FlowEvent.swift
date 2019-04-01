@@ -1,9 +1,9 @@
 //
 //  FlowEvent.swift
-//  RickyBobby
+//  Pippin
 //
-//  Created by Eyal Zohar on 8/6/18.
-//  Copyright © 2018 Tide University Laundry. All rights reserved.
+//  Created by Will Brandin on 4/1/19.
+//  Copyright © 2019 SchoolConnect. All rights reserved.
 //
 
 import Foundation
