@@ -22,6 +22,28 @@
 		D2E35F6D22529C1F000522E5 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F6C22529C1F000522E5 /* TabBarCoordinator.swift */; };
 		D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F6E22529C46000522E5 /* TabCoordinatable.swift */; };
 		D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */; };
+		D2E35F802252B474000522E5 /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F7F2252B474000522E5 /* UIFont+CustomFonts.swift */; };
+		D2E35F822252B4FC000522E5 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F812252B4FC000522E5 /* UIView+Constraints.swift */; };
+		D2E35F842252B60A000522E5 /* LandingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F832252B60A000522E5 /* LandingCoordinator.swift */; };
+		D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F862252B636000522E5 /* LandingViewController.swift */; };
+		D2E35F892252B78D000522E5 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F882252B78D000522E5 /* Style.swift */; };
+		D2E35F8B2252B914000522E5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F8A2252B914000522E5 /* CustomButton.swift */; };
+		D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F8C2252B972000522E5 /* UIView+Shadow.swift */; };
+		D2E35F8F2252BD59000522E5 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F8E2252BD59000522E5 /* OnboardingCoordinator.swift */; };
+		D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */; };
+		D2E35F952253A66E000522E5 /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F942253A66E000522E5 /* UILabel+Init.swift */; };
+		D2E35F962253A820000522E5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */; };
+		D2E35F972253A820000522E5 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */; };
+		D2E35F982253A820000522E5 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */; };
+		D2E35F992253A820000522E5 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */; };
+		D2E35F9A2253A820000522E5 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */; };
+		D2E35F9B2253A820000522E5 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */; };
+		D2E35F9C2253A820000522E5 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */; };
+		D2E35F9D2253A820000522E5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */; };
+		D2E35F9E2253A820000522E5 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */; };
+		D2E35F9F2253A820000522E5 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */; };
+		D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */; };
+		D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +76,28 @@
 		D2E35F6C22529C1F000522E5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		D2E35F6E22529C46000522E5 /* TabCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinatable.swift; sourceTree = "<group>"; };
 		D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Italic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-LightItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		D2E35F7F2252B474000522E5 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		D2E35F812252B4FC000522E5 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		D2E35F832252B60A000522E5 /* LandingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCoordinator.swift; sourceTree = "<group>"; };
+		D2E35F862252B636000522E5 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		D2E35F882252B78D000522E5 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		D2E35F8A2252B914000522E5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D2E35F8C2252B972000522E5 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		D2E35F8E2252BD59000522E5 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
+		D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationStyle.swift"; sourceTree = "<group>"; };
+		D2E35F942253A66E000522E5 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
+		D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SpecialCharacters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +144,7 @@
 				D2E35F6922529BE9000522E5 /* Coordinators */,
 				D2E35F5622529A47000522E5 /* NavigationFlowCoordinator */,
 				D2E35F7022529DBF000522E5 /* Utility */,
+				D2E35F732252B352000522E5 /* Font */,
 				D2C1FE6F224E5B7000700E41 /* AppDelegate.swift */,
 				D2E35F6522529AAE000522E5 /* ApplicationCoordinator.swift */,
 				D2C1FE7B224E5B7200700E41 /* Info.plist */,
@@ -137,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				D2E35F6C22529C1F000522E5 /* TabBarCoordinator.swift */,
+				D2E35F832252B60A000522E5 /* LandingCoordinator.swift */,
+				D2E35F8E2252BD59000522E5 /* OnboardingCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -144,6 +191,7 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2E35F852252B627000522E5 /* LandingViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -158,9 +206,51 @@
 		D2E35F7022529DBF000522E5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				D2E35F7E2252B461000522E5 /* Extensions */,
 				D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */,
+				D2E35F882252B78D000522E5 /* Style.swift */,
+				D2E35F8A2252B914000522E5 /* CustomButton.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		D2E35F732252B352000522E5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */,
+				D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */,
+				D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */,
+				D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */,
+				D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */,
+				D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */,
+				D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */,
+				D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */,
+				D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */,
+				D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		D2E35F7E2252B461000522E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D2E35F7F2252B474000522E5 /* UIFont+CustomFonts.swift */,
+				D2E35F812252B4FC000522E5 /* UIView+Constraints.swift */,
+				D2E35F8C2252B972000522E5 /* UIView+Shadow.swift */,
+				D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */,
+				D2E35F942253A66E000522E5 /* UILabel+Init.swift */,
+				D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */,
+				D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D2E35F852252B627000522E5 /* LandingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2E35F862252B636000522E5 /* LandingViewController.swift */,
+			);
+			path = LandingViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,8 +334,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2E35F9F2253A820000522E5 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				D2E35F9D2253A820000522E5 /* OpenSans-Regular.ttf in Resources */,
 				D2C1FE7A224E5B7200700E41 /* LaunchScreen.storyboard in Resources */,
+				D2E35F9E2253A820000522E5 /* OpenSans-SemiBold.ttf in Resources */,
+				D2E35F992253A820000522E5 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				D2E35F9B2253A820000522E5 /* OpenSans-Light.ttf in Resources */,
 				D2C1FE77224E5B7200700E41 /* Assets.xcassets in Resources */,
+				D2E35F972253A820000522E5 /* OpenSans-BoldItalic.ttf in Resources */,
+				D2E35F962253A820000522E5 /* OpenSans-Bold.ttf in Resources */,
+				D2E35F982253A820000522E5 /* OpenSans-ExtraBold.ttf in Resources */,
+				D2E35F9A2253A820000522E5 /* OpenSans-Italic.ttf in Resources */,
+				D2E35F9C2253A820000522E5 /* OpenSans-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,16 +365,28 @@
 			files = (
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
+				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
+				D2E35F8B2252B914000522E5 /* CustomButton.swift in Sources */,
+				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,
 				D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */,
+				D2E35F952253A66E000522E5 /* UILabel+Init.swift in Sources */,
+				D2E35F822252B4FC000522E5 /* UIView+Constraints.swift in Sources */,
+				D2E35F842252B60A000522E5 /* LandingCoordinator.swift in Sources */,
 				D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */,
 				D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */,
+				D2E35F8F2252BD59000522E5 /* OnboardingCoordinator.swift in Sources */,
+				D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */,
 				D2E35F6122529A8C000522E5 /* FlowCoordinator.swift in Sources */,
 				D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				D2E35F6622529AAE000522E5 /* ApplicationCoordinator.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
+				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,
+				D2E35F802252B474000522E5 /* UIFont+CustomFonts.swift in Sources */,
 				D2C1FE70224E5B7000700E41 /* AppDelegate.swift in Sources */,
+				D2E35F892252B78D000522E5 /* Style.swift in Sources */,
 				D2E35F6D22529C1F000522E5 /* TabBarCoordinator.swift in Sources */,
 				D2E35F6422529A8C000522E5 /* Presentable.swift in Sources */,
+				D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
