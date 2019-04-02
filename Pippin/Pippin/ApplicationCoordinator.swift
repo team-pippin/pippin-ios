@@ -11,9 +11,24 @@ import UIKit
 final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     override func createMainViewController() -> UIViewController? {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
-        return viewController
+        determineRootCoordinator()
+        return nil
+    }
+    
+    private func determineRootCoordinator() {
+        if UserDefaultsManager.signedInUserToken != nil && UserDefaultsManager.selectedUserSchoolId != nil {
+            startHomeCoordinator(animated: false)
+        } else {
+            startLandingCoordinator(animated: false)
+        }
+    }
+    
+    private func startLandingCoordinator(animated: Bool = true) {
+        start(childCoordinator: LandingCoordinator(), with: .pushAndMakeRoot, animated: animated)
+    }
+    
+    private func startHomeCoordinator(animated: Bool = true) {
+        
     }
     
 }
