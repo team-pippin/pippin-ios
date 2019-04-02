@@ -40,6 +40,6 @@ final class LandingCoordinator: NavigationFlowCoordinator {
     }
     
     private func startOnboardingCoordinator() {
-        start(childCoordinator: OnboardingCoordinator(), with: .pushAndMakeRoot)
+        start(childCoordinator: OnboardingCoordinator(), with: .push)
     }
 }

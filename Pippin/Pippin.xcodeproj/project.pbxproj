@@ -42,6 +42,8 @@
 		D2E35F9D2253A820000522E5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */; };
 		D2E35F9E2253A820000522E5 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */; };
 		D2E35F9F2253A820000522E5 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */; };
+		D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */; };
+		D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		D2E35F8E2252BD59000522E5 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationStyle.swift"; sourceTree = "<group>"; };
 		D2E35F942253A66E000522E5 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
+		D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SpecialCharacters.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,8 @@
 				D2E35F8C2252B972000522E5 /* UIView+Shadow.swift */,
 				D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */,
 				D2E35F942253A66E000522E5 /* UILabel+Init.swift */,
+				D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */,
+				D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +365,7 @@
 			files = (
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
+				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
 				D2E35F8B2252B914000522E5 /* CustomButton.swift in Sources */,
 				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,
 				D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */,
@@ -368,6 +375,7 @@
 				D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */,
 				D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */,
 				D2E35F8F2252BD59000522E5 /* OnboardingCoordinator.swift in Sources */,
+				D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */,
 				D2E35F6122529A8C000522E5 /* FlowCoordinator.swift in Sources */,
 				D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				D2E35F6622529AAE000522E5 /* ApplicationCoordinator.swift in Sources */,

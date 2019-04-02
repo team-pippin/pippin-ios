@@ -12,27 +12,32 @@ struct Style {
    
     struct Color {
         
+        private static let blue = UIColor(hex: "0090C1")
+        private static let red = UIColor(hex: "E71D36")
+        private static let green = UIColor(hex: "2EC4B6")
+        private static let black = UIColor(hex: "050505")
+        
         static var primaryTextLight: UIColor = .white
         
-        static var primaryTextDark: UIColor = .black
+        static var primaryTextDark: UIColor = Style.Color.black
         
         static var secondaryTextLight: UIColor = .lightGray
         
-        static var secondaryTextDark: UIColor = .darkGray
+        static var secondaryTextDark: UIColor = UIColor(hex: "252323")
         
-        static var actionableText: UIColor = .red
+        static var actionableText: UIColor = .white
         
-        static var action: UIColor = .blue
+        static var action: UIColor = Style.Color.blue
         
-        static var secondaryAction: UIColor = .blue
+        static var secondaryAction: UIColor = Style.Color.green
         
-        static var destructiveAction: UIColor = .red
+        static var destructiveAction: UIColor = Style.Color.red
         
-        static var error: UIColor = .red
+        static var error: UIColor = Style.Color.red
         
-        static var interactiveTint: UIColor = .blue
+        static var interactiveTint: UIColor = Style.Color.blue.withAlphaComponent(0.7)
         
-        static var navigationAction: UIColor = .lightGray
+        static var navigationAction: UIColor = Style.Color.black//UIColor(hex: "D1D1D1")
         
         static var lightBackground: UIColor = .white
         
@@ -40,7 +45,7 @@ struct Style {
         
         static var lightGray: UIColor = .lightGray
         
-        static var darkGray: UIColor = .darkGray
+        static var darkGray: UIColor = UIColor(hex: "252323")
     }
     
     struct Font {
@@ -63,7 +68,7 @@ struct Style {
         
         static var miniBold: UIFont = UIFont(customFont: .OpenSans(.SemiBold), size: .caption)!
         
-        static var button: UIFont = UIFont(customFont: .OpenSans(.SemiBold), size: .body)!
+        static var button: UIFont = UIFont(customFont: .OpenSans(.Bold), size: .body)!
         
         static var navigationTitle: UIFont = UIFont(customFont: .OpenSans(.SemiBold), size: .headline)!
         

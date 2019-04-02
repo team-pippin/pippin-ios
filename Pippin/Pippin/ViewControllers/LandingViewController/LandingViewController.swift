@@ -30,6 +30,14 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
     }
     
+    private var landingImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "landingPageIcon")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     private lazy var titleLabel: UILabel = {
         let title = UILabel()
         title.font = UIFont(customFont: .OpenSans(.SemiBold), size: .Title1)
@@ -66,6 +74,11 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         view.backgroundColor = Style.Color.lightBackground
         addRightNavigationLink(title: "Login", target: self, action: #selector(handleLoginTap))
         
+        view.setMargins(top: 0,
+                        leading: 0,
+                        bottom: Style.Layout.marginXL,
+                        trailing: 0)
+        
         view.addSubview(signUpButton)
         signUpButton.pinToLeadingAndTrailingMargins()
         signUpButton.pinToBottomMargin()
@@ -76,7 +89,15 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         
         view.addSubview(titleLabel)
         titleLabel.pinToLeadingAndTrailingMargins()
-        titleLabel.pinAboveView(view: signUpButton, constant: Style.Layout.marginXL)
+        titleLabel.pinAboveView(view: subtitleLabel, constant: Style.Layout.marginXL)
+        
+        view.addSubview(landingImageView)
+        landingImageView.pinToLeadingAndTrailingMargins(constant: Style.Layout.marginXL)
+        landingImageView.pinAboveView(view: titleLabel, constant: Style.Layout.marginXL)
+        landingImageView.heightAnchor.constraint(equalTo: landingImageView.widthAnchor).isActive = true
+        
+        landingImageView.layer.cornerRadius = 25
+        landingImageView.clipsToBounds = true
     }
     
     // MARK: - Private Methods

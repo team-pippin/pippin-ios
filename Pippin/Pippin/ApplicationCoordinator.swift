@@ -10,10 +10,14 @@ import UIKit
 
 final class ApplicationCoordinator: NavigationFlowCoordinator {
     
+    // MARK: - Methods
+    
     override func createMainViewController() -> UIViewController? {
         determineRootCoordinator()
         return nil
     }
+    
+    // MARK: - Private Methods
     
     private func determineRootCoordinator() {
         if UserDefaultsManager.signedInUserToken != nil && UserDefaultsManager.selectedUserSchoolId != nil {

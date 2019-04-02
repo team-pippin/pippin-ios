@@ -103,7 +103,7 @@ public extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(equalTo: superview.layoutMarginsGuide.leadingAnchor, constant: constant).isActive = true
-            trailingAnchor.constraint(equalTo: superview.layoutMarginsGuide.trailingAnchor, constant: constant).isActive = true
+            trailingAnchor.constraint(equalTo: superview.layoutMarginsGuide.trailingAnchor, constant: -constant).isActive = true
         }
     }
     

@@ -258,7 +258,7 @@ open class CustomButtonStyle {
     public init() {}
     
     public var buttonColor: UIColor = Style.Color.action
-    public var disabledBackgroundColor: UIColor = Style.Color.lightBackground
+    public var disabledBackgroundColor: UIColor = Style.Color.lightGray
     public var borderColor: UIColor = UIColor.clear
     public var tintColor: UIColor = Style.Color.interactiveTint
     
