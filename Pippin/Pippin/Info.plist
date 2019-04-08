@@ -12,6 +12,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(BUNDLE_DISPLAY_NAME)</string>
+	<key>BUILD_ENVIRONMENT</key>
+	<string>$(BUILD_ENVIRONMENT)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

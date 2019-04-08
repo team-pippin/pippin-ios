@@ -52,8 +52,6 @@ class SignUpViewModel: SignUpViewModelProtocol {
                               email: email,
                               password: password)
         requestSignUpWebService(for: newUser)
-        // TODO: - Request Sign up with new user.
-        onSignUpSuccess?()
     }
     
     func updateValue(with textFieldType: SignUpTextField, text: String?) {
@@ -72,6 +70,17 @@ class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Private Methods
     
     private func requestSignUpWebService(for newUser: NewUser) {
-        
+        let networkingManager = NetworkManager.sharedInstance
+        let endpoint = PippinAPI.signUp(user: newUser)
+        networkingManager.request(for: endpoint, NewUserResponseModel.self) { [weak self] result in
+            switch result {
+            case .success(let response):
+                print("Did Sign up")
+                print(response.token)
+                self?.onSignUpSuccess?()
+            case .error(let error):
+                print(error)
+            }
+        }
     }
 }

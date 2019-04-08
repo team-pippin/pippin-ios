@@ -49,6 +49,23 @@
 		D2F593B8225AAFA50097ED4D /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593B7225AAFA50097ED4D /* SignUpViewModel.swift */; };
 		D2F593BA225AB1070097ED4D /* NewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593B9225AB1070097ED4D /* NewUser.swift */; };
 		D2F593BC225AB6B80097ED4D /* UIView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593BB225AB6B80097ED4D /* UIView+Frame.swift */; };
+		D2F593D2225B875E0097ED4D /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593BE225B875D0097ED4D /* URLParameterEncoder.swift */; };
+		D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593BF225B875D0097ED4D /* JSONParameterEncoder.swift */; };
+		D2F593D4225B875E0097ED4D /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C1225B875D0097ED4D /* NetworkEnvironment.swift */; };
+		D2F593D5225B875E0097ED4D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C2225B875D0097ED4D /* APIError.swift */; };
+		D2F593D6225B875E0097ED4D /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C3225B875D0097ED4D /* HTTPTask.swift */; };
+		D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C4225B875D0097ED4D /* NetworkResponseResult.swift */; };
+		D2F593D8225B875E0097ED4D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C5225B875D0097ED4D /* HTTPMethod.swift */; };
+		D2F593D9225B875E0097ED4D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C6225B875D0097ED4D /* Result.swift */; };
+		D2F593DA225B875E0097ED4D /* PropertyLoopable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593C8225B875D0097ED4D /* PropertyLoopable+Extension.swift */; };
+		D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593CA225B875D0097ED4D /* NetworkManager.swift */; };
+		D2F593DC225B875E0097ED4D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593CC225B875E0097ED4D /* Router.swift */; };
+		D2F593DD225B875E0097ED4D /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593CE225B875E0097ED4D /* NetworkRouter.swift */; };
+		D2F593DE225B875E0097ED4D /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593CF225B875E0097ED4D /* ParameterEncoding.swift */; };
+		D2F593DF225B875E0097ED4D /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593D0225B875E0097ED4D /* PropertyLoopable.swift */; };
+		D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593D1225B875E0097ED4D /* Endpoint.swift */; };
+		D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593E1225B87D40097ED4D /* PippinAPI.swift */; };
+		D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F593E3225B89CB0097ED4D /* AppDelegate+Configuration.swift */; };
 		DD87AA70CB34B9DB320B41AE /* libPods-Pippin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C23850FD50AB46490BA2E21 /* libPods-Pippin.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +135,23 @@
 		D2F593B7225AAFA50097ED4D /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		D2F593B9225AB1070097ED4D /* NewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUser.swift; sourceTree = "<group>"; };
 		D2F593BB225AB6B80097ED4D /* UIView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Frame.swift"; sourceTree = "<group>"; };
+		D2F593BE225B875D0097ED4D /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		D2F593BF225B875D0097ED4D /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		D2F593C1225B875D0097ED4D /* NetworkEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		D2F593C2225B875D0097ED4D /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		D2F593C3225B875D0097ED4D /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		D2F593C4225B875D0097ED4D /* NetworkResponseResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkResponseResult.swift; sourceTree = "<group>"; };
+		D2F593C5225B875D0097ED4D /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		D2F593C6225B875D0097ED4D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D2F593C8225B875D0097ED4D /* PropertyLoopable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PropertyLoopable+Extension.swift"; sourceTree = "<group>"; };
+		D2F593CA225B875D0097ED4D /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D2F593CC225B875E0097ED4D /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D2F593CE225B875E0097ED4D /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		D2F593CF225B875E0097ED4D /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		D2F593D0225B875E0097ED4D /* PropertyLoopable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
+		D2F593D1225B875E0097ED4D /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		D2F593E1225B87D40097ED4D /* PippinAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PippinAPI.swift; sourceTree = "<group>"; };
+		D2F593E3225B89CB0097ED4D /* AppDelegate+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Configuration.swift"; sourceTree = "<group>"; };
 		E8DB8B1B6A0C10824C778892 /* Pods-PippinTests.staging-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PippinTests.staging-release.xcconfig"; path = "Pods/Target Support Files/Pods-PippinTests/Pods-PippinTests.staging-release.xcconfig"; sourceTree = "<group>"; };
 		EE11899B3978B2D660E20B42 /* Pods-PippinTests.production-debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PippinTests.production-debug.xcconfig"; path = "Pods/Target Support Files/Pods-PippinTests/Pods-PippinTests.production-debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,6 +216,7 @@
 				D2E35F7022529DBF000522E5 /* Utility */,
 				D2E35F732252B352000522E5 /* Font */,
 				D2C1FE6F224E5B7000700E41 /* AppDelegate.swift */,
+				D2F593E3225B89CB0097ED4D /* AppDelegate+Configuration.swift */,
 				D2E35F6522529AAE000522E5 /* ApplicationCoordinator.swift */,
 				D2C1FE7B224E5B7200700E41 /* Info.plist */,
 				D2C1FE76224E5B7200700E41 /* Assets.xcassets */,
@@ -295,6 +330,13 @@
 		D2F593B3225AAEAF0097ED4D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				D2F593BD225B875D0097ED4D /* Encoding */,
+				D2F593C0225B875D0097ED4D /* Enum */,
+				D2F593C7225B875D0097ED4D /* Extension */,
+				D2F593C9225B875D0097ED4D /* Manager */,
+				D2F593CD225B875E0097ED4D /* Protocol */,
+				D2F593CB225B875E0097ED4D /* Service */,
+				D2F593E1225B87D40097ED4D /* PippinAPI.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -306,6 +348,63 @@
 				D2F593B7225AAFA50097ED4D /* SignUpViewModel.swift */,
 			);
 			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		D2F593BD225B875D0097ED4D /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593BE225B875D0097ED4D /* URLParameterEncoder.swift */,
+				D2F593BF225B875D0097ED4D /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		D2F593C0225B875D0097ED4D /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593C1225B875D0097ED4D /* NetworkEnvironment.swift */,
+				D2F593C2225B875D0097ED4D /* APIError.swift */,
+				D2F593C3225B875D0097ED4D /* HTTPTask.swift */,
+				D2F593C4225B875D0097ED4D /* NetworkResponseResult.swift */,
+				D2F593C5225B875D0097ED4D /* HTTPMethod.swift */,
+				D2F593C6225B875D0097ED4D /* Result.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		D2F593C7225B875D0097ED4D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593C8225B875D0097ED4D /* PropertyLoopable+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D2F593C9225B875D0097ED4D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593CA225B875D0097ED4D /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		D2F593CB225B875E0097ED4D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593CC225B875E0097ED4D /* Router.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D2F593CD225B875E0097ED4D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D2F593CE225B875E0097ED4D /* NetworkRouter.swift */,
+				D2F593CF225B875E0097ED4D /* ParameterEncoding.swift */,
+				D2F593D0225B875E0097ED4D /* PropertyLoopable.swift */,
+				D2F593D1225B875E0097ED4D /* Endpoint.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		EFC79D44C60C313D6451A52B /* Pods */ = {
@@ -476,25 +575,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
+				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
+				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
 				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
+				D2F593DF225B875E0097ED4D /* PropertyLoopable.swift in Sources */,
+				D2F593D2225B875E0097ED4D /* URLParameterEncoder.swift in Sources */,
 				D2E35F8B2252B914000522E5 /* CustomButton.swift in Sources */,
+				D2F593D4225B875E0097ED4D /* NetworkEnvironment.swift in Sources */,
+				D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */,
+				D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */,
 				D2F593BC225AB6B80097ED4D /* UIView+Frame.swift in Sources */,
 				D2F593B6225AAF1B0097ED4D /* SignUpViewController.swift in Sources */,
+				D2F593D9225B875E0097ED4D /* Result.swift in Sources */,
 				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,
 				D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */,
 				D2E35F952253A66E000522E5 /* UILabel+Init.swift in Sources */,
 				D2E35F822252B4FC000522E5 /* UIView+Constraints.swift in Sources */,
 				D2E35F842252B60A000522E5 /* LandingCoordinator.swift in Sources */,
+				D2F593D5225B875E0097ED4D /* APIError.swift in Sources */,
+				D2F593DD225B875E0097ED4D /* NetworkRouter.swift in Sources */,
 				D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */,
 				D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */,
 				D2E35F8F2252BD59000522E5 /* OnboardingCoordinator.swift in Sources */,
 				D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */,
+				D2F593D6225B875E0097ED4D /* HTTPTask.swift in Sources */,
 				D2F593B8225AAFA50097ED4D /* SignUpViewModel.swift in Sources */,
 				D2E35F6122529A8C000522E5 /* FlowCoordinator.swift in Sources */,
 				D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
+				D2F593DC225B875E0097ED4D /* Router.swift in Sources */,
+				D2F593DE225B875E0097ED4D /* ParameterEncoding.swift in Sources */,
+				D2F593D8225B875E0097ED4D /* HTTPMethod.swift in Sources */,
 				D2E35F6622529AAE000522E5 /* ApplicationCoordinator.swift in Sources */,
+				D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */,
+				D2F593DA225B875E0097ED4D /* PropertyLoopable+Extension.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
 				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,
 				D2E35F802252B474000522E5 /* UIFont+CustomFonts.swift in Sources */,
@@ -658,6 +774,7 @@
 			baseConfigurationReference = 496FDB919CDB675E48B3B447 /* Pods-Pippin.development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 1;
 				BUNDLE_DISPLAY_NAME = "Pippin-Dev";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
@@ -680,6 +797,7 @@
 			baseConfigurationReference = 8040F415110200638A9576C8 /* Pods-Pippin.production-release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 4;
 				BUNDLE_DISPLAY_NAME = Pippin;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
@@ -800,6 +918,7 @@
 			baseConfigurationReference = 3B9CE7549293297BD3D1AA08 /* Pods-Pippin.staging-release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 3;
 				BUNDLE_DISPLAY_NAME = "Pippin-Staging";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
@@ -904,6 +1023,7 @@
 			baseConfigurationReference = 021C95997F1EFA82B46262CC /* Pods-Pippin.staging-debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 3;
 				BUNDLE_DISPLAY_NAME = "Pippin-Staging";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;
@@ -1008,6 +1128,7 @@
 			baseConfigurationReference = 7E5DF50685181578FBE42F84 /* Pods-Pippin.production-debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUILD_ENVIRONMENT = 4;
 				BUNDLE_DISPLAY_NAME = "Pippin-ProdDebug";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J9S2B5EZD;

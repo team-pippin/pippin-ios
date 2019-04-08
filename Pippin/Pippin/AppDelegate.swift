@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        configureNetworkEnvironment()
         styleNavigationBar()
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
@@ -28,22 +29,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
-    }
-
-    private func styleNavigationBar() {
-        let navBarAppearance = UINavigationBar.appearance()
-        navBarAppearance.barTintColor = .white
-        navBarAppearance.isTranslucent = false
-        navBarAppearance.setBackgroundImage(UIImage(), for: .default)
-        navBarAppearance.tintColor = Style.Color.primaryTextDark
-        navBarAppearance.shadowImage = UIImage()
-        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: Style.Font.navigationTitle, NSAttributedString.Key.foregroundColor: Style.Color.secondaryTextDark]
-        let myImage = #imageLiteral(resourceName: "icon-back")
-        let stretched = myImage.stretchableImage(withLeftCapWidth: Int(myImage.size.width - 1), topCapHeight: Int(myImage.size.height - 1))
-        navBarAppearance.backIndicatorImage = stretched
-        navBarAppearance.backIndicatorTransitionMaskImage = stretched
-        
-        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -7000, vertical: 0), for: .default)
-        
     }
 }
