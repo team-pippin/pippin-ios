@@ -12,6 +12,8 @@ final class OnboardingCoordinator: NavigationFlowCoordinator {
     
     // MARK: - Properties
     
+    private var signUpViewController: SignUpViewControllerProtocol?
+    
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
@@ -21,7 +23,11 @@ final class OnboardingCoordinator: NavigationFlowCoordinator {
     // MARK: - Private Methods
     
     private func showSignUpViewController() -> UIViewController? {
-        return UIViewController()
+        signUpViewController = SignUpViewController()
+        signUpViewController?.onSignUpSuccessful = {
+            print("SIGNED UP")
+        }
+        return signUpViewController?.toPresent()
     }
     
     private func showSchoolSearchViewController() {

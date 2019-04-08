@@ -286,6 +286,12 @@ public extension CustomButtonStyle {
         return CustomButtonStyle()
     }
     
+    public static var formDefaultPrimary: CustomButtonStyle {
+        let style = CustomButtonStyle()
+        style.cornerRadius = 0
+        return style
+    }
+    
     /// Secondary Style
     public static var defaultSecondary: CustomButtonStyle {
         let style = CustomButtonStyle()
