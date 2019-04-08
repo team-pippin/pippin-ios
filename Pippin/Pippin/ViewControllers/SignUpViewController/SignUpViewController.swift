@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 protocol SignUpViewControllerProtocol: Presentable {
     var onSignUpSuccessful: (() -> Void)? { get set }
@@ -16,29 +17,84 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
     
     // MARK: - Properties
     
-    private var firstNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.textColor = .black
+    private var firstNameTextField: SkyFloatingLabelTextField = {
+        let textField = SkyFloatingLabelTextField()
+        textField.title = "First Name"
+        textField.placeholder = "First Name"
+        
+        textField.tintColor = Style.Color.interactiveTint
+        textField.textColor = Style.Color.primaryTextDark
+        
+        textField.lineView.isHidden = true
+        
+        textField.selectedTitleColor = Style.Color.interactiveTint
+        
+        textField.font = Style.Font.p1
+        textField.titleFont = Style.Font.mini
+        textField.placeholderFont = Style.Font.p1
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    private var lastNameTextField: UITextField = {
-        let textField = UITextField()
+    private var lastNameTextField: SkyFloatingLabelTextField = {
+        let textField = SkyFloatingLabelTextField()
+        textField.title = "Last Name"
+        textField.placeholder = "Last Name"
+        
+        textField.tintColor = Style.Color.interactiveTint
+        textField.textColor = Style.Color.primaryTextDark
+        
+        textField.lineView.isHidden = true
+        
+        textField.selectedTitleColor = Style.Color.interactiveTint
+        
+        textField.font = Style.Font.p1
+        textField.titleFont = Style.Font.mini
+        textField.placeholderFont = Style.Font.p1
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    private var emailTextField: UITextField = {
-        let textField = UITextField()
+    private var emailTextField: SkyFloatingLabelTextField = {
+        let textField = SkyFloatingLabelTextField()
+        textField.title = "E-Mail"
+        textField.placeholder = "E-Mail"
         textField.keyboardType = .emailAddress
+        
+        textField.tintColor = Style.Color.interactiveTint
+        textField.textColor = Style.Color.primaryTextDark
+        
+        textField.lineView.isHidden = true
+        
+        textField.selectedTitleColor = Style.Color.interactiveTint
+        
+        textField.font = Style.Font.p1
+        textField.titleFont = Style.Font.mini
+        textField.placeholderFont = Style.Font.p1
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
     
-    private var passwordTextField: UITextField = {
-        let textField = UITextField()
+    private var passwordTextField: SkyFloatingLabelTextField = {
+        let textField = SkyFloatingLabelTextField()
+        textField.title = "Password"
+        textField.placeholder = "Password"
         textField.isSecureTextEntry = true
+        
+        textField.tintColor = Style.Color.interactiveTint
+        textField.textColor = Style.Color.primaryTextDark
+        
+        textField.lineView.isHidden = true
+        
+        textField.selectedTitleColor = Style.Color.interactiveTint
+        
+        textField.font = Style.Font.p1
+        textField.titleFont = Style.Font.mini
+        textField.placeholderFont = Style.Font.p1
+        
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -48,6 +104,7 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         let button = CustomButton(content: buttonContent, style: CustomButtonStyle.formDefaultPrimary)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.actionHandler = { [weak self] in
+            self?.view.endEditing(true)
             self?.viewModel.requestSignUp()
         }
         return button
@@ -66,16 +123,55 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         super.viewDidLoad()
         
         view.backgroundColor = Style.Color.lightBackground
+        title = "Sign Up"
+        
+        let cardView = UIView()
+        cardView.backgroundColor = Style.Color.lightBackground
+        cardView.layer.cornerRadius = 16
+        cardView.clipsToBounds = false
+        
+        let cardShadow = LayerShadow(shadowColor: Style.Color.darkBackground,
+                                     shadowOpacity: 0.15,
+                                     shadowRadius: 10,
+                                     shadowOffset: CGSize(width: 1, height: 10))
+        cardView.setShadow(shadow: cardShadow)
+        view.addSubview(cardView)
+        
+        cardView.pinToLeadingAndTrailingMargins()
+        cardView.pinToTopMargin(constant: Style.Layout.margin)
+        
+        let textFieldStackView = UIStackView()
+        textFieldStackView.axis = .vertical
+        textFieldStackView.spacing = Style.Layout.margin
+        
+        let nameStackView = UIStackView()
+        nameStackView.axis = .horizontal
+        nameStackView.spacing = 1
+        nameStackView.distribution = .fillEqually
+        
+        nameStackView.addArrangedSubview(firstNameTextField)
+        nameStackView.addArrangedSubview(lastNameTextField)
+        
+        cardView.addSubview(textFieldStackView)
+        textFieldStackView.pinToMargins()
+        
+        textFieldStackView.addArrangedSubview(nameStackView)
+        textFieldStackView.addArrangedSubview(emailTextField)
+        textFieldStackView.addArrangedSubview(passwordTextField)
         
         firstNameTextField.addTarget(self, action: #selector(firstNameTextFieldChanged(_:)), for: .editingChanged)
-        view.addSubview(firstNameTextField)
-        firstNameTextField.pinToTopMargin(constant: Style.Layout.margin)
-        firstNameTextField.pinToLeadingAndTrailingMargins()
-        firstNameTextField.heightAnchor.constraint(equalToConstant: 48).isActive = true
-        
         lastNameTextField.addTarget(self, action: #selector(lastNameTextFieldChanged(_:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTextFieldChanged(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTextFieldNameChanged(_:)), for: .editingChanged)
+        
+        let signUpLabel = UILabel()
+        view.addSubview(signUpLabel)
+        signUpLabel.pinBelowView(view: cardView, constant: Style.Layout.margin)
+        signUpLabel.pinToLeadingAndTrailingMargins()
+        signUpLabel.text = "Already a user? SIGN IN"
+        signUpLabel.textAlignment = .center
+        signUpLabel.font = Style.Font.miniBold
+        signUpLabel.textColor = Style.Color.secondaryTextLight
         
         view.addSubview(submitButton)
         
@@ -109,20 +205,20 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         viewModel.onSignUpSuccess = onSignUpSuccessful
     }
     
-    @objc private func firstNameTextFieldChanged(_ textField: UITextField) {
-        viewModel.updateFirstName(with: textField.text)
+    @objc private func firstNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
+        viewModel.updateValue(with: .firstName, text: textField.text)
     }
     
-    @objc private func lastNameTextFieldChanged(_ textField: UITextField) {
-        viewModel.updateLastName(with: textField.text)
+    @objc private func lastNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
+        viewModel.updateValue(with: .lastName, text: textField.text)
     }
     
-    @objc private func emailTextFieldChanged(_ textField: UITextField) {
-        viewModel.updateEmail(with: textField.text)
+    @objc private func emailTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
+        viewModel.updateValue(with: .email, text: textField.text)
     }
     
-    @objc private func passwordTextFieldNameChanged(_ textField: UITextField) {
-        viewModel.updatePassword(with: textField.text)
+    @objc private func passwordTextFieldNameChanged(_ textField: SkyFloatingLabelTextField) {
+        viewModel.updateValue(with: .password, text: textField.text)
     }
     
     // MARK: - Keyboard Notifications

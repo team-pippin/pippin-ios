@@ -8,16 +8,20 @@
 
 import UIKit
 
+enum SignUpTextField {
+    case firstName
+    case lastName
+    case email
+    case password
+}
+
 protocol SignUpViewModelProtocol: class {
     var onIsLoading: ((Bool) -> Void)? { get set }
     var onNetworkingFailed: (() -> Void)? { get set }
     var onSignUpSuccess: (() -> Void)? { get set }
     
     func requestSignUp()
-    func updateFirstName(with string: String?)
-    func updateLastName(with string: String?)
-    func updateEmail(with string: String?)
-    func updatePassword(with string: String?)
+    func updateValue(with textFieldType: SignUpTextField, text: String?)
 }
 
 class SignUpViewModel: SignUpViewModelProtocol {
@@ -38,11 +42,8 @@ class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Methods
     
     func requestSignUp() {
-        guard let first = firstName,
-            let last = lastName,
-            let email = email,
-            let password = password else {
-                onNetworkingFailed?()
+        guard let first = firstName, let last = lastName, let email = email, let password = password else {
+            onNetworkingFailed?()
             return
         }
         
@@ -50,23 +51,27 @@ class SignUpViewModel: SignUpViewModelProtocol {
                               lastName: last,
                               email: email,
                               password: password)
+        requestSignUpWebService(for: newUser)
         // TODO: - Request Sign up with new user.
         onSignUpSuccess?()
     }
     
-    func updateFirstName(with string: String?) {
-        firstName = string
+    func updateValue(with textFieldType: SignUpTextField, text: String?) {
+        switch textFieldType {
+        case .firstName:
+            firstName = text
+        case .lastName:
+            lastName = text
+        case .email:
+            email = text
+        case .password:
+            password = text
+        }
     }
     
-    func updateLastName(with string: String?) {
-        lastName = string
-    }
+    // MARK: - Private Methods
     
-    func updateEmail(with string: String?) {
-        email = string
-    }
-    
-    func updatePassword(with string: String?) {
-        password = string
+    private func requestSignUpWebService(for newUser: NewUser) {
+        
     }
 }

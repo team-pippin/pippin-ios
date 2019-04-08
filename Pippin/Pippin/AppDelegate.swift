@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navBarAppearance.setBackgroundImage(UIImage(), for: .default)
         navBarAppearance.tintColor = Style.Color.primaryTextDark
         navBarAppearance.shadowImage = UIImage()
-        
+        navBarAppearance.titleTextAttributes = [NSAttributedString.Key.font: Style.Font.navigationTitle, NSAttributedString.Key.foregroundColor: Style.Color.secondaryTextDark]
         let myImage = #imageLiteral(resourceName: "icon-back")
         let stretched = myImage.stretchableImage(withLeftCapWidth: Int(myImage.size.width - 1), topCapHeight: Int(myImage.size.height - 1))
         navBarAppearance.backIndicatorImage = stretched

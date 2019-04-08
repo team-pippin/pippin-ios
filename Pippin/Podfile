@@ -5,8 +5,7 @@ platform :ios, '11.0'
 target 'Pippin' do
 
   pod 'BonMot'
-  pod 'SkyFloatingLabelTextField', '~> 3.0'
-  pod 'KeyboardHelper', '~> 1.0'
+  pod 'SkyFloatingLabelTextField'
   pod 'TTTAttributedLabel'
   pod 'lottie-ios'
   pod 'Shimmer'

@@ -40,7 +40,7 @@ struct Style {
         static var navigationAction: UIColor = Style.Color.black//UIColor(hex: "D1D1D1")
         
         static var lightBackground: UIColor = .white
-        
+                
         static var darkBackground: UIColor = .black
         
         static var lightGray: UIColor = .lightGray
