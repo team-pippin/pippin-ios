@@ -3,13 +3,15 @@ PODS:
   - lottie-ios (2.5.2)
   - Shimmer (1.0.2)
   - SkyFloatingLabelTextField (3.6.0)
+  - SVProgressHUD (2.2.5)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
-  - BonMot
+  - BonMot (~> 5.3)
   - lottie-ios
   - Shimmer
-  - SkyFloatingLabelTextField
+  - SkyFloatingLabelTextField (~> 3.6.0)
+  - SVProgressHUD
   - TTTAttributedLabel
 
 SPEC REPOS:
@@ -18,6 +20,7 @@ SPEC REPOS:
     - lottie-ios
     - Shimmer
     - SkyFloatingLabelTextField
+    - SVProgressHUD
     - TTTAttributedLabel
 
 SPEC CHECKSUMS:
@@ -25,8 +28,9 @@ SPEC CHECKSUMS:
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 5c35c73a2b5939afc15eb5cb9634c86dab6a0cdb
+PODFILE CHECKSUM: 8e8b47b7c4fe6e01d2a0d6de99a3010186a0cc8c
 
 COCOAPODS: 1.5.2

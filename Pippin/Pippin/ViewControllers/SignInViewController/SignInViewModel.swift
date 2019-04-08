@@ -1,77 +1,60 @@
 //
-//  SignUpViewModel.swift
+//  SignInViewModel.swift
 //  Pippin
 //
-//  Created by Will Brandin on 4/7/19.
+//  Created by Will Brandin on 4/8/19.
 //  Copyright © 2019 SchoolConnect. All rights reserved.
 //
 
 import UIKit
 
-enum SignUpTextField {
-    case firstName
-    case lastName
-    case email
-    case password
-}
-
-protocol SignUpViewModelProtocol: ViewModelNetworker {
-    func requestSignUp()
+protocol SignInViewModelProtocol: ViewModelNetworker {
+    func requestSignIn()
     func updateValue(with textFieldType: SignUpTextField, text: String?)
 }
 
-class SignUpViewModel: SignUpViewModelProtocol {
+class SignInViewModel: SignInViewModelProtocol {
     
     // MARK: - Properties
     
-    private var firstName: String?
-    private var lastName: String?
     private var email: String?
     private var password: String?
     
     // MARK: - ViewModelNetworker
     
     var onIsLoading: ((Bool) -> Void)?
-    var onNetworkingFailed: (() -> Void)?
     var onNetworkingSuccess: (() -> Void)?
+    var onNetworkingFailed: (() -> Void)?
     
-    // MARK: - SignUpViewModelProtocol
+    // MARK: - SignInViewModelProtocol
     
-    func requestSignUp() {
-        guard let first = firstName,
-            let last = lastName,
-            let email = email,
-            let password = password else {
+    func requestSignIn() {
+        guard let email = email, let password = password else {
             onNetworkingFailed?()
             return
         }
         
-        let newUser = UserSignUp(firstName: first,
-                              lastName: last,
-                              email: email,
-                              password: password)
-        requestSignUpWebService(for: newUser)
+        let user = UserSignIn(email: email, password: password)
+        requestSignInWebService(for: user)
     }
     
     func updateValue(with textFieldType: SignUpTextField, text: String?) {
         switch textFieldType {
-        case .firstName:
-            firstName = text
-        case .lastName:
-            lastName = text
         case .email:
             email = text
         case .password:
             password = text
+        default:
+            return
         }
     }
     
     // MARK: - Private Methods
     
-    private func requestSignUpWebService(for newUser: UserSignUp) {
+    private func requestSignInWebService(for user: UserSignIn) {
         onIsLoading?(true)
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.signUp(user: newUser)
+        let endpoint = PippinAPI.signIn(user: user)
         
         networkingManager.request(for: endpoint, UserTokenResponseModel.self) { [weak self] result in
             self?.onIsLoading?(false)

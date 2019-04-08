@@ -17,7 +17,8 @@ struct NetworkManager {
 }
 
 public enum PippinAPI {
-    case signUp(user: NewUser)
+    case signUp(user: UserSignUp)
+    case signIn(user: UserSignIn)
 }
 
 extension PippinAPI: EndPointType {
@@ -41,12 +42,14 @@ extension PippinAPI: EndPointType {
         switch self {
         case .signUp:
             return "users/signup"
+        case .signIn:
+            return "users/signin"
         }
     }
     
     public var httpMethod: HTTPMethod {
         switch self {
-        case .signUp:
+        case .signUp, .signIn:
             return .post
         }
     }
@@ -55,8 +58,8 @@ extension PippinAPI: EndPointType {
         switch self {
         case .signUp(user: let newUserData):
             return .requestParameters(bodyParameters: newUserData, urlParameters: nil)
-        default:
-            return .request
+        case .signIn(user: let signInUser):
+            return .requestParameters(bodyParameters: signInUser, urlParameters: nil)
         }
     }
     

@@ -1,61 +1,21 @@
 //
-//  SignUpViewController.swift
+//  SignInViewController.swift
 //  Pippin
 //
-//  Created by Will Brandin on 4/7/19.
+//  Created by Will Brandin on 4/8/19.
 //  Copyright © 2019 SchoolConnect. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SkyFloatingLabelTextField
 
-protocol SignUpViewControllerProtocol: Presentable {
-    var onSignUpSuccessful: (() -> Void)? { get set }
+protocol SignInViewControllerProtocol: Presentable {
+    var onSignInSuccessful: (() -> Void)? { get set }
 }
 
-class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
+class SignInViewController: UIViewController, SignInViewControllerProtocol {
     
     // MARK: - Properties
-    
-    private var firstNameTextField: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
-        textField.title = "First Name"
-        textField.placeholder = "First Name"
-        
-        textField.tintColor = Style.Color.interactiveTint
-        textField.textColor = Style.Color.primaryTextDark
-        
-        textField.lineView.isHidden = true
-        
-        textField.selectedTitleColor = Style.Color.interactiveTint
-        
-        textField.font = Style.Font.p1
-        textField.titleFont = Style.Font.mini
-        textField.placeholderFont = Style.Font.p1
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private var lastNameTextField: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
-        textField.title = "Last Name"
-        textField.placeholder = "Last Name"
-        
-        textField.tintColor = Style.Color.interactiveTint
-        textField.textColor = Style.Color.primaryTextDark
-        
-        textField.lineView.isHidden = true
-        
-        textField.selectedTitleColor = Style.Color.interactiveTint
-        
-        textField.font = Style.Font.p1
-        textField.titleFont = Style.Font.mini
-        textField.placeholderFont = Style.Font.p1
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
     
     private var emailTextField: SkyFloatingLabelTextField = {
         let textField = SkyFloatingLabelTextField()
@@ -105,25 +65,25 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.actionHandler = { [weak self] in
             self?.view.endEditing(true)
-            self?.viewModel.requestSignUp()
+            self?.viewModel.requestSignIn()
         }
         return button
     }()
     
-    private var viewModel: SignUpViewModelProtocol = SignUpViewModel()
+    private var viewModel: SignInViewModelProtocol = SignInViewModel()
     private var submitButtonBottomConstraint: NSLayoutConstraint?
     
-    // MARK: - SignUpViewControllerProtocol
+    // MARK: - SignInViewControllerProtocol
     
-    var onSignUpSuccessful: (() -> Void)?
+    var onSignInSuccessful: (() -> Void)?
     
-    // MARK: - View Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = Style.Color.lightBackground
-        title = "Sign Up"
+        title = "Sign In"
         
         let cardView = UIView()
         cardView.backgroundColor = Style.Color.lightBackground
@@ -144,34 +104,23 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         textFieldStackView.axis = .vertical
         textFieldStackView.spacing = Style.Layout.margin
         
-        let nameStackView = UIStackView()
-        nameStackView.axis = .horizontal
-        nameStackView.spacing = 1
-        nameStackView.distribution = .fillEqually
-        
-        nameStackView.addArrangedSubview(firstNameTextField)
-        nameStackView.addArrangedSubview(lastNameTextField)
-        
         cardView.addSubview(textFieldStackView)
         textFieldStackView.pinToMargins()
-        
-        textFieldStackView.addArrangedSubview(nameStackView)
+
         textFieldStackView.addArrangedSubview(emailTextField)
         textFieldStackView.addArrangedSubview(passwordTextField)
         
-        firstNameTextField.addTarget(self, action: #selector(firstNameTextFieldChanged(_:)), for: .editingChanged)
-        lastNameTextField.addTarget(self, action: #selector(lastNameTextFieldChanged(_:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTextFieldChanged(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTextFieldNameChanged(_:)), for: .editingChanged)
         
-        let signUpLabel = UILabel()
-        view.addSubview(signUpLabel)
-        signUpLabel.pinBelowView(view: cardView, constant: Style.Layout.margin)
-        signUpLabel.pinToLeadingAndTrailingMargins()
-        signUpLabel.text = "Already a user? SIGN IN"
-        signUpLabel.textAlignment = .center
-        signUpLabel.font = Style.Font.miniBold
-        signUpLabel.textColor = Style.Color.secondaryTextLight
+        let signInLabel = UILabel()
+        view.addSubview(signInLabel)
+        signInLabel.pinBelowView(view: cardView, constant: Style.Layout.margin)
+        signInLabel.pinToLeadingAndTrailingMargins()
+        signInLabel.text = "Don't have an account? SIGN UP"
+        signInLabel.textAlignment = .center
+        signInLabel.font = Style.Font.miniBold
+        signInLabel.textColor = Style.Color.secondaryTextLight
         
         view.addSubview(submitButton)
         
@@ -211,15 +160,7 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
             AnimatedLoader.showFailureHud()
         }
         
-        viewModel.onNetworkingSuccess = onSignUpSuccessful
-    }
-    
-    @objc private func firstNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
-        viewModel.updateValue(with: .firstName, text: textField.text)
-    }
-    
-    @objc private func lastNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
-        viewModel.updateValue(with: .lastName, text: textField.text)
+        viewModel.onNetworkingSuccess = onSignInSuccessful
     }
     
     @objc private func emailTextFieldChanged(_ textField: SkyFloatingLabelTextField) {

@@ -97,14 +97,16 @@ public class CustomButton: UIButton {
      */
     public var isLoading: Bool = false {
         didSet {
-            if isLoading {
-                loadingIndicator.isHidden = false
-                loadingIndicator.startAnimating()
-                titleLabel?.alpha = 0
-            } else {
-                loadingIndicator.isHidden = true
-                loadingIndicator.stopAnimating()
-                titleLabel?.alpha = 1
+            DispatchQueue.main.async {
+                if self.isLoading {
+                    self.loadingIndicator.isHidden = false
+                    self.loadingIndicator.startAnimating()
+                    self.titleLabel?.alpha = 0
+                } else {
+                    self.loadingIndicator.isHidden = true
+                    self.loadingIndicator.stopAnimating()
+                    self.titleLabel?.alpha = 1
+                }
             }
         }
     }

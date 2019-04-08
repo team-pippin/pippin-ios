@@ -8,13 +8,18 @@
 
 import Foundation
 
-public struct NewUser: PropertyLoopable {
+public struct UserSignUp: PropertyLoopable {
     let firstName: String
     let lastName: String
     let email: String
     let password: String
 }
 
-struct NewUserResponseModel: Codable {
+struct UserTokenResponseModel: Codable {
     let token: String?
+}
+
+public struct UserSignIn: PropertyLoopable {
+    let email: String
+    let password: String
 }
