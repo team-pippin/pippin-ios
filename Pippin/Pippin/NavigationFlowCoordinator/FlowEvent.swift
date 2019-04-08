@@ -15,5 +15,6 @@ public protocol FlowEvent {
 }
 
 public enum FlowEventType: FlowEvent {
-    case didSelectSchool
+    case didSignIn
+    case didLogout
 }

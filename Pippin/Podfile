@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '11.0'
+
+
+target 'Pippin' do
+  
+  use_frameworks!
+
+  pod 'BonMot', '~> 5.3'
+  pod 'SkyFloatingLabelTextField', '~> 3.6.0'
+  pod 'TTTAttributedLabel'
+  pod 'lottie-ios'
+  pod 'Shimmer'
+  pod 'SVProgressHUD'
+
+  target 'PippinTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

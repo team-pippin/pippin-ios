@@ -13,6 +13,8 @@ final class LandingCoordinator: NavigationFlowCoordinator {
     // MARK: - Properties
     
     private var landingViewController: LandingViewControllerProtocol?
+    private var signUpViewController: SignUpViewControllerProtocol?
+    private var signInViewController: SignInViewControllerProtocol?
     
     // MARK: - Methods
     
@@ -25,7 +27,7 @@ final class LandingCoordinator: NavigationFlowCoordinator {
     private func createLandingViewController() -> UIViewController? {
         landingViewController = LandingViewController()
         landingViewController?.onDidTapSignUp = { [weak self] in
-            self?.startOnboardingCoordinator()
+            self?.showSignUpViewController()
         }
         
         landingViewController?.onDidTapLogin = { [weak self] in
@@ -35,11 +37,29 @@ final class LandingCoordinator: NavigationFlowCoordinator {
         return landingViewController?.toPresent()
     }
     
-    private func showLoginViewController() {
+    private func showSignUpViewController() {
+        signUpViewController = SignUpViewController()
+        signUpViewController?.onSignUpSuccessful = { [weak self] in
+            self?.startOnboardingCoordinator()
+        }
         
+        if let controller = signUpViewController?.toPresent() {
+            push(viewController: controller)
+        }
+    }
+    
+    private func showLoginViewController() {
+        signInViewController = SignInViewController()
+        signInViewController?.onSignInSuccessful = { [weak self] in
+            self?.send(flowEvent: FlowEventType.didSignIn)
+        }
+        
+        if let controller = signInViewController?.toPresent() {
+            push(viewController: controller)
+        }
     }
     
     private func startOnboardingCoordinator() {
-        start(childCoordinator: OnboardingCoordinator(), with: .push)
+        start(childCoordinator: SubscribeToSchoolCoordinator(), with: .push)
     }
 }

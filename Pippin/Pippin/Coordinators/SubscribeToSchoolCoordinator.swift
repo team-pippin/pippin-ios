@@ -8,21 +8,17 @@
 
 import UIKit
 
-final class OnboardingCoordinator: NavigationFlowCoordinator {
+final class SubscribeToSchoolCoordinator: NavigationFlowCoordinator {
     
     // MARK: - Properties
     
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
-        return showSignUpViewController()
+        return UIViewController()
     }
     
     // MARK: - Private Methods
-    
-    private func showSignUpViewController() -> UIViewController? {
-        return UIViewController()
-    }
     
     private func showSchoolSearchViewController() {
         
@@ -32,4 +28,3 @@ final class OnboardingCoordinator: NavigationFlowCoordinator {
         
     }
 }
-

@@ -17,11 +17,30 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         return nil
     }
     
+    override func handle(flowEvent: FlowEvent) -> Bool {
+        guard let event = flowEvent as? FlowEventType else { return false }
+        
+        switch event {
+        case .didSignIn:
+            determineRootCoordinator()
+            return true
+        case .didLogout:
+            UserDefaultsManager.selectedUserSchoolId = nil
+            UserDefaultsManager.signedInUserToken = nil
+            determineRootCoordinator()
+            return true
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func determineRootCoordinator() {
-        if UserDefaultsManager.signedInUserToken != nil && UserDefaultsManager.selectedUserSchoolId != nil {
-            startHomeCoordinator(animated: false)
+        if UserDefaultsManager.signedInUserToken != nil {
+            if UserDefaultsManager.selectedUserSchoolId != nil {
+                startHomeCoordinator(animated: false)
+            } else {
+                startOnBoardingCoordinator()
+            }
         } else {
             startLandingCoordinator(animated: false)
         }
@@ -35,4 +54,7 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         
     }
     
+    private func startOnBoardingCoordinator(animated: Bool = true) {
+        start(childCoordinator: SubscribeToSchoolCoordinator(), with: .pushAndMakeRoot, animated: animated)
+    }
 }
