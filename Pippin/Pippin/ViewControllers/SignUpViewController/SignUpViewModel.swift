@@ -42,7 +42,10 @@ class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - Methods
     
     func requestSignUp() {
-        guard let first = firstName, let last = lastName, let email = email, let password = password else {
+        guard let first = firstName,
+            let last = lastName,
+            let email = email,
+            let password = password else {
             onNetworkingFailed?()
             return
         }
