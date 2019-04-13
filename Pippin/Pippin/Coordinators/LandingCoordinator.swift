@@ -40,7 +40,9 @@ final class LandingCoordinator: NavigationFlowCoordinator {
     private func showSignUpViewController() {
         signUpViewController = SignUpViewController()
         signUpViewController?.onSignUpSuccessful = { [weak self] in
-            self?.startOnboardingCoordinator()
+            DispatchQueue.main.async {
+                self?.startOnboardingCoordinator()
+            }
         }
         
         if let controller = signUpViewController?.toPresent() {

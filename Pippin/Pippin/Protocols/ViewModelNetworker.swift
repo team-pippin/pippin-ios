@@ -13,3 +13,9 @@ protocol ViewModelNetworker: class {
     var onNetworkingFailed: (() -> Void)? { get set }
     var onNetworkingSuccess: (() -> Void)? { get set }
 }
+
+extension ViewModelNetworker {
+    func handleUnauthorized() {
+        NotificationCenter.default.post(name: .unauthorized, object: nil)
+    }
+}

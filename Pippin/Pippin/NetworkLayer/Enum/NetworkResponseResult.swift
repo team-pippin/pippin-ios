@@ -11,4 +11,5 @@ import Foundation
 enum NetworkResponseResult {
     case success
     case failure
+    case unauthorized
 }

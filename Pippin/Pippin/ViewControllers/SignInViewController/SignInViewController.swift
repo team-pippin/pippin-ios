@@ -60,7 +60,7 @@ class SignInViewController: UIViewController, SignInViewControllerProtocol {
     }()
     
     private lazy var submitButton: CustomButton = {
-        let buttonContent = CustomButtonContent(title: "Sign Up")
+        let buttonContent = CustomButtonContent(title: "Login")
         let button = CustomButton(content: buttonContent, style: CustomButtonStyle.formDefaultPrimary)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.actionHandler = { [weak self] in
