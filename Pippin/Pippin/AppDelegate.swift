@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var applicationCoordinator: ApplicationCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         configureNetworkEnvironment()
         styleNavigationBar()
         

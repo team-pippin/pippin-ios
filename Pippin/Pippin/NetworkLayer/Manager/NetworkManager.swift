@@ -85,6 +85,9 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
                         completion(.error(.jsonParsingFailure))
                     }
                     
+                case.unauthorized:
+                    completion(.error(.unauthorized))
+                    
                 case .failure:
                     completion(.error(.responseUnsuccessful))
                 }
@@ -132,6 +135,10 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
                     } catch {
                         completion(.error(.jsonParsingFailure))
                     }
+                    
+                case.unauthorized:
+                    completion(.error(.unauthorized))
+                    
                 case .failure:
                     completion(.error(.responseUnsuccessful))
                 }
@@ -145,9 +152,10 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
     }
     
     // MARK: - Private Methods
-    private func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkResponseResult{
+    private func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkResponseResult {
         switch response.statusCode {
         case 200...299: return .success
+        case 400...403: return .unauthorized
         default: return .failure
         }
     }

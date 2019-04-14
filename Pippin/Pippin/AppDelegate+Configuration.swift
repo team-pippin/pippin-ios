@@ -42,6 +42,6 @@ extension AppDelegate {
     // MARK: - Private Methods
     
     private func configureNetworkManager(in environment: NetworkEnvironment) {
-        NetworkManager.setEnvironment(for: .local)
+        NetworkManager.setEnvironment(for: environment)
     }
 }

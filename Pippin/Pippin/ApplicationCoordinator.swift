@@ -10,6 +10,18 @@ import UIKit
 
 final class ApplicationCoordinator: NavigationFlowCoordinator {
     
+    // MARK: - Init
+    
+    override init() {
+        super.init()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUnauthorized), name: .unauthorized, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .unauthorized, object: nil)
+    }
+    
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
@@ -22,12 +34,23 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         
         switch event {
         case .didSignIn:
-            determineRootCoordinator()
+            DispatchQueue.main.async { [weak self] in
+                self?.determineRootCoordinator()
+            }
+            
             return true
+            
         case .didLogout:
             UserDefaultsManager.selectedUserSchoolId = nil
             UserDefaultsManager.signedInUserToken = nil
             determineRootCoordinator()
+            return true
+            
+        case .didSubscribeToSchool:
+            DispatchQueue.main.async { [weak self] in
+                self?.startHomeCoordinator()
+            }
+            
             return true
         }
     }
@@ -51,10 +74,18 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     }
     
     private func startHomeCoordinator(animated: Bool = true) {
-        
+        start(childCoordinator: HomeCoordinator(), with: .pushAndMakeRoot, animated: animated)
     }
     
     private func startOnBoardingCoordinator(animated: Bool = true) {
         start(childCoordinator: SubscribeToSchoolCoordinator(), with: .pushAndMakeRoot, animated: animated)
+    }
+    
+    @objc private func handleUnauthorized() {
+        DispatchQueue.main.async { [weak self] in
+            UserDefaultsManager.selectedUserSchoolId = nil
+            UserDefaultsManager.signedInUserToken = nil
+            self?.startLandingCoordinator(animated: false)
+        }
     }
 }
