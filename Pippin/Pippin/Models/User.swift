@@ -8,6 +8,14 @@
 
 import Foundation
 
+public struct Account: PropertyLoopable {
+    let id: String
+    let firstName: String
+    let lastName: String
+    let email: String
+    let subscribedSchools: [String]?
+}
+
 public struct UserSignUp: PropertyLoopable {
     let firstName: String
     let lastName: String
@@ -17,6 +25,7 @@ public struct UserSignUp: PropertyLoopable {
 
 struct UserTokenResponseModel: Codable {
     let token: String?
+    let account: Account
 }
 
 public struct UserSignIn: PropertyLoopable {

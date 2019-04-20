@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		334F65B7D9646750C26A34EE /* Pods_PippinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */; };
 		8760AE7F77D1218A2C136B78 /* Pods_Pippin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */; };
+		D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2342269088200D41AF0 /* SettingsViewController.swift */; };
+		D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */; };
+		D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23A226908B700D41AF0 /* HomeViewController.swift */; };
+		D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23C226908C000D41AF0 /* HomeViewModel.swift */; };
+		D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */; };
 		D268EED3225BD96E00247836 /* AnimatedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED2225BD96E00247836 /* AnimatedLoader.swift */; };
 		D268EED6225BDFE500247836 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED5225BDFE500247836 /* SignInViewController.swift */; };
 		D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED7225BDFEE00247836 /* SignInViewModel.swift */; };
@@ -105,6 +110,11 @@
 		8040F415110200638A9576C8 /* Pods-Pippin.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pippin.production-release.xcconfig"; path = "Pods/Target Support Files/Pods-Pippin/Pods-Pippin.production-release.xcconfig"; sourceTree = "<group>"; };
 		95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pippin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PippinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D21FC2342269088200D41AF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D21FC23A226908B700D41AF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D21FC23C226908C000D41AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		D268EED2225BD96E00247836 /* AnimatedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoader.swift; sourceTree = "<group>"; };
 		D268EED5225BDFE500247836 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D268EED7225BDFEE00247836 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +225,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D21FC2362269088700D41AF0 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21FC2342269088200D41AF0 /* SettingsViewController.swift */,
+				D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		D21FC239226908AC00D41AF0 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21FC23A226908B700D41AF0 /* HomeViewController.swift */,
+				D21FC23C226908C000D41AF0 /* HomeViewModel.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		D268EED4225BDFD700247836 /* SignInViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +342,7 @@
 				D2E35F832252B60A000522E5 /* LandingCoordinator.swift */,
 				D2E35F8E2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift */,
 				D2EC177722637AED00AF69F5 /* HomeCoordinator.swift */,
+				D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -321,6 +350,8 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D21FC239226908AC00D41AF0 /* HomeViewController */,
+				D21FC2362269088700D41AF0 /* SettingsViewController */,
 				D2BC0A1722637BDF000EF9AB /* ConfirmSubscribeSchoolViewController */,
 				D2EC1769226270BD00AF69F5 /* SchoolSearchViewController */,
 				D268EED4225BDFD700247836 /* SignInViewController */,
@@ -692,8 +723,10 @@
 				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
 				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
+				D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
 				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
+				D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */,
 				D2EC177822637AED00AF69F5 /* HomeCoordinator.swift in Sources */,
 				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
 				D2F593DF225B875E0097ED4D /* PropertyLoopable.swift in Sources */,
@@ -702,6 +735,7 @@
 				D2F593D4225B875E0097ED4D /* NetworkEnvironment.swift in Sources */,
 				D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */,
 				D2EC176F2262785400AF69F5 /* School.swift in Sources */,
+				D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */,
 				D2EC17762262856900AF69F5 /* Notification+Name.swift in Sources */,
 				D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */,
 				D2F593BC225AB6B80097ED4D /* UIView+Frame.swift in Sources */,
@@ -717,6 +751,7 @@
 				D268EEDB225BE17100247836 /* ViewModelNetworker.swift in Sources */,
 				D2E35F822252B4FC000522E5 /* UIView+Constraints.swift in Sources */,
 				D2E35F842252B60A000522E5 /* LandingCoordinator.swift in Sources */,
+				D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */,
 				D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */,
 				D2F593D5225B875E0097ED4D /* APIError.swift in Sources */,
 				D2EC176D2262711D00AF69F5 /* SchoolSearchViewModel.swift in Sources */,
@@ -737,6 +772,7 @@
 				D2E35F6622529AAE000522E5 /* ApplicationCoordinator.swift in Sources */,
 				D268EED6225BDFE500247836 /* SignInViewController.swift in Sources */,
 				D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */,
+				D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */,
 				D2F593DA225B875E0097ED4D /* PropertyLoopable+Extension.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
 				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,

@@ -16,16 +16,18 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         super.init()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleUnauthorized), name: .unauthorized, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleLogout), name: .logout, object: nil)
     }
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .unauthorized, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .logout, object: nil)
     }
     
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
-        determineRootCoordinator()
+        determineRootCoordinator(animated: false)
         return nil
     }
     
@@ -35,15 +37,15 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         switch event {
         case .didSignIn:
             DispatchQueue.main.async { [weak self] in
-                self?.determineRootCoordinator()
+                self?.determineRootCoordinator(animated: true)
             }
             
             return true
             
         case .didLogout:
-            UserDefaultsManager.selectedUserSchoolId = nil
+            UserDefaultsManager.currentUser = nil
             UserDefaultsManager.signedInUserToken = nil
-            determineRootCoordinator()
+            determineRootCoordinator(animated: true)
             return true
             
         case .didSubscribeToSchool:
@@ -57,35 +59,48 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     // MARK: - Private Methods
     
-    private func determineRootCoordinator() {
+    private func determineRootCoordinator(animated: Bool) {
         if UserDefaultsManager.signedInUserToken != nil {
-            if UserDefaultsManager.selectedUserSchoolId != nil {
-                startHomeCoordinator(animated: false)
+            if let user = UserDefaultsManager.currentUser, (user.subscribedSchools?.isEmpty ?? true) {
+                startHomeCoordinator(animated: animated)
             } else {
-                startOnBoardingCoordinator()
+                startOnBoardingCoordinator(animated: animated)
             }
         } else {
-            startLandingCoordinator(animated: false)
+            startLandingCoordinator(animated: animated)
         }
     }
     
     private func startLandingCoordinator(animated: Bool = true) {
+        navigationController.setNavigationBarHidden(false, animated: false)
         start(childCoordinator: LandingCoordinator(), with: .pushAndMakeRoot, animated: animated)
     }
     
     private func startHomeCoordinator(animated: Bool = true) {
-        start(childCoordinator: HomeCoordinator(), with: .pushAndMakeRoot, animated: animated)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        start(childCoordinator: TabBarCoordinator(), with: .pushAndMakeRoot, animated: animated)
     }
     
     private func startOnBoardingCoordinator(animated: Bool = true) {
+        navigationController.setNavigationBarHidden(false, animated: false)
         start(childCoordinator: SubscribeToSchoolCoordinator(), with: .pushAndMakeRoot, animated: animated)
     }
     
+    // MARK: - Notifications
+    
     @objc private func handleUnauthorized() {
         DispatchQueue.main.async { [weak self] in
-            UserDefaultsManager.selectedUserSchoolId = nil
+            UserDefaultsManager.currentUser = nil
             UserDefaultsManager.signedInUserToken = nil
             self?.startLandingCoordinator(animated: false)
+        }
+    }
+    
+    @objc private func handleLogout() {
+        DispatchQueue.main.async { [weak self] in
+            UserDefaultsManager.currentUser = nil
+            UserDefaultsManager.signedInUserToken = nil
+            self?.startLandingCoordinator()
         }
     }
 }

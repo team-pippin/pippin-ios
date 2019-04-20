@@ -62,6 +62,7 @@ class SignInViewModel: SignInViewModelProtocol {
             switch result {
             case .success(let response):
                 UserDefaultsManager.signedInUserToken = response.token
+                UserDefaultsManager.currentUser = response.account
                 self?.onNetworkingSuccess?()
             case .error(let error):
                 print(error)

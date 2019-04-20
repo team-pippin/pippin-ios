@@ -8,9 +8,19 @@
 
 import UIKit
 
-final class HomeCoordinator: NavigationFlowCoordinator {
+final class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
     // MARK: - Properties
+    
+    var tabBarItem: UITabBarItem {
+        return UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "home"), tag: 0)
+    }
+    
+    var tabNavigationController: UIViewController? {
+        return mainViewController?.navigationController
+    }
+    
+    private var homeViewController: HomeViewControllerProtocol?
     
     // MARK: - Methods
     
@@ -21,8 +31,9 @@ final class HomeCoordinator: NavigationFlowCoordinator {
     // MARK: - Private Methods
     
     private func createHomeViewController() -> UIViewController? {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .red
-        return viewController
+        homeViewController = HomeViewController()
+        guard let controller = homeViewController?.toPresent() else { return nil }
+        controller.tabBarItem = tabBarItem
+        return controller
     }
 }

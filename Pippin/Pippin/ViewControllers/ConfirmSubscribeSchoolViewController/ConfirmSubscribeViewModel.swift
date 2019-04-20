@@ -56,7 +56,6 @@ class ConfirmSubscribeViewModel: ConfirmSubscribeViewModelProtocol {
             switch result {
             case .success(let message):
                 print(message)
-                UserDefaultsManager.selectedUserSchoolId = school.id
                 self?.onNetworkingSuccess?()
             case .error(let error):
                 if error == .unauthorized {
