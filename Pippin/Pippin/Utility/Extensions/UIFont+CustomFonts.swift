@@ -71,30 +71,29 @@ enum StandardSize: Double {
 
 enum CustomFont {
     
-    case OpenSans(Styles.OpenSans)
+    case Avenir(Styles.Avenir)
     
     var name: String {
         switch self {
-        case .OpenSans(let style):
+        case .Avenir(let style):
             return "\(family.replacingOccurrences(of: " ", with: ""))-\(style.rawValue)"
         }
     }
     
     var family: String {
         switch self {
-        case .OpenSans:
-            return "OpenSans"
+        case .Avenir:
+            return "Avenir"
         }
     }
     
     struct Styles {
         
-        enum OpenSans: String {
-            case Bold
-            case ExtraBold
-            case Light
-            case Regular
-            case SemiBold
+        enum Avenir: String {
+            case Black
+            case Medium
+            case Roman
+            case Heavy
         }
     }
 }

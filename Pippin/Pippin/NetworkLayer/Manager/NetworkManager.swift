@@ -63,32 +63,37 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
         - completion: RKResult.success is the decodingType passed as an argument.
      */
     public func request<T: Codable>(for apiEndpoint: RocketApi, _ decodingType: T.Type, completion: @escaping (Result<T, APIError>) -> Void) {
-        router.request(apiEndpoint) { data, response, error in
+        router.request(apiEndpoint) { [weak self] data, response, error in
             if error != nil {
                 completion(.error(.requestFailed))
             }
             
             if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
+                let result = self?.handleNetworkResponse(response)
                 switch result {
-                case .success:
+                case .success?:
                     guard let responseData = data else {
                         completion(.error(.invalidData))
                         return
                     }
+                    
+                    print("********************************************\n\(self?.jsonToString(data: responseData) ?? "")\n********************************************")
+
                     do {
                         //Decodes the data
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
-                        print("********************************************\n\(self.jsonToString(data: responseData))\n********************************************")
                         completion(.success(apiResonse))
                     } catch {
                         completion(.error(.jsonParsingFailure))
                     }
                     
-                case.unauthorized:
+                case.unauthorized?:
                     completion(.error(.unauthorized))
                     
-                case .failure:
+                case .failure?:
+                    completion(.error(.responseUnsuccessful))
+                    
+                case .none:
                     completion(.error(.responseUnsuccessful))
                 }
             }
@@ -115,31 +120,35 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
      */
     public func requestWithListResponse<T: Codable>(for apiEndpoint: RocketApi, _ decodingType: [T].Type, completion: @escaping (Result<[T], APIError>) -> Void) {
         //gets data based on url...
-        router.request(apiEndpoint) { data, response, error in
+        router.request(apiEndpoint) { [weak self] data, response, error in
             if error != nil {
                 completion(.error(.requestFailed))
             }
             
             if let response = response as? HTTPURLResponse {
-                let result = self.handleNetworkResponse(response)
+                let result = self?.handleNetworkResponse(response)
                 switch result {
-                case .success:
+                case .success?:
                     guard let responseData = data else {
                         completion(.error(.invalidData))
                         return
                     }
+                    
+                    print("********************************************\n\(self?.jsonToString(data: responseData) ?? "")\n********************************************")
+                    
                     do {
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
-                        print("********************************************\n\(apiResonse)\n********************************************")
                         completion(.success(apiResonse))
                     } catch {
                         completion(.error(.jsonParsingFailure))
                     }
                     
-                case.unauthorized:
+                case.unauthorized?:
                     completion(.error(.unauthorized))
                     
-                case .failure:
+                case .failure?:
+                    completion(.error(.responseUnsuccessful))
+                case .none:
                     completion(.error(.responseUnsuccessful))
                 }
             }
@@ -161,6 +170,17 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
     }
     
     private func jsonToString(data: Data) -> String {
-        return String(data: data, encoding: String.Encoding.utf8) ?? ""
+        if let returnData = String(data: data, encoding: .utf8) {
+            let encodedData = returnData.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: encodedData, options: [])
+                return "\(json)"
+            } catch let error as NSError {
+                return "Failed to load: \(error.localizedDescription)"
+            }
+        } else {
+            return ""
+        }
     }
 }

@@ -21,7 +21,6 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
     
     private var searchTextField: SkyFloatingLabelTextField = {
         let textField = SkyFloatingLabelTextField()
-        textField.title = "Search"
         textField.placeholder = "Search"
         
         textField.tintColor = Style.Color.interactiveTint

@@ -12,22 +12,10 @@ class UserDefaultsManager {
     
     // MARK: - User Default Keys
     
-    private static let selectedUserSchoolIdKey = "selectedUserSchoolIdKey"
     private static let signedInUserTokenKey = "signedInUserTokenKey"
+    private static let signedInUserKey = "signedInUserKey"
     
     // MARK: - User Default Values
-    
-    static var selectedUserSchoolId: String? {
-        get {
-            guard let value = UserDefaults.standard.string(forKey: selectedUserSchoolIdKey), !value.isEmpty else {
-                return nil
-            }
-            return value
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: selectedUserSchoolIdKey)
-        }
-    }
     
     static var signedInUserToken: String? {
         get {
@@ -38,6 +26,15 @@ class UserDefaultsManager {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: signedInUserTokenKey)
+        }
+    }
+    
+    static var currentUser: Account? {
+        get {
+            return retieveEncoded(type: Account.self, for: signedInUserKey)
+        }
+        set {
+            saveCodable(with: newValue, for: signedInUserKey)
         }
     }
     

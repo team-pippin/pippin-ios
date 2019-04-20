@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		334F65B7D9646750C26A34EE /* Pods_PippinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */; };
 		8760AE7F77D1218A2C136B78 /* Pods_Pippin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */; };
+		D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2342269088200D41AF0 /* SettingsViewController.swift */; };
+		D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */; };
+		D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23A226908B700D41AF0 /* HomeViewController.swift */; };
+		D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23C226908C000D41AF0 /* HomeViewModel.swift */; };
+		D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */; };
 		D268EED3225BD96E00247836 /* AnimatedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED2225BD96E00247836 /* AnimatedLoader.swift */; };
 		D268EED6225BDFE500247836 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED5225BDFE500247836 /* SignInViewController.swift */; };
 		D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED7225BDFEE00247836 /* SignInViewModel.swift */; };
@@ -42,16 +47,6 @@
 		D2E35F8F2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F8E2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift */; };
 		D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F922253A610000522E5 /* UIViewController+NavigationStyle.swift */; };
 		D2E35F952253A66E000522E5 /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F942253A66E000522E5 /* UILabel+Init.swift */; };
-		D2E35F962253A820000522E5 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */; };
-		D2E35F972253A820000522E5 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */; };
-		D2E35F982253A820000522E5 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */; };
-		D2E35F992253A820000522E5 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */; };
-		D2E35F9A2253A820000522E5 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */; };
-		D2E35F9B2253A820000522E5 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */; };
-		D2E35F9C2253A820000522E5 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */; };
-		D2E35F9D2253A820000522E5 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */; };
-		D2E35F9E2253A820000522E5 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */; };
-		D2E35F9F2253A820000522E5 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */; };
 		D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */; };
 		D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */; };
 		D2EC176B226270D000AF69F5 /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC176A226270D000AF69F5 /* SchoolSearchViewController.swift */; };
@@ -105,6 +100,11 @@
 		8040F415110200638A9576C8 /* Pods-Pippin.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pippin.production-release.xcconfig"; path = "Pods/Target Support Files/Pods-Pippin/Pods-Pippin.production-release.xcconfig"; sourceTree = "<group>"; };
 		95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pippin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PippinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D21FC2342269088200D41AF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D21FC23A226908B700D41AF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		D21FC23C226908C000D41AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		D268EED2225BD96E00247836 /* AnimatedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoader.swift; sourceTree = "<group>"; };
 		D268EED5225BDFE500247836 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D268EED7225BDFEE00247836 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -132,16 +132,6 @@
 		D2E35F6C22529C1F000522E5 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		D2E35F6E22529C46000522E5 /* TabCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinatable.swift; sourceTree = "<group>"; };
 		D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
-		D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
-		D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Italic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Italic.ttf"; sourceTree = "<group>"; };
-		D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-ExtraBoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
-		D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
-		D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
-		D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-Light.ttf"; sourceTree = "<group>"; };
-		D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-LightItalic.ttf"; path = "../../../../../Downloads/Open_Sans/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		D2E35F7F2252B474000522E5 /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		D2E35F812252B4FC000522E5 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		D2E35F832252B60A000522E5 /* LandingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCoordinator.swift; sourceTree = "<group>"; };
@@ -215,6 +205,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D21FC2362269088700D41AF0 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21FC2342269088200D41AF0 /* SettingsViewController.swift */,
+				D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		D21FC239226908AC00D41AF0 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21FC23A226908B700D41AF0 /* HomeViewController.swift */,
+				D21FC23C226908C000D41AF0 /* HomeViewModel.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		D268EED4225BDFD700247836 /* SignInViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +279,6 @@
 				D2E35F6922529BE9000522E5 /* Coordinators */,
 				D2E35F5622529A47000522E5 /* NavigationFlowCoordinator */,
 				D2E35F7022529DBF000522E5 /* Utility */,
-				D2E35F732252B352000522E5 /* Font */,
 				D268EED9225BE15D00247836 /* Protocols */,
 				D2C1FE6F224E5B7000700E41 /* AppDelegate.swift */,
 				D2F593E3225B89CB0097ED4D /* AppDelegate+Configuration.swift */,
@@ -314,6 +321,7 @@
 				D2E35F832252B60A000522E5 /* LandingCoordinator.swift */,
 				D2E35F8E2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift */,
 				D2EC177722637AED00AF69F5 /* HomeCoordinator.swift */,
+				D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -321,6 +329,8 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D21FC239226908AC00D41AF0 /* HomeViewController */,
+				D21FC2362269088700D41AF0 /* SettingsViewController */,
 				D2BC0A1722637BDF000EF9AB /* ConfirmSubscribeSchoolViewController */,
 				D2EC1769226270BD00AF69F5 /* SchoolSearchViewController */,
 				D268EED4225BDFD700247836 /* SignInViewController */,
@@ -350,23 +360,6 @@
 				D268EED2225BD96E00247836 /* AnimatedLoader.swift */,
 			);
 			path = Utility;
-			sourceTree = "<group>";
-		};
-		D2E35F732252B352000522E5 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				D2E35F742252B370000522E5 /* OpenSans-Bold.ttf */,
-				D2E35F752252B370000522E5 /* OpenSans-BoldItalic.ttf */,
-				D2E35F762252B370000522E5 /* OpenSans-ExtraBold.ttf */,
-				D2E35F782252B370000522E5 /* OpenSans-ExtraBoldItalic.ttf */,
-				D2E35F772252B370000522E5 /* OpenSans-Italic.ttf */,
-				D2E35F7C2252B370000522E5 /* OpenSans-Light.ttf */,
-				D2E35F7D2252B371000522E5 /* OpenSans-LightItalic.ttf */,
-				D2E35F792252B370000522E5 /* OpenSans-Regular.ttf */,
-				D2E35F7B2252B370000522E5 /* OpenSans-SemiBold.ttf */,
-				D2E35F7A2252B370000522E5 /* OpenSans-SemiBoldItalic.ttf */,
-			);
-			path = Font;
 			sourceTree = "<group>";
 		};
 		D2E35F7E2252B461000522E5 /* Extensions */ = {
@@ -593,18 +586,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2E35F9F2253A820000522E5 /* OpenSans-SemiBoldItalic.ttf in Resources */,
-				D2E35F9D2253A820000522E5 /* OpenSans-Regular.ttf in Resources */,
 				D2C1FE7A224E5B7200700E41 /* LaunchScreen.storyboard in Resources */,
-				D2E35F9E2253A820000522E5 /* OpenSans-SemiBold.ttf in Resources */,
-				D2E35F992253A820000522E5 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
-				D2E35F9B2253A820000522E5 /* OpenSans-Light.ttf in Resources */,
 				D2C1FE77224E5B7200700E41 /* Assets.xcassets in Resources */,
-				D2E35F972253A820000522E5 /* OpenSans-BoldItalic.ttf in Resources */,
-				D2E35F962253A820000522E5 /* OpenSans-Bold.ttf in Resources */,
-				D2E35F982253A820000522E5 /* OpenSans-ExtraBold.ttf in Resources */,
-				D2E35F9A2253A820000522E5 /* OpenSans-Italic.ttf in Resources */,
-				D2E35F9C2253A820000522E5 /* OpenSans-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,8 +675,10 @@
 				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
 				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
+				D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
 				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
+				D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */,
 				D2EC177822637AED00AF69F5 /* HomeCoordinator.swift in Sources */,
 				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
 				D2F593DF225B875E0097ED4D /* PropertyLoopable.swift in Sources */,
@@ -702,6 +687,7 @@
 				D2F593D4225B875E0097ED4D /* NetworkEnvironment.swift in Sources */,
 				D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */,
 				D2EC176F2262785400AF69F5 /* School.swift in Sources */,
+				D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */,
 				D2EC17762262856900AF69F5 /* Notification+Name.swift in Sources */,
 				D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */,
 				D2F593BC225AB6B80097ED4D /* UIView+Frame.swift in Sources */,
@@ -717,6 +703,7 @@
 				D268EEDB225BE17100247836 /* ViewModelNetworker.swift in Sources */,
 				D2E35F822252B4FC000522E5 /* UIView+Constraints.swift in Sources */,
 				D2E35F842252B60A000522E5 /* LandingCoordinator.swift in Sources */,
+				D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */,
 				D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */,
 				D2F593D5225B875E0097ED4D /* APIError.swift in Sources */,
 				D2EC176D2262711D00AF69F5 /* SchoolSearchViewModel.swift in Sources */,
@@ -737,6 +724,7 @@
 				D2E35F6622529AAE000522E5 /* ApplicationCoordinator.swift in Sources */,
 				D268EED6225BDFE500247836 /* SignInViewController.swift in Sources */,
 				D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */,
+				D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */,
 				D2F593DA225B875E0097ED4D /* PropertyLoopable+Extension.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
 				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,
