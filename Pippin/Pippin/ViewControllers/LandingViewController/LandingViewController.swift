@@ -40,7 +40,7 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
     
     private lazy var titleLabel: UILabel = {
         let title = UILabel()
-        title.font = UIFont(customFont: .OpenSans(.SemiBold), size: .Title1)
+        title.font = Style.Font.h2
         title.textColor = Style.Color.primaryTextDark
         title.textAlignment = .center
         title.text = titleText
@@ -50,7 +50,7 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
     
     private lazy var subtitleLabel: UILabel = {
         let subTitle = UILabel()
-        subTitle.font = UIFont(customFont: .OpenSans(.Regular), size: .body)
+        subTitle.font = Style.Font.p1
         subTitle.textColor = Style.Color.secondaryTextLight
         subTitle.numberOfLines = 0
         subTitle.textAlignment = .center

@@ -25,8 +25,8 @@ class SingleLineTextTableViewCell: UITableViewCell, CellLoadableView {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
                 
-        titleLabel.font = Style.Font.p2
-        titleLabel.textColor = Style.Color.primaryTextDark
+        titleLabel.font = Style.Font.p2Light
+        titleLabel.textColor = Style.Color.secondaryTextDark
         
         contentView.addSubview(titleLabel)
         titleLabel.pinToLeadingMargin()

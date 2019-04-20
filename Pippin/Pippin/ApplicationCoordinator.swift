@@ -61,7 +61,7 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     private func determineRootCoordinator(animated: Bool) {
         if UserDefaultsManager.signedInUserToken != nil {
-            if let user = UserDefaultsManager.currentUser, (user.subscribedSchools?.isEmpty ?? true) {
+            if let user = UserDefaultsManager.currentUser, !(user.subscribedSchools?.isEmpty ?? true) {
                 startHomeCoordinator(animated: animated)
             } else {
                 startOnBoardingCoordinator(animated: animated)
