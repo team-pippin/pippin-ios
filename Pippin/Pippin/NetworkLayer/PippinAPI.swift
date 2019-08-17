@@ -20,7 +20,7 @@ public enum PippinAPI {
     case signUp(user: UserSignUp)
     case signIn(user: UserSignIn)
     case getSchoolsForSearch
-    case subscribeToSchool(schools: SchoolSubscribe)
+    case subscribeToSchool(userId: String, schools: SchoolSubscribe)
 }
 
 extension PippinAPI: EndPointType {
@@ -48,8 +48,8 @@ extension PippinAPI: EndPointType {
             return APIConstants.User.signIn
         case .getSchoolsForSearch:
             return APIConstants.School.schools
-        case .subscribeToSchool:
-            return APIConstants.User.subscribe
+        case .subscribeToSchool(userId: let userId, schools: _):
+            return "\(APIConstants.User.users)/\(userId)/\(APIConstants.School.schoolSubscriptions)"
         }
     }
     
@@ -72,7 +72,7 @@ extension PippinAPI: EndPointType {
             return .requestParameters(bodyParameters: signInUser, urlParameters: nil)
         case.getSchoolsForSearch:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers)
-        case .subscribeToSchool(schools: let schools):
+        case .subscribeToSchool(userId: _, schools: let schools):
             return .requestParametersAndHeaders(bodyParameters: schools, urlParameters: nil, additionalHeaders: headers)
         }
     }

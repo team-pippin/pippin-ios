@@ -48,15 +48,16 @@ class ConfirmSubscribeViewModel: ConfirmSubscribeViewModelProtocol {
         onIsLoading?(true)
         let model = SchoolSubscribe(schools: [school.id])
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.subscribeToSchool(schools: model)
+        let endpoint = PippinAPI.subscribeToSchool(userId: UserDefaultsManager.currentUser?.id ?? "", schools: model)
         
-        networkingManager.request(for: endpoint, MessageApi.self) { [weak self] result in
+        networkingManager.request(for: endpoint, Account.self) { [weak self] result in
             self?.onIsLoading?(false)
             
             switch result {
-            case .success(let message):
-                print(message)
+            case .success(let account):
+                UserDefaultsManager.currentUser = account
                 self?.onNetworkingSuccess?()
+                
             case .error(let error):
                 if error == .unauthorized {
                     self?.handleUnauthorized()
