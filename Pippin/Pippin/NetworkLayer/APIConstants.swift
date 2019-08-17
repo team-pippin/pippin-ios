@@ -19,10 +19,10 @@ struct APIConstants {
         static let users = "users"
         static let signUp = "\(APIConstants.User.users)/signup"
         static let signIn = "\(APIConstants.User.users)/signin"
-        static let subscribe = "\(APIConstants.User.users)/subscribe"
     }
     
     struct School {
         static let schools = "schools"
+        static let schoolSubscriptions = "school-subscriptions"
     }
 }

@@ -27,9 +27,11 @@ class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewCont
         let buttonContent = CustomButtonContent(title: "Subscribe")
         let button = CustomButton(content: buttonContent)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
         button.actionHandler = { [weak self] in
             self?.viewModel.requestSubscribe()
         }
+        
         return button
     }()
     
@@ -52,16 +54,21 @@ class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewCont
         super.viewDidLoad()
         
         view.backgroundColor = Style.Color.lightBackground
+        view.setMargins(top: Style.Layout.marginXL,
+                        leading: Style.Layout.marginXL,
+                        bottom: Style.Layout.marginXL,
+                        trailing: Style.Layout.marginXL)
+        
         title = "Subscribe"
         
         view.addSubview(subscribeButton)
-        subscribeButton.pinToBottomSafeArea()
+        subscribeButton.pinToBottomMargin()
         subscribeButton.pinToLeadingAndTrailingMargins()
         
         subtitleLabel.font = Style.Font.p1
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textColor = Style.Color.secondaryTextDark
-        subtitleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        subtitleLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.;l"
         
         view.addSubview(subtitleLabel)
         subtitleLabel.pinAboveView(view: subscribeButton, constant: Style.Layout.marginXL * 4)

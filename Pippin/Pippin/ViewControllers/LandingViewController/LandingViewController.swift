@@ -74,10 +74,10 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         view.backgroundColor = Style.Color.lightBackground
         addRightNavigationLink(title: "Login", target: self, action: #selector(handleLoginTap))
         
-        view.setMargins(top: 0,
-                        leading: 0,
+        view.setMargins(top: Style.Layout.marginXL,
+                        leading: Style.Layout.marginXL,
                         bottom: Style.Layout.marginXL,
-                        trailing: 0)
+                        trailing: Style.Layout.marginXL)
         
         view.addSubview(signUpButton)
         signUpButton.pinToLeadingAndTrailingMargins()
@@ -92,9 +92,9 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         titleLabel.pinAboveView(view: subtitleLabel, constant: Style.Layout.marginXL)
         
         view.addSubview(landingImageView)
-        landingImageView.pinToLeadingAndTrailingMargins(constant: Style.Layout.marginXL)
+        landingImageView.pinToTopMargin()
+        landingImageView.pinToLeadingAndTrailingMargins()
         landingImageView.pinAboveView(view: titleLabel, constant: Style.Layout.marginXL)
-        landingImageView.heightAnchor.constraint(equalTo: landingImageView.widthAnchor).isActive = true
         
         landingImageView.layer.cornerRadius = 25
         landingImageView.clipsToBounds = true
