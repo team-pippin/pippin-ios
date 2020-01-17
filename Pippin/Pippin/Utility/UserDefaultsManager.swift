@@ -10,31 +10,31 @@ import Foundation
 
 class UserDefaultsManager {
     
-    // MARK: - User Default Keys
+    // MARK: - Account Default Keys
     
-    private static let signedInUserTokenKey = "signedInUserTokenKey"
-    private static let signedInUserKey = "signedInUserKey"
+    private static let signedInAccountTokenKey = "signedInAccountTokenKey"
+    private static let signedInAccountKey = "signedInAccountKey"
     
-    // MARK: - User Default Values
+    // MARK: - Account Default Values
     
-    static var signedInUserToken: String? {
+    static var signedInAccountToken: String? {
         get {
-            guard let value = UserDefaults.standard.string(forKey: signedInUserTokenKey), !value.isEmpty else {
+            guard let value = UserDefaults.standard.string(forKey: signedInAccountTokenKey), !value.isEmpty else {
                 return nil
             }
             return value
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: signedInUserTokenKey)
+            UserDefaults.standard.set(newValue, forKey: signedInAccountTokenKey)
         }
     }
     
-    static var currentUser: Account? {
+    static var currentAccount: Account? {
         get {
-            return retieveEncoded(type: Account.self, for: signedInUserKey)
+            return retieveEncoded(type: Account.self, for: signedInAccountKey)
         }
         set {
-            saveCodable(with: newValue, for: signedInUserKey)
+            saveCodable(with: newValue, for: signedInAccountKey)
         }
     }
     

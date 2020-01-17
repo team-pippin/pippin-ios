@@ -168,7 +168,7 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol {
         view.addSubview(signUpLabel)
         signUpLabel.pinBelowView(view: cardView, constant: Style.Layout.margin)
         signUpLabel.pinToLeadingAndTrailingMargins()
-        signUpLabel.text = "Already a user? SIGN IN"
+        signUpLabel.text = "Already a account? SIGN IN"
         signUpLabel.textAlignment = .center
         signUpLabel.font = Style.Font.miniBold
         signUpLabel.textColor = Style.Color.secondaryTextLight

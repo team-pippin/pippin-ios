@@ -15,7 +15,7 @@ DEPENDENCIES:
   - TTTAttributedLabel
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BonMot
     - lottie-ios
     - Shimmer
@@ -33,4 +33,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 8e8b47b7c4fe6e01d2a0d6de99a3010186a0cc8c
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.8.4

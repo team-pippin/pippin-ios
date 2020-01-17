@@ -8,11 +8,9 @@
 
 import Foundation
 
-public struct SchoolSearch: Codable {
+public struct School: Codable {
     let name: String
-    let id: String
-}
-
-public struct SchoolSubscribe: PropertyLoopable {
-    let schools: [String]
+    let city: String
+    let state: String
+    let postalCode: String
 }

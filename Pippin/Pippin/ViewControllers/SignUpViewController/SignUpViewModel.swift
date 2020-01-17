@@ -46,11 +46,11 @@ class SignUpViewModel: SignUpViewModelProtocol {
             return
         }
         
-        let newUser = UserSignUp(firstName: first,
+        let newAccount = AccountSignUp(firstName: first,
                               lastName: last,
                               email: email,
                               password: password)
-        requestSignUpWebService(for: newUser)
+        requestSignUpWebService(for: newAccount)
     }
     
     func updateValue(with textFieldType: SignUpTextField, text: String?) {
@@ -68,18 +68,18 @@ class SignUpViewModel: SignUpViewModelProtocol {
     
     // MARK: - Private Methods
     
-    private func requestSignUpWebService(for newUser: UserSignUp) {
+    private func requestSignUpWebService(for newAccount: AccountSignUp) {
         onIsLoading?(true)
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.signUp(user: newUser)
+        let endpoint = PippinAPI.signUp(account: newAccount)
         
-        networkingManager.request(for: endpoint, UserTokenResponseModel.self) { [weak self] result in
+        networkingManager.request(for: endpoint, SignInResponse.self) { [weak self] result in
             self?.onIsLoading?(false)
             
             switch result {
             case .success(let response):
-                UserDefaultsManager.signedInUserToken = response.token
-                UserDefaultsManager.currentUser = response.account
+                UserDefaultsManager.signedInAccountToken = response.token
+                UserDefaultsManager.currentAccount = response.account
                 self?.onNetworkingSuccess?()
             case .error(let error):
                 print(error)

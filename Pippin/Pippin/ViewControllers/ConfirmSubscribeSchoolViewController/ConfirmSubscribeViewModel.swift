@@ -46,16 +46,16 @@ class ConfirmSubscribeViewModel: ConfirmSubscribeViewModelProtocol {
     
     private func subscribeTo(school: SchoolSearch) {
         onIsLoading?(true)
-        let model = SchoolSubscribe(schools: [school.id])
+        let model = SchoolSubscription(schools: [school.id])
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.subscribeToSchool(userId: UserDefaultsManager.currentUser?.id ?? "", schools: model)
+        let endpoint = PippinAPI.subscribeToSchool(accountId: UserDefaultsManager.currentAccount?.id ?? "", schools: model)
         
         networkingManager.request(for: endpoint, Account.self) { [weak self] result in
             self?.onIsLoading?(false)
             
             switch result {
             case .success(let account):
-                UserDefaultsManager.currentUser = account
+                UserDefaultsManager.currentAccount = account
                 self?.onNetworkingSuccess?()
                 
             case .error(let error):

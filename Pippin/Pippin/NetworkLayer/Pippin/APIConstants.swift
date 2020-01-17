@@ -11,14 +11,14 @@ import Foundation
 struct APIConstants {
     
     struct EndPoint {
-        static let development = "https://us-central1-pippin-dev.cloudfunctions.net/api"
-        static let local = "http://localhost:5000/pippin-dev/us-central1/api"
+        static let staging = "https://pippin-staging.herokuapp.com/api/"
+        static let local = "http://localhost:5000/api/"
     }
     
-    struct User {
-        static let users = "users"
-        static let signUp = "\(APIConstants.User.users)/signup"
-        static let signIn = "\(APIConstants.User.users)/signin"
+    struct Account {
+        static let accounts = "accounts"
+        static let signUp = "\(APIConstants.Account.accounts)/sign-up"
+        static let signIn = "\(APIConstants.Account.accounts)/sign-in"
     }
     
     struct School {

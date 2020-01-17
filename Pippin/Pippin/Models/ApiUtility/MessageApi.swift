@@ -1,5 +1,5 @@
 //
-//  APIModels.swift
+//  MessageApi.swift
 //  Pippin
 //
 //  Created by Will Brandin on 4/14/19.

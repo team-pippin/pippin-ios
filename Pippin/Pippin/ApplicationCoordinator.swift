@@ -43,8 +43,8 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
             return true
             
         case .didLogout:
-            UserDefaultsManager.currentUser = nil
-            UserDefaultsManager.signedInUserToken = nil
+            UserDefaultsManager.currentAccount = nil
+            UserDefaultsManager.signedInAccountToken = nil
             determineRootCoordinator(animated: true)
             return true
             
@@ -60,8 +60,8 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     // MARK: - Private Methods
     
     private func determineRootCoordinator(animated: Bool) {
-        if UserDefaultsManager.signedInUserToken != nil {
-            if let user = UserDefaultsManager.currentUser, !(user.subscribedSchools?.isEmpty ?? true) {
+        if UserDefaultsManager.signedInAccountToken != nil {
+            if let account = UserDefaultsManager.currentAccount, !(account.roles?.isEmpty ?? true) {
                 startHomeCoordinator(animated: animated)
             } else {
                 startOnBoardingCoordinator(animated: animated)
@@ -90,16 +90,16 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     @objc private func handleUnauthorized() {
         DispatchQueue.main.async { [weak self] in
-            UserDefaultsManager.currentUser = nil
-            UserDefaultsManager.signedInUserToken = nil
+            UserDefaultsManager.currentAccount = nil
+            UserDefaultsManager.signedInAccountToken = nil
             self?.startLandingCoordinator(animated: false)
         }
     }
     
     @objc private func handleLogout() {
         DispatchQueue.main.async { [weak self] in
-            UserDefaultsManager.currentUser = nil
-            UserDefaultsManager.signedInUserToken = nil
+            UserDefaultsManager.currentAccount = nil
+            UserDefaultsManager.signedInAccountToken = nil
             self?.startLandingCoordinator()
         }
     }

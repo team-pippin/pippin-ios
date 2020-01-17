@@ -300,7 +300,6 @@ public extension CustomButtonStyle {
         
         style.buttonColor = Style.Color.secondaryAction
         style.disabledBackgroundColor = Style.Color.secondaryTextLight
-        
         style.titleColor = Style.Color.primaryTextDark
         
         return style

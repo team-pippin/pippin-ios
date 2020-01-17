@@ -13,3 +13,8 @@ public typealias Parameters = [String : Any]
 internal protocol ParameterEncoder {
     static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws
 }
+
+/// JSON Body Data encoding
+internal protocol RKEncodable {
+    static func encode(urlRequest: inout URLRequest, with parameters: Encodable) throws
+}

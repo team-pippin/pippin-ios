@@ -14,4 +14,3 @@ extension String {
         return self.components(separatedBy: notAllowedChars).joined(separator: "")
     }
 }
-

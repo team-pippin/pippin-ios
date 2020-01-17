@@ -17,10 +17,10 @@ struct NetworkManager {
 }
 
 public enum PippinAPI {
-    case signUp(user: UserSignUp)
-    case signIn(user: UserSignIn)
+    case signUp(account: AccountSignUp)
+    case signIn(account: SignInRequest)
     case getSchoolsForSearch
-    case subscribeToSchool(userId: String, schools: SchoolSubscribe)
+    case subscribeToSchool(accountId: String, schools: SchoolSubscription)
 }
 
 extension PippinAPI: EndPointType {
@@ -29,8 +29,8 @@ extension PippinAPI: EndPointType {
         switch NetworkManager.sharedInstance.environment {
         case .production: return ""
         case .qa: return ""
-        case .staging: return ""
-        case .development: return APIConstants.EndPoint.development
+        case .staging: return APIConstants.EndPoint.staging
+        case .development: return ""
         case .local: return APIConstants.EndPoint.local
         }
     }
@@ -43,13 +43,13 @@ extension PippinAPI: EndPointType {
     public var path: String {
         switch self {
         case .signUp:
-            return APIConstants.User.signUp
+            return APIConstants.Account.signUp
         case .signIn:
-            return APIConstants.User.signIn
+            return APIConstants.Account.signIn
         case .getSchoolsForSearch:
             return APIConstants.School.schools
-        case .subscribeToSchool(userId: let userId, schools: _):
-            return "\(APIConstants.User.users)/\(userId)/\(APIConstants.School.schoolSubscriptions)"
+        case .subscribeToSchool(accountId: let accountId, schools: _):
+            return "\(APIConstants.Account.accounts)/\(accountId)/\(APIConstants.School.schoolSubscriptions)"
         }
     }
     
@@ -66,19 +66,19 @@ extension PippinAPI: EndPointType {
     
     public var task: HTTPTask {
         switch self {
-        case .signUp(user: let newUserData):
-            return .requestParameters(bodyParameters: newUserData, urlParameters: nil)
-        case .signIn(user: let signInUser):
-            return .requestParameters(bodyParameters: signInUser, urlParameters: nil)
+        case .signUp(account: let newAccountData):
+            return .requestParameters(bodyParameters: newAccountData, urlParameters: nil)
+        case .signIn(account: let signInAccount):
+            return .requestParameters(bodyParameters: signInAccount, urlParameters: nil)
         case.getSchoolsForSearch:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers)
-        case .subscribeToSchool(userId: _, schools: let schools):
+        case .subscribeToSchool(accountId: _, schools: let schools):
             return .requestParametersAndHeaders(bodyParameters: schools, urlParameters: nil, additionalHeaders: headers)
         }
     }
     
     public var headers: HTTPHeaders? {
-        if let token = UserDefaultsManager.signedInUserToken {
+        if let token = UserDefaultsManager.signedInAccountToken {
             return ["Authorization": "Bearer \(token)"]
         }
         return nil
