@@ -13,6 +13,23 @@ extension AppDelegate {
     // MARK: - Methods
     
     func configureNetworkEnvironment() {
+        
+        #if DEBUG
+        
+        guard let buildModeString = ProcessInfo.processInfo.environment["BUILD_ENVIRONMENT"],
+            let buildMode = Int(buildModeString),
+            let environment = NetworkEnvironment(rawValue: buildMode) else {
+                print("Networking Layer could not be configured.")
+                return
+        }
+        
+        print("Network Environment: - \(environment.name)")
+        configureNetworkManager(in: environment)
+        
+        return
+        
+        #else
+        
         guard let buildModeString = Bundle.main.infoDictionary!["BUILD_ENVIRONMENT"] as? String,
             let buildMode = Int(buildModeString),
             let environment = NetworkEnvironment(rawValue: buildMode) else {
@@ -22,6 +39,7 @@ extension AppDelegate {
         
         print("Network Environment: - \(environment.name)")
         configureNetworkManager(in: environment)
+        #endif
     }
     
     func styleNavigationBar() {

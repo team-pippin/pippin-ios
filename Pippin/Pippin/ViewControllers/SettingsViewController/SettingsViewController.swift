@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController, SettingsViewControllerProtocol {
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.pinToMargins()
+        tableView.pinToSuperview()
         
         subscribeToViewModel()
     }

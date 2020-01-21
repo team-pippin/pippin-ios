@@ -19,6 +19,10 @@ struct APIConstants {
         static let accounts = "accounts"
         static let signUp = "\(APIConstants.Account.accounts)/sign-up"
         static let signIn = "\(APIConstants.Account.accounts)/sign-in"
+        
+        static func accountSubscriptions(id: String) -> String {
+            return APIConstants.Account.accounts + "/\(id)/" + APIConstants.School.schoolSubscriptions
+        }
     }
     
     struct School {

@@ -12,7 +12,7 @@ protocol HomeViewControllerProtocol: Presentable {
     
 }
 
-class HomeViewController: UIViewController, HomeViewControllerProtocol {
+class HomeViewController: UIViewController, HomeViewControllerProtocol, NetworkingFailableView {
     
     // MARK: - Properties
     

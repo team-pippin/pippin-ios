@@ -17,30 +17,10 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol, Load
     
     // MARK: - Properties
     
-    private var firstNameTextField: SkyFloatingLabelTextField = {
+    private var nameTextField: SkyFloatingLabelTextField = {
         let textField = SkyFloatingLabelTextField()
-        textField.title = "First Name"
-        textField.placeholder = "First Name"
-        
-        textField.tintColor = Style.Color.interactiveTint
-        textField.textColor = Style.Color.primaryTextDark
-        
-        textField.lineView.isHidden = true
-        
-        textField.selectedTitleColor = Style.Color.interactiveTint
-        
-        textField.font = Style.Font.p1
-        textField.titleFont = Style.Font.mini
-        textField.placeholderFont = Style.Font.p1
-        
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private var lastNameTextField: SkyFloatingLabelTextField = {
-        let textField = SkyFloatingLabelTextField()
-        textField.title = "Last Name"
-        textField.placeholder = "Last Name"
+        textField.title = "Name"
+        textField.placeholder = "Name"
         
         textField.tintColor = Style.Color.interactiveTint
         textField.textColor = Style.Color.primaryTextDark
@@ -144,23 +124,14 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol, Load
         textFieldStackView.axis = .vertical
         textFieldStackView.spacing = Style.Layout.margin
         
-        let nameStackView = UIStackView()
-        nameStackView.axis = .horizontal
-        nameStackView.spacing = 1
-        nameStackView.distribution = .fillEqually
-        
-        nameStackView.addArrangedSubview(firstNameTextField)
-        nameStackView.addArrangedSubview(lastNameTextField)
-        
         cardView.addSubview(textFieldStackView)
         textFieldStackView.pinToMargins()
         
-        textFieldStackView.addArrangedSubview(nameStackView)
+        textFieldStackView.addArrangedSubview(nameTextField)
         textFieldStackView.addArrangedSubview(emailTextField)
         textFieldStackView.addArrangedSubview(passwordTextField)
         
-        firstNameTextField.addTarget(self, action: #selector(firstNameTextFieldChanged(_:)), for: .editingChanged)
-        lastNameTextField.addTarget(self, action: #selector(lastNameTextFieldChanged(_:)), for: .editingChanged)
+        nameTextField.addTarget(self, action: #selector(firstNameTextFieldChanged(_:)), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(emailTextFieldChanged(_:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(passwordTextFieldNameChanged(_:)), for: .editingChanged)
         
@@ -210,11 +181,7 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol, Load
     }
     
     @objc private func firstNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
-        viewModel.updateValue(with: .firstName, text: textField.text)
-    }
-    
-    @objc private func lastNameTextFieldChanged(_ textField: SkyFloatingLabelTextField) {
-        viewModel.updateValue(with: .lastName, text: textField.text)
+        viewModel.updateValue(with: .name, text: textField.text)
     }
     
     @objc private func emailTextFieldChanged(_ textField: SkyFloatingLabelTextField) {

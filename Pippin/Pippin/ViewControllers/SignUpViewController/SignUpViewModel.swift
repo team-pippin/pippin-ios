@@ -9,8 +9,7 @@
 import UIKit
 
 enum SignUpTextField {
-    case firstName
-    case lastName
+    case name
     case email
     case password
 }
@@ -24,8 +23,7 @@ class SignUpViewModel: SignUpViewModelProtocol {
     
     // MARK: - Properties
     
-    private var firstName: String?
-    private var lastName: String?
+    private var name: String?
     private var email: String?
     private var password: String?
     
@@ -38,16 +36,14 @@ class SignUpViewModel: SignUpViewModelProtocol {
     // MARK: - SignUpViewModelProtocol
     
     func requestSignUp() {
-        guard let first = firstName,
-            let last = lastName,
+        guard let name = name,
             let email = email,
             let password = password else {
             onNetworkingFailed?()
             return
         }
         
-        let newAccount = AccountSignUp(firstName: first,
-                              lastName: last,
+        let newAccount = AccountSignUp(name: name,
                               email: email,
                               password: password)
         requestSignUpWebService(for: newAccount)
@@ -55,10 +51,8 @@ class SignUpViewModel: SignUpViewModelProtocol {
     
     func updateValue(with textFieldType: SignUpTextField, text: String?) {
         switch textFieldType {
-        case .firstName:
-            firstName = text
-        case .lastName:
-            lastName = text
+        case .name:
+            name = text
         case .email:
             email = text
         case .password:

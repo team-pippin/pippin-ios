@@ -1,26 +1,14 @@
 //
-//  SchoolSearchViewModel.swift
+//  AccountSchoolViewModel.swift
 //  Pippin
 //
-//  Created by Will Brandin on 4/13/19.
-//  Copyright © 2019 SchoolConnect. All rights reserved.
+//  Created by Will Brandin on 1/21/20.
+//  Copyright © 2020 SchoolConnect. All rights reserved.
 //
 
 import UIKit
 
-protocol SchoolSearchViewModelProtocol: ViewModelNetworker {
-    var onStateChange: (() -> Void)? { get set }
-    
-    var numberOfRows: Int { get }
-    var numberOfSections: Int { get }
-    
-    func requestSchools()
-    func updateSearchFilter(with text: String?)
-    func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
-    func getSelectedSchool(at indexPath: IndexPath) -> SchoolSearch?
-}
-
-class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
+class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
     
     // MARK: - Properties
     
@@ -66,8 +54,13 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     
     func requestSchools() {
         onIsLoading?(true)
+        
+        guard let accountId = UserDefaultsManager.currentAccount?.id else {
+            return
+        }
+        
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.getSchoolsForSearch
+        let endpoint = PippinAPI.getAccountSchools(accountId: accountId)
         
         networkingManager.request(for: endpoint, [SchoolSearch].self) { [weak self] result in
             self?.onIsLoading?(false)
@@ -94,7 +87,6 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: SingleLineTextTableViewCell = tableView.deqeueReusableCell(for: indexPath)
         cell.setCellContent(filteredSchools?[indexPath.row].name ?? "")
-        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

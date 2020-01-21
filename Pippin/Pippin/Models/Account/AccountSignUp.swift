@@ -9,8 +9,7 @@
 import Foundation
 
 public struct AccountSignUp: Codable {
-    let firstName: String
-    let lastName: String
+    let name: String
     let email: String
     let password: String
 }

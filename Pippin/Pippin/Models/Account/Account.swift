@@ -12,5 +12,10 @@ public struct Account: Codable {
     let id: String
     let name: String
     let email: String
-    let roles: [String]?
+    let roles: [AccountRole]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name, email, roles
+    }
 }

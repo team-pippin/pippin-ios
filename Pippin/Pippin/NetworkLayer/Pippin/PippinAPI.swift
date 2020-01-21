@@ -19,6 +19,7 @@ struct NetworkManager {
 public enum PippinAPI {
     case signUp(account: AccountSignUp)
     case signIn(account: SignInRequest)
+    case getAccountSchools(accountId: String)
     case getSchoolsForSearch
     case subscribeToSchool(accountId: String, schools: SchoolSubscription)
 }
@@ -49,7 +50,9 @@ extension PippinAPI: EndPointType {
         case .getSchoolsForSearch:
             return APIConstants.School.schools
         case .subscribeToSchool(accountId: let accountId, schools: _):
-            return "\(APIConstants.Account.accounts)/\(accountId)/\(APIConstants.School.schoolSubscriptions)"
+            return APIConstants.Account.accountSubscriptions(id: accountId)
+        case .getAccountSchools(let accountId):
+            return APIConstants.Account.accountSubscriptions(id: accountId)
         }
     }
     
@@ -57,7 +60,7 @@ extension PippinAPI: EndPointType {
         switch self {
         case .signUp, .signIn:
             return .post
-        case .getSchoolsForSearch:
+        case .getSchoolsForSearch, .getAccountSchools:
             return .get
         case .subscribeToSchool:
             return .put
@@ -68,10 +71,13 @@ extension PippinAPI: EndPointType {
         switch self {
         case .signUp(account: let newAccountData):
             return .requestParameters(bodyParameters: newAccountData, urlParameters: nil)
+            
         case .signIn(account: let signInAccount):
             return .requestParameters(bodyParameters: signInAccount, urlParameters: nil)
-        case.getSchoolsForSearch:
+            
+        case.getSchoolsForSearch, .getAccountSchools:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers)
+            
         case .subscribeToSchool(accountId: _, schools: let schools):
             return .requestParametersAndHeaders(bodyParameters: schools, urlParameters: nil, additionalHeaders: headers)
         }
@@ -81,6 +87,7 @@ extension PippinAPI: EndPointType {
         if let token = UserDefaultsManager.signedInAccountToken {
             return ["Authorization": "Bearer \(token)"]
         }
+        
         return nil
     }
 }

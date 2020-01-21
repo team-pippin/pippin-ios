@@ -108,7 +108,7 @@ open class NavigationFlowCoordinator: FlowCoordinator {
     public func popAllRelatedViewControllers(animated: Bool = true) {
         assert(mainViewController != nil, "mainViewController can not be nil in context of: \(#function)")
         
-        guard let mainViewController = mainViewController, let index = navigationController.viewControllers.index(of: mainViewController) else {
+        guard let mainViewController = mainViewController, let index = navigationController.viewControllers.firstIndex(of: mainViewController) else {
             return
         }
         

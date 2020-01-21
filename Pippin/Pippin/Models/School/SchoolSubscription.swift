@@ -9,5 +9,5 @@
 import Foundation
 
 public struct SchoolSubscription: Codable {
-    let schools: [String]
+    let school: String
 }

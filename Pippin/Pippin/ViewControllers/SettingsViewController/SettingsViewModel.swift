@@ -9,11 +9,33 @@
 import UIKit
 
 enum SettingsOption: Int, CaseIterable {
+    case accountInfo
+    case schoolPicker
     case logout
     
     var title: String {
         switch self {
+        case .accountInfo: return "Account Info"
+        case .schoolPicker: return "Change School"
         case .logout: return "Logout"
+        }
+    }
+    
+    var cellAccessory: UITableViewCell.AccessoryType {
+        switch self {
+        case .logout:
+            return .none
+        default:
+            return .disclosureIndicator
+        }
+    }
+    
+    var cellStyle: SingleLineTextTableViewCellStyle {
+        switch self {
+        case .logout:
+            return .standardStyle
+        default:
+            return .boldStyle
         }
     }
 }
@@ -47,6 +69,8 @@ class SettingsViewModel: SettingsViewModelProtocol {
     func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: SingleLineTextTableViewCell = tableView.deqeueReusableCell(for: indexPath)
         cell.setCellContent(SettingsOption.allCases[indexPath.row].title)
+        cell.accessoryType = SettingsOption.allCases[indexPath.row].cellAccessory
+        cell.setCellStyle(SettingsOption.allCases[indexPath.row].cellStyle)
         return cell
     }
     

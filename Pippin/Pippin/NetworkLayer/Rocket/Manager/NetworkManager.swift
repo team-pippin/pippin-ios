@@ -83,7 +83,8 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
                         //Decodes the data
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
                         completion(.success(apiResonse))
-                    } catch {
+                    } catch (let error) {
+                        print(error.localizedDescription)
                         completion(.error(.jsonParsingFailure))
                     }
                     
@@ -93,61 +94,6 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
                 case .failure?:
                     completion(.error(.responseUnsuccessful))
                     
-                case .none:
-                    completion(.error(.responseUnsuccessful))
-                }
-            }
-            
-        }
-    }
-    
-    /**
-     Submits a request for the specified `Endpoint` provided expecting list in return.
-     
-     Request should send back a list of JSON objects which can be decoded to the `Codable` type provided.
-     - Important:
-     DecodingType must be an array of `Codable` objects.
-     
-     ```
-     /// delcared as such
-     MyTypeName.self
-     ```
-     
-     - Parameters:
-         - apiEndpoint: **Endpoint** of the request.
-         - decodingType: The type that is decoded from the response.
-         - completion: RKResult.success is the decodingType passed as an argument.
-     */
-    public func requestWithListResponse<T: Codable>(for apiEndpoint: RocketApi, _ decodingType: [T].Type, completion: @escaping (Result<[T], APIError>) -> Void) {
-        //gets data based on url...
-        router.request(apiEndpoint) { [weak self] data, response, error in
-            if error != nil {
-                completion(.error(.requestFailed))
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                let result = self?.handleNetworkResponse(response)
-                switch result {
-                case .success?:
-                    guard let responseData = data else {
-                        completion(.error(.invalidData))
-                        return
-                    }
-                    
-                    print("********************************************\n\(self?.jsonToString(data: responseData) ?? "")\n********************************************")
-                    
-                    do {
-                        let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
-                        completion(.success(apiResonse))
-                    } catch {
-                        completion(.error(.jsonParsingFailure))
-                    }
-                    
-                case.unauthorized?:
-                    completion(.error(.unauthorized))
-                    
-                case .failure?:
-                    completion(.error(.responseUnsuccessful))
                 case .none:
                     completion(.error(.responseUnsuccessful))
                 }
@@ -170,17 +116,16 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
     }
     
     private func jsonToString(data: Data) -> String {
-        if let returnData = String(data: data, encoding: .utf8) {
-            let encodedData = returnData.data(using: String.Encoding.utf8, allowLossyConversion: false)!
-            
-            do {
-                let json = try JSONSerialization.jsonObject(with: encodedData, options: [])
-                return "\(json)"
-            } catch let error as NSError {
-                return "Failed to load: \(error.localizedDescription)"
-            }
-        } else {
-            return ""
+        return String(data: data, encoding: String.Encoding.utf8) ?? ""
+    }
+    
+    private func buildPrintableResponseDescription(_ response: HTTPURLResponse, _ data: Data?) {
+        let routeURL = response.url?.absoluteString ?? ""
+        var routeBodyData = ""
+        if let bodyData = data {
+            routeBodyData = String(data: bodyData, encoding: String.Encoding.utf8) ?? ""
         }
+        
+        print("\n======================= Start of Response call data ==================== \n=======================RESPONSE======================= \n URL:\n \(routeURL)\n Body:\n\(routeBodyData)\n\n======================= End of RESPONSE call data ================= \n\n\n")
     }
 }

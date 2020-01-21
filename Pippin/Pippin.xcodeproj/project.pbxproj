@@ -17,7 +17,7 @@
 		D229AF9D23D2441F00806E21 /* AccountSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9C23D2441F00806E21 /* AccountSignUp.swift */; };
 		D229AF9F23D2443700806E21 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9E23D2443700806E21 /* SignInResponse.swift */; };
 		D229AFA123D2446100806E21 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFA023D2446000806E21 /* SignInRequest.swift */; };
-		D229AFA523D2448500806E21 /* AccountGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFA423D2448500806E21 /* AccountGroup.swift */; };
+		D229AFA523D2448500806E21 /* AccountRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFA423D2448500806E21 /* AccountRole.swift */; };
 		D229AFA723D2449A00806E21 /* AccountRoleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFA623D2449A00806E21 /* AccountRoleType.swift */; };
 		D229AFAB23D244E000806E21 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFAA23D244E000806E21 /* SchoolSearch.swift */; };
 		D229AFAD23D2450300806E21 /* SchoolSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFAC23D2450300806E21 /* SchoolSubscription.swift */; };
@@ -35,6 +35,8 @@
 		D2C1FE77224E5B7200700E41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2C1FE76224E5B7200700E41 /* Assets.xcassets */; };
 		D2C1FE7A224E5B7200700E41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C1FE78224E5B7200700E41 /* LaunchScreen.storyboard */; };
 		D2C1FE85224E5B7200700E41 /* PippinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1FE84224E5B7200700E41 /* PippinTests.swift */; };
+		D2D8659623D7618A00418752 /* AccountSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659523D7618A00418752 /* AccountSchoolViewController.swift */; };
+		D2D8659823D7619200418752 /* AccountSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */; };
 		D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */; };
 		D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5822529A8C000522E5 /* Coordinator.swift */; };
 		D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */; };
@@ -126,7 +128,7 @@
 		D229AF9C23D2441F00806E21 /* AccountSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSignUp.swift; sourceTree = "<group>"; };
 		D229AF9E23D2443700806E21 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
 		D229AFA023D2446000806E21 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
-		D229AFA423D2448500806E21 /* AccountGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountGroup.swift; sourceTree = "<group>"; };
+		D229AFA423D2448500806E21 /* AccountRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRole.swift; sourceTree = "<group>"; };
 		D229AFA623D2449A00806E21 /* AccountRoleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRoleType.swift; sourceTree = "<group>"; };
 		D229AFAA23D244E000806E21 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
 		D229AFAC23D2450300806E21 /* SchoolSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSubscription.swift; sourceTree = "<group>"; };
@@ -147,6 +149,8 @@
 		D2C1FE80224E5B7200700E41 /* PippinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PippinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2C1FE84224E5B7200700E41 /* PippinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PippinTests.swift; sourceTree = "<group>"; };
 		D2C1FE86224E5B7200700E41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2D8659523D7618A00418752 /* AccountSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSchoolViewController.swift; sourceTree = "<group>"; };
+		D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSchoolViewModel.swift; sourceTree = "<group>"; };
 		D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
 		D2E35F5822529A8C000522E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
@@ -286,7 +290,7 @@
 				D229AF9C23D2441F00806E21 /* AccountSignUp.swift */,
 				D229AF9E23D2443700806E21 /* SignInResponse.swift */,
 				D229AFA023D2446000806E21 /* SignInRequest.swift */,
-				D229AFA423D2448500806E21 /* AccountGroup.swift */,
+				D229AFA423D2448500806E21 /* AccountRole.swift */,
 				D229AFA623D2449A00806E21 /* AccountRoleType.swift */,
 			);
 			path = Account;
@@ -396,6 +400,15 @@
 			path = PippinTests;
 			sourceTree = "<group>";
 		};
+		D2D8659423D7617300418752 /* AccountSchoolPicker */ = {
+			isa = PBXGroup;
+			children = (
+				D2D8659523D7618A00418752 /* AccountSchoolViewController.swift */,
+				D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */,
+			);
+			path = AccountSchoolPicker;
+			sourceTree = "<group>";
+		};
 		D2E35F5622529A47000522E5 /* NavigationFlowCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +440,7 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2D8659423D7617300418752 /* AccountSchoolPicker */,
 				D21FC239226908AC00D41AF0 /* HomeViewController */,
 				D21FC2362269088700D41AF0 /* SettingsViewController */,
 				D2BC0A1722637BDF000EF9AB /* ConfirmSubscribeSchoolViewController */,
@@ -664,9 +678,11 @@
 				TargetAttributes = {
 					D2C1FE6B224E5B7000700E41 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 					};
 					D2C1FE7F224E5B7200700E41 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = D2C1FE6B224E5B7000700E41;
 					};
 				};
@@ -788,6 +804,7 @@
 				D2E35F8B2252B914000522E5 /* CustomButton.swift in Sources */,
 				D2F593D4225B875E0097ED4D /* NetworkEnvironment.swift in Sources */,
 				D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */,
+				D2D8659823D7619200418752 /* AccountSchoolViewModel.swift in Sources */,
 				D229AF9F23D2443700806E21 /* SignInResponse.swift in Sources */,
 				D2EC176F2262785400AF69F5 /* School.swift in Sources */,
 				D2E41B1023D744AB002FFB4B /* UIView+ShowModalView.swift in Sources */,
@@ -841,12 +858,13 @@
 				D2C1FE70224E5B7000700E41 /* AppDelegate.swift in Sources */,
 				D2E35F892252B78D000522E5 /* Style.swift in Sources */,
 				D2E41B0C23D74360002FFB4B /* UIViewController+AlertView.swift in Sources */,
-				D229AFA523D2448500806E21 /* AccountGroup.swift in Sources */,
+				D229AFA523D2448500806E21 /* AccountRole.swift in Sources */,
 				D2E35F6D22529C1F000522E5 /* TabBarCoordinator.swift in Sources */,
 				D2E35F6422529A8C000522E5 /* Presentable.swift in Sources */,
 				D229AFA123D2446100806E21 /* SignInRequest.swift in Sources */,
 				D2BC0A1F226388C6000EF9AB /* APIConstants.swift in Sources */,
 				D2F593BA225AB1070097ED4D /* Account.swift in Sources */,
+				D2D8659623D7618A00418752 /* AccountSchoolViewController.swift in Sources */,
 				D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */,
 				D2BC0A1D2263879E000EF9AB /* MessageApi.swift in Sources */,
 				D229AFAB23D244E000806E21 /* SchoolSearch.swift in Sources */,
@@ -955,7 +973,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.Pippin.release;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -976,7 +994,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.PippinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pippin.app/Pippin";
 			};
@@ -1060,7 +1078,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.Pippin.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1081,7 +1099,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.PippinTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pippin.app/Pippin";
 			};

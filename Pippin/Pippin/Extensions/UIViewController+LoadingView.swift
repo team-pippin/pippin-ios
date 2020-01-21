@@ -21,10 +21,12 @@ extension LoadingView where Self: UIViewController {
     }
     
     func toggleLoadingView(_ isLoading: Bool) {
-        if isLoading {
-            showLoadingView()
-        } else {
-            hideLoadingView()
+        DispatchQueue.main.async {
+            if isLoading {
+                self.showLoadingView()
+            } else {
+                self.hideLoadingView()
+            }
         }
     }
     

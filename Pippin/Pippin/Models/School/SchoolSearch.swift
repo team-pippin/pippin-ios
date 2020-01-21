@@ -11,4 +11,9 @@ import Foundation
 public struct SchoolSearch: Codable {
     let name: String
     let id: String
+    
+    private enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case name
+    }
 }

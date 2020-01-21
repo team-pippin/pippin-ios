@@ -44,9 +44,38 @@ final class SettingsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
     private func handleSelected(_ settingsOption: SettingsOption) {
         switch settingsOption {
+        case .schoolPicker:
+            showSchoolPicker()
+            
         case .logout:
             handleLogout()
+            
+        @unknown default:
+            break
         }
+    }
+    
+    private func showSchoolPicker() {
+        let schoolPicker = AccountSchoolViewController()
+        
+        schoolPicker.onDidSelectSchool = { [weak self] _ in
+            self?.popToNavigationRoot()
+        }
+        
+        push(viewController: schoolPicker)
+    }
+    
+    private func showLogoutAlert() {
+        let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out of your account?", preferredStyle: .alert)
+
+        let handler = { action in
+            
+        }
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+
+        navigationController.topViewController?.present(alert, animated: true, completion: nil)
     }
     
     private func handleLogout() {

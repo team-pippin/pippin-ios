@@ -42,4 +42,27 @@ class SingleLineTextTableViewCell: UITableViewCell, CellLoadableView {
     func setCellContent(_ title: String) {
         self.title = title
     }
+    
+    func setCellStyle(_ style: SingleLineTextTableViewCellStyle) {
+        titleLabel.font = style.titleFont
+        titleLabel.textColor = style.titleColor
+    }
+}
+
+class SingleLineTextTableViewCellStyle {
+    var titleFont = Style.Font.p2Light
+    var titleColor = Style.Color.secondaryTextDark
+    init() {}
+}
+
+extension SingleLineTextTableViewCellStyle {
+    static var standardStyle: SingleLineTextTableViewCellStyle {
+        return SingleLineTextTableViewCellStyle()
+    }
+    
+    static var boldStyle: SingleLineTextTableViewCellStyle {
+        let style = SingleLineTextTableViewCellStyle()
+        style.titleFont = Style.Font.p2
+        return style
+    }
 }

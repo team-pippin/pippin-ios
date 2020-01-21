@@ -9,6 +9,6 @@
 import Foundation
 
 public struct AccountRole: Codable {
-    let school: UUID
+    let school: String
     let role: AccountRoleType
 }
