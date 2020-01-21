@@ -13,7 +13,7 @@ protocol SchoolSearchViewControllerProtocol: Presentable {
     var onDidSelectSchool: ((SchoolSearch) -> Void)? { get set }
 }
 
-class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerProtocol {
+class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerProtocol, LoadingView {
     
     // MARK: - Properties
     
@@ -76,16 +76,12 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
             }
         }
         
-        viewModel.onIsLoading = { isLoading in
-            if isLoading {
-                AnimatedLoader.showProgressHud()
-            } else {
-                AnimatedLoader.hideProgressHud()
-            }
+        viewModel.onIsLoading = { [weak self] isLoading in
+            self?.toggleLoadingView(isLoading)
         }
         
         viewModel.onNetworkingFailed = {
-            AnimatedLoader.showFailureHud()
+            // Show Failure
         }
         
         viewModel.requestSchools()

@@ -20,6 +20,7 @@ extension AppDelegate {
                 return
         }
         
+        print("Network Environment: - \(environment.name)")
         configureNetworkManager(in: environment)
     }
     

@@ -13,7 +13,7 @@ protocol SignInViewControllerProtocol: Presentable {
     var onSignInSuccessful: (() -> Void)? { get set }
 }
 
-class SignInViewController: UIViewController, SignInViewControllerProtocol {
+class SignInViewController: UIViewController, SignInViewControllerProtocol, LoadingView {
     
     // MARK: - Properties
     
@@ -148,16 +148,12 @@ class SignInViewController: UIViewController, SignInViewControllerProtocol {
                 self?.submitButton.isUserInteractionEnabled = !isLoading
                 self?.view.isUserInteractionEnabled = !isLoading
                 
-                if isLoading {
-                    AnimatedLoader.showProgressHud()
-                } else {
-                    AnimatedLoader.hideProgressHud()
-                }
+                self?.toggleLoadingView(isLoading)
             }
         }
         
         viewModel.onNetworkingFailed = {
-            AnimatedLoader.showFailureHud()
+//            AnimatedLoader.showFailureHud()
         }
         
         viewModel.onNetworkingSuccess = onSignInSuccessful

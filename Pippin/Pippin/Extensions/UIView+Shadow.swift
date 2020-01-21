@@ -35,7 +35,7 @@ public extension UIView {
     
     // MARK: - Methods
     
-    public func setShadow(shadow: LayerShadow) {
+    func setShadow(shadow: LayerShadow) {
         layer.shadowColor = shadow.shadowColor.cgColor
         layer.shadowOffset = shadow.shadowOffset
         layer.shadowRadius = shadow.shadowRadius

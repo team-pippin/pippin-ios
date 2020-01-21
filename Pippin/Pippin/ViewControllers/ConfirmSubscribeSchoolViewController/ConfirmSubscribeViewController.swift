@@ -12,7 +12,7 @@ protocol ConfirmSubscribeViewControllerProtocol: Presentable {
     var onDidSubscribeToSchool: (() -> Void)? { get set }
 }
 
-class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewControllerProtocol {
+class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewControllerProtocol, LoadingView {
     
     // MARK: - ConfirmSubscribeViewControllerProtocol
     
@@ -91,15 +91,11 @@ class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewCont
     
     private func subscribeToViewModel() {
         viewModel.onIsLoading = { isLoading in
-            if isLoading {
-                AnimatedLoader.showProgressHud()
-            } else {
-                AnimatedLoader.hideProgressHud()
-            }
+            self.toggleLoadingView(isLoading)
         }
         
         viewModel.onNetworkingFailed = {
-            AnimatedLoader.showFailureHud()
+//            AnimatedLoader.showFailureHud()
         }
         
         viewModel.onNetworkingSuccess = { [weak self] in

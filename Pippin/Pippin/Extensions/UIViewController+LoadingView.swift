@@ -12,11 +12,20 @@ import UIKit
 protocol LoadingView {
     func showLoadingView()
     func hideLoadingView()
+    func toggleLoadingView(_ isLoading: Bool)
 }
 
 extension LoadingView where Self: UIViewController {
     private var tag: Int {
         return 684
+    }
+    
+    func toggleLoadingView(_ isLoading: Bool) {
+        if isLoading {
+            showLoadingView()
+        } else {
+            hideLoadingView()
+        }
     }
     
     func hideLoadingView() {

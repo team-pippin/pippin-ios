@@ -24,7 +24,6 @@
 		D229AFAF23D2454C00806E21 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFAE23D2454C00806E21 /* RemoteConfig.swift */; };
 		D229AFB123D2459300806E21 /* SchoolFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AFB023D2459300806E21 /* SchoolFeature.swift */; };
 		D229AFB223D2491000806E21 /* Pods_Pippin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */; };
-		D268EED3225BD96E00247836 /* AnimatedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED2225BD96E00247836 /* AnimatedLoader.swift */; };
 		D268EED6225BDFE500247836 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED5225BDFE500247836 /* SignInViewController.swift */; };
 		D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EED7225BDFEE00247836 /* SignInViewModel.swift */; };
 		D268EEDB225BE17100247836 /* ViewModelNetworker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D268EEDA225BE17100247836 /* ViewModelNetworker.swift */; };
@@ -59,6 +58,13 @@
 		D2E35F952253A66E000522E5 /* UILabel+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F942253A66E000522E5 /* UILabel+Init.swift */; };
 		D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */; };
 		D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */; };
+		D2E41B0623D74265002FFB4B /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0523D74265002FFB4B /* ModalPresenter.swift */; };
+		D2E41B0823D74299002FFB4B /* ModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0723D74299002FFB4B /* ModalPresentable.swift */; };
+		D2E41B0A23D742DA002FFB4B /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0923D742DA002FFB4B /* AlertView.swift */; };
+		D2E41B0C23D74360002FFB4B /* UIViewController+AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0B23D74360002FFB4B /* UIViewController+AlertView.swift */; };
+		D2E41B0E23D743F2002FFB4B /* APIError+Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0D23D743F2002FFB4B /* APIError+Message.swift */; };
+		D2E41B1023D744AB002FFB4B /* UIView+ShowModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B0F23D744AB002FFB4B /* UIView+ShowModalView.swift */; };
+		D2E41B1323D74503002FFB4B /* ModalPresenterStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E41B1223D74503002FFB4B /* ModalPresenterStyle.swift */; };
 		D2EC176B226270D000AF69F5 /* SchoolSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC176A226270D000AF69F5 /* SchoolSearchViewController.swift */; };
 		D2EC176D2262711D00AF69F5 /* SchoolSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC176C2262711D00AF69F5 /* SchoolSearchViewModel.swift */; };
 		D2EC176F2262785400AF69F5 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC176E2262785400AF69F5 /* School.swift */; };
@@ -126,7 +132,6 @@
 		D229AFAC23D2450300806E21 /* SchoolSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSubscription.swift; sourceTree = "<group>"; };
 		D229AFAE23D2454C00806E21 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		D229AFB023D2459300806E21 /* SchoolFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolFeature.swift; sourceTree = "<group>"; };
-		D268EED2225BD96E00247836 /* AnimatedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedLoader.swift; sourceTree = "<group>"; };
 		D268EED5225BDFE500247836 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		D268EED7225BDFEE00247836 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		D268EEDA225BE17100247836 /* ViewModelNetworker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelNetworker.swift; sourceTree = "<group>"; };
@@ -165,6 +170,13 @@
 		D2E35F942253A66E000522E5 /* UILabel+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Init.swift"; sourceTree = "<group>"; };
 		D2E35FA02253BF90000522E5 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D2E35FA22253BFB5000522E5 /* String+SpecialCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SpecialCharacters.swift"; sourceTree = "<group>"; };
+		D2E41B0523D74265002FFB4B /* ModalPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenter.swift; sourceTree = "<group>"; };
+		D2E41B0723D74299002FFB4B /* ModalPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresentable.swift; sourceTree = "<group>"; };
+		D2E41B0923D742DA002FFB4B /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		D2E41B0B23D74360002FFB4B /* UIViewController+AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertView.swift"; sourceTree = "<group>"; };
+		D2E41B0D23D743F2002FFB4B /* APIError+Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIError+Message.swift"; sourceTree = "<group>"; };
+		D2E41B0F23D744AB002FFB4B /* UIView+ShowModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ShowModalView.swift"; sourceTree = "<group>"; };
+		D2E41B1223D74503002FFB4B /* ModalPresenterStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalPresenterStyle.swift; sourceTree = "<group>"; };
 		D2EC176A226270D000AF69F5 /* SchoolSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewController.swift; sourceTree = "<group>"; };
 		D2EC176C2262711D00AF69F5 /* SchoolSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewModel.swift; sourceTree = "<group>"; };
 		D2EC176E2262785400AF69F5 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -320,6 +332,7 @@
 		D268EED9225BE15D00247836 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D2E41B0723D74299002FFB4B /* ModalPresentable.swift */,
 				D268EEDA225BE17100247836 /* ViewModelNetworker.swift */,
 			);
 			path = Protocols;
@@ -363,6 +376,7 @@
 				D2E35F6B22529BF7000522E5 /* Models */,
 				D2E35F6A22529BEF000522E5 /* ViewControllers */,
 				D2E35F6922529BE9000522E5 /* Coordinators */,
+				D2E35F7E2252B461000522E5 /* Extensions */,
 				D2E35F7022529DBF000522E5 /* Utility */,
 				D268EED9225BE15D00247836 /* Protocols */,
 				D2E35F6522529AAE000522E5 /* ApplicationCoordinator.swift */,
@@ -438,11 +452,9 @@
 		D2E35F7022529DBF000522E5 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				D2E35F7E2252B461000522E5 /* Extensions */,
 				D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */,
 				D2E35F882252B78D000522E5 /* Style.swift */,
 				D2E35F8A2252B914000522E5 /* CustomButton.swift */,
-				D268EED2225BD96E00247836 /* AnimatedLoader.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -461,6 +473,9 @@
 				D2EC177322627A8100AF69F5 /* CollectionView+CellLoadableView.swift */,
 				D2EC17752262856900AF69F5 /* Notification+Name.swift */,
 				D229AF9723D241F100806E21 /* UIViewController+LoadingView.swift */,
+				D2E41B0B23D74360002FFB4B /* UIViewController+AlertView.swift */,
+				D2E41B0D23D743F2002FFB4B /* APIError+Message.swift */,
+				D2E41B0F23D744AB002FFB4B /* UIView+ShowModalView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -471,6 +486,15 @@
 				D2E35F862252B636000522E5 /* LandingViewController.swift */,
 			);
 			path = LandingViewController;
+			sourceTree = "<group>";
+		};
+		D2E41B1123D744F4002FFB4B /* ModalPresenter */ = {
+			isa = PBXGroup;
+			children = (
+				D2E41B0523D74265002FFB4B /* ModalPresenter.swift */,
+				D2E41B1223D74503002FFB4B /* ModalPresenterStyle.swift */,
+			);
+			path = ModalPresenter;
 			sourceTree = "<group>";
 		};
 		D2EC1769226270BD00AF69F5 /* SchoolSearchViewController */ = {
@@ -485,7 +509,9 @@
 		D2EC1770226279FC00AF69F5 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				D2E41B1123D744F4002FFB4B /* ModalPresenter */,
 				D2EC177122627A1C00AF69F5 /* SingleLineTextTableViewCell.swift */,
+				D2E41B0923D742DA002FFB4B /* AlertView.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -745,13 +771,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
+				D2E41B0A23D742DA002FFB4B /* AlertView.swift in Sources */,
 				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
+				D2E41B0E23D743F2002FFB4B /* APIError+Message.swift in Sources */,
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
 				D229AFA723D2449A00806E21 /* AccountRoleType.swift in Sources */,
 				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
 				D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */,
+				D2E41B1323D74503002FFB4B /* ModalPresenterStyle.swift in Sources */,
 				D229AFAD23D2450300806E21 /* SchoolSubscription.swift in Sources */,
 				D2EC177822637AED00AF69F5 /* HomeCoordinator.swift in Sources */,
 				D2E35FA12253BF90000522E5 /* UIColor+Hex.swift in Sources */,
@@ -761,6 +790,7 @@
 				D2F593E0225B875E0097ED4D /* Endpoint.swift in Sources */,
 				D229AF9F23D2443700806E21 /* SignInResponse.swift in Sources */,
 				D2EC176F2262785400AF69F5 /* School.swift in Sources */,
+				D2E41B1023D744AB002FFB4B /* UIView+ShowModalView.swift in Sources */,
 				D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */,
 				D2EC17762262856900AF69F5 /* Notification+Name.swift in Sources */,
 				D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */,
@@ -780,6 +810,7 @@
 				D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */,
 				D268EED8225BDFEE00247836 /* SignInViewModel.swift in Sources */,
 				D2F593D5225B875E0097ED4D /* APIError.swift in Sources */,
+				D2E41B0623D74265002FFB4B /* ModalPresenter.swift in Sources */,
 				D2EC176D2262711D00AF69F5 /* SchoolSearchViewModel.swift in Sources */,
 				D2F593DD225B875E0097ED4D /* NetworkRouter.swift in Sources */,
 				D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */,
@@ -788,7 +819,6 @@
 				D2E35F8F2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift in Sources */,
 				D2E35FA32253BFB5000522E5 /* String+SpecialCharacters.swift in Sources */,
 				D2F593D6225B875E0097ED4D /* HTTPTask.swift in Sources */,
-				D268EED3225BD96E00247836 /* AnimatedLoader.swift in Sources */,
 				D2F593B8225AAFA50097ED4D /* SignUpViewModel.swift in Sources */,
 				D2E35F6122529A8C000522E5 /* FlowCoordinator.swift in Sources */,
 				D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
@@ -803,12 +833,14 @@
 				D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */,
 				D229AFAF23D2454C00806E21 /* RemoteConfig.swift in Sources */,
 				D2F593DA225B875E0097ED4D /* Encodable+ToJsonData.swift in Sources */,
+				D2E41B0823D74299002FFB4B /* ModalPresentable.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
 				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,
 				D229AF9823D241F100806E21 /* UIViewController+LoadingView.swift in Sources */,
 				D2E35F802252B474000522E5 /* UIFont+CustomFonts.swift in Sources */,
 				D2C1FE70224E5B7000700E41 /* AppDelegate.swift in Sources */,
 				D2E35F892252B78D000522E5 /* Style.swift in Sources */,
+				D2E41B0C23D74360002FFB4B /* UIViewController+AlertView.swift in Sources */,
 				D229AFA523D2448500806E21 /* AccountGroup.swift in Sources */,
 				D2E35F6D22529C1F000522E5 /* TabBarCoordinator.swift in Sources */,
 				D2E35F6422529A8C000522E5 /* Presentable.swift in Sources */,

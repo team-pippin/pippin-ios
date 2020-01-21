@@ -13,7 +13,7 @@ public extension UIView {
     // MARK: Pinning to Superview
     
     /// Pin view to its superview.
-    public func pinToSuperview(padding: CGFloat = 0) {
+    func pinToSuperview(padding: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: padding).isActive = true
@@ -24,7 +24,7 @@ public extension UIView {
     }
     
     /// Pin view to superview margins
-    public func pinToMargins(padding: CGFloat = 0) {
+    func pinToMargins(padding: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(equalTo: superview.layoutMarginsGuide.leadingAnchor, constant: padding).isActive = true
@@ -35,7 +35,7 @@ public extension UIView {
     }
     
     /// Pin view to Safe Area
-    public func pinToSafeArea() {
+    func pinToSafeArea() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             if #available(iOS 11.0, *) {
@@ -52,7 +52,7 @@ public extension UIView {
         }
     }
     
-    public func pinToBottomSafeArea() {
+    func pinToBottomSafeArea() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             if #available(iOS 11.0, *) {
@@ -64,7 +64,7 @@ public extension UIView {
     }
     
     /// Pin view to superview center
-    public func pinToCenter() {
+    func pinToCenter() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
@@ -72,7 +72,7 @@ public extension UIView {
         }
     }
     
-    @discardableResult public func pinToHorizontalCenter(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToHorizontalCenter(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignHorizontalCenterToView(view: superview, constant: constant)
@@ -80,7 +80,7 @@ public extension UIView {
         return nil
     }
     
-    @discardableResult public func pinToVerticalCenter(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToVerticalCenter(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignVerticalCenterToView(view: superview, constant: constant)
@@ -89,7 +89,7 @@ public extension UIView {
     }
     
     /// Pins the view to the vertical center if superview is taller than view, else it sets the size of superview
-    public func pinToVerticalCenterOrFill() {
+    func pinToVerticalCenterOrFill() {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             alignVerticalCenterToView(view: superview)
@@ -99,7 +99,7 @@ public extension UIView {
     }
     
     /// Pin leading and trailing to superview margins
-    public func pinToLeadingAndTrailingMargins(constant: CGFloat = 0) {
+    func pinToLeadingAndTrailingMargins(constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(equalTo: superview.layoutMarginsGuide.leadingAnchor, constant: constant).isActive = true
@@ -108,7 +108,7 @@ public extension UIView {
     }
     
     /// Pin leading and trailing to superview
-    public func pinToLeadingAndTrailing(constant: CGFloat = 0) {
+    func pinToLeadingAndTrailing(constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: constant).isActive = true
@@ -117,7 +117,7 @@ public extension UIView {
     }
     
     /// Pin leading and trailing to superview
-    public func pinMinimumToLeadingAndTrailing(constant: CGFloat = 0) {
+    func pinMinimumToLeadingAndTrailing(constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             leadingAnchor.constraint(greaterThanOrEqualTo: superview.leadingAnchor, constant: constant).isActive = true
@@ -126,7 +126,7 @@ public extension UIView {
     }
     
     /// Pin leading to superview leading
-    @discardableResult public func pinToLeading(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToLeading(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignLeadingToView(view: superview, constant: constant)
@@ -135,7 +135,7 @@ public extension UIView {
     }
     
     /// Pin trailing to superview trailing
-    @discardableResult public func pinToTrailing(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToTrailing(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignTrailingToView(view: superview, constant: constant)
@@ -144,7 +144,7 @@ public extension UIView {
     }
     
     /// Pin leading to superview leading margin
-    @discardableResult public func pinToLeadingMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToLeadingMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let constraint = leadingAnchor.constraint(equalTo: superview.layoutMarginsGuide.leadingAnchor, constant: constant)
@@ -155,7 +155,7 @@ public extension UIView {
     }
     
     /// Pin trailing to superview trailing margin
-    @discardableResult public func pinToTrailingMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToTrailingMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let constraint = trailingAnchor.constraint(equalTo: superview.layoutMarginsGuide.trailingAnchor, constant: constant)
@@ -166,7 +166,7 @@ public extension UIView {
     }
     
     /// Pin view to top of superview
-    @discardableResult public func pinToTop(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToTop(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignTopToView(view: superview, constant: constant)
@@ -175,7 +175,7 @@ public extension UIView {
     }
     
     /// Pin view to bottom of superview
-    @discardableResult public func pinToBottom(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToBottom(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             return alignBottomToView(view: superview, constant: constant)
@@ -186,7 +186,7 @@ public extension UIView {
     // MARK: Pinning to views
     
     /// Pin reciever to target views horizontal center
-    @discardableResult public func alignHorizontalCenterToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignHorizontalCenterToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: constant)
         constraint.isActive = true
@@ -194,7 +194,7 @@ public extension UIView {
     }
     
     /// Pin reciever to target views vertical center
-    @discardableResult public func alignVerticalCenterToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignVerticalCenterToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant)
         constraint.isActive = true
@@ -202,7 +202,7 @@ public extension UIView {
     }
     
     /// Pin top of view to another view
-    @discardableResult public func alignTopToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignTopToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = topAnchor.constraint(equalTo: view.topAnchor, constant: constant)
         constraint.isActive = true
@@ -210,7 +210,7 @@ public extension UIView {
     }
     
     /// Pin view below another view
-    @discardableResult public func pinBelowView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinBelowView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = topAnchor.constraint(equalTo: view.bottomAnchor, constant: constant)
         constraint.isActive = true
@@ -218,7 +218,7 @@ public extension UIView {
     }
     
     /// Pin bottom of view to another view
-    @discardableResult public func alignBottomToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignBottomToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -constant)
         constraint.isActive = true
@@ -226,7 +226,7 @@ public extension UIView {
     }
     
     /// Pin view above another view
-    @discardableResult public func pinAboveView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinAboveView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = bottomAnchor.constraint(equalTo: view.topAnchor, constant: -constant)
         constraint.isActive = true
@@ -234,7 +234,7 @@ public extension UIView {
     }
     
     /// Align leading to another view
-    @discardableResult public func alignLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant)
         constraint.isActive = true
@@ -242,7 +242,7 @@ public extension UIView {
     }
     
     /// Pin leading to another view's trailing anchor
-    @discardableResult public func pinLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = leadingAnchor.constraint(equalTo: view.trailingAnchor, constant: constant)
         constraint.isActive = true
@@ -250,7 +250,7 @@ public extension UIView {
     }
     
     /// Pin leading to another view's trailing anchor
-    @discardableResult public func pinMinLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinMinLeadingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = leadingAnchor.constraint(greaterThanOrEqualTo: view.trailingAnchor, constant: constant)
         constraint.isActive = true
@@ -258,7 +258,7 @@ public extension UIView {
     }
     
     /// Align trailing to another view
-    @discardableResult public func alignTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func alignTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -constant)
         constraint.isActive = true
@@ -266,7 +266,7 @@ public extension UIView {
     }
     
     /// Pin trailing to another view's leading
-    @discardableResult public func pinTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -constant)
         constraint.isActive = true
@@ -274,7 +274,7 @@ public extension UIView {
     }
     
     /// Pin trailing to another view's leading
-    @discardableResult public func pinMaxTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinMaxTrailingToView(view: UIView, constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = trailingAnchor.constraint(lessThanOrEqualTo: view.leadingAnchor, constant: -constant)
         constraint.isActive = true
@@ -283,7 +283,7 @@ public extension UIView {
     
     //----------------------------------------
     
-    @discardableResult public func pinToBottomMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToBottomMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let bottomConstraint = bottomAnchor.constraint(equalTo: superview.layoutMarginsGuide.bottomAnchor, constant: constant)
@@ -293,7 +293,7 @@ public extension UIView {
         return nil
     }
     
-    @discardableResult public func pinToTopMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
+    @discardableResult func pinToTopMargin(constant: CGFloat = 0) -> NSLayoutConstraint? {
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
             let topconstraint = topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor, constant: constant)
@@ -303,7 +303,7 @@ public extension UIView {
         return nil
     }
     
-    public func setMargins(top: CGFloat = 0, leading: CGFloat = 0, bottom: CGFloat = 0, trailing: CGFloat = 0) {
+    func setMargins(top: CGFloat = 0, leading: CGFloat = 0, bottom: CGFloat = 0, trailing: CGFloat = 0) {
         if #available(iOS 11.0, *) {
             // Running iOS 11 OR NEWER
             directionalLayoutMargins = NSDirectionalEdgeInsets(top: top, leading: leading, bottom: bottom, trailing: trailing)
@@ -315,7 +315,7 @@ public extension UIView {
 }
 
 public extension UIViewController {
-    public func setSafeAreaInsets(insets: UIEdgeInsets) {
+    func setSafeAreaInsets(insets: UIEdgeInsets) {
         if #available(iOS 11.0, *) {
             self.additionalSafeAreaInsets = insets
         }

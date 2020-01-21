@@ -14,4 +14,14 @@ public enum NetworkEnvironment: Int {
     case staging = 3
     case development = 1
     case local = 0
+    
+    var name: String {
+        switch self {
+        case .qa: return "QA"
+        case .production: return "Production"
+        case .staging: return "Staging"
+        case .development: return "Develop"
+        case .local: return "Local"
+        }
+    }
 }

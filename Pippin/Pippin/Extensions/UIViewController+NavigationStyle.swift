@@ -26,7 +26,7 @@ class NavigationTitleView: UIView {
 public extension UIViewController {
     
     /// Sets a styled title header view in navigation bar.
-    public func setNavigationTitle(title: String?) {
+    func setNavigationTitle(title: String?) {
         if let title = title {
             let header = NavigationTitleView(frame: .zero)
             header.titleLabel.text = title
@@ -36,7 +36,7 @@ public extension UIViewController {
         }
     }
     
-    public func addRightNavigationLink(title: String, target: Any?, action: Selector?) {
+    func addRightNavigationLink(title: String, target: Any?, action: Selector?) {
         let button = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
         button.setTitleTextAttributes([NSAttributedString.Key.font : Style.Font.navigationButton], for: .normal)
         button.setTitleTextAttributes([NSAttributedString.Key.font : Style.Font.navigationButton], for: .selected)
@@ -45,7 +45,7 @@ public extension UIViewController {
         navigationItem.rightBarButtonItem = button
     }
     
-    public func addLeftNavigationLink(title: String, target: Any?, action: Selector?) {
+    func addLeftNavigationLink(title: String, target: Any?, action: Selector?) {
         let button = UIBarButtonItem(title: title, style: .plain, target: target, action: action)
         button.setTitleTextAttributes([NSAttributedString.Key.font : Style.Font.navigationButton], for: .normal)
         button.setTitleTextAttributes([NSAttributedString.Key.font : Style.Font.navigationButton], for: .selected)

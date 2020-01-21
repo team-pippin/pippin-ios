@@ -284,18 +284,18 @@ open class CustomButtonStyle {
 
 public extension CustomButtonStyle {
     /// Primary Style
-    public static var defaultPrimary: CustomButtonStyle {
+    static var defaultPrimary: CustomButtonStyle {
         return CustomButtonStyle()
     }
     
-    public static var formDefaultPrimary: CustomButtonStyle {
+    static var formDefaultPrimary: CustomButtonStyle {
         let style = CustomButtonStyle()
         style.cornerRadius = 0
         return style
     }
     
     /// Secondary Style
-    public static var defaultSecondary: CustomButtonStyle {
+    static var defaultSecondary: CustomButtonStyle {
         let style = CustomButtonStyle()
         
         style.buttonColor = Style.Color.secondaryAction
@@ -306,7 +306,7 @@ public extension CustomButtonStyle {
     }
     
     /// Dark Pill Style
-    public static var defaultPill: CustomButtonStyle {
+    static var defaultPill: CustomButtonStyle {
         let style = CustomButtonStyle()
         style.type = .pill
         style.buttonColor = Style.Color.secondaryAction
@@ -316,12 +316,11 @@ public extension CustomButtonStyle {
         return style
     }
     
-    public static var clear: CustomButtonStyle {
+    static var clear: CustomButtonStyle {
         let style = CustomButtonStyle()
         style.buttonColor = UIColor.clear
         style.shadow = nil
         
         return style
     }
-    
 }
