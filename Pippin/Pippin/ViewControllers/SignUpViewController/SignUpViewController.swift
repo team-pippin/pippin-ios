@@ -13,7 +13,7 @@ protocol SignUpViewControllerProtocol: Presentable {
     var onSignUpSuccessful: (() -> Void)? { get set }
 }
 
-class SignUpViewController: UIViewController, SignUpViewControllerProtocol, LoadingView {
+class SignUpViewController: UIViewController, SignUpViewControllerProtocol, LoadingView, NetworkingFailableView {
     
     // MARK: - Properties
     
@@ -173,8 +173,8 @@ class SignUpViewController: UIViewController, SignUpViewControllerProtocol, Load
             }
         }
         
-        viewModel.onNetworkingFailed = {
-//            AnimatedLoader.showFailureHud()
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
         }
         
         viewModel.onNetworkingSuccess = onSignUpSuccessful

@@ -69,7 +69,9 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
             }
             
             if let response = response as? HTTPURLResponse {
+                self?.buildPrintableResponseDescription(response, data)
                 let result = self?.handleNetworkResponse(response)
+                
                 switch result {
                 case .success?:
                     guard let responseData = data else {
@@ -77,8 +79,6 @@ public final class RocketNetworkManager<RocketApi: EndPointType> {
                         return
                     }
                     
-                    print("********************************************\n\(self?.jsonToString(data: responseData) ?? "")\n********************************************")
-
                     do {
                         //Decodes the data
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)

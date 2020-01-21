@@ -9,11 +9,17 @@
 import Foundation
 import SkyFloatingLabelTextField
 
-class AccountSchoolViewController: UIViewController, SchoolSearchViewControllerProtocol, LoadingView {
+protocol AccountSchoolViewControllerProtocol: Presentable {
+    var onDidSelectSchool: ((SchoolSearch) -> Void)? { get set }
+    var onTapAddNew: (() -> Void)? { get set }
+}
+
+class AccountSchoolViewController: UIViewController, AccountSchoolViewControllerProtocol, LoadingView, NetworkingFailableView {
     
     // MARK: - Properties
     
     var onDidSelectSchool: ((SchoolSearch) -> Void)?
+    var onTapAddNew: (() -> Void)?
     
     private var searchTextField: SkyFloatingLabelTextField = {
         let textField = SkyFloatingLabelTextField()
@@ -45,6 +51,7 @@ class AccountSchoolViewController: UIViewController, SchoolSearchViewControllerP
         
         title = "Your Schools"
         view.backgroundColor = Style.Color.lightBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(didTapAddNew))
         
         view.addSubview(searchTextField)
         searchTextField.pinToTop()
@@ -76,14 +83,18 @@ class AccountSchoolViewController: UIViewController, SchoolSearchViewControllerP
             self?.toggleLoadingView(isLoading)
         }
         
-        viewModel.onNetworkingFailed = {
-            // Show Failure
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
         }
         
         viewModel.requestSchools()
     }
     
     // MARK: - Actions
+    
+    @objc private func didTapAddNew() {
+        onTapAddNew?()
+    }
     
     @objc private func searchTextFieldTextChanged(_ textField: SkyFloatingLabelTextField) {
         viewModel.updateSearchFilter(with: textField.text)

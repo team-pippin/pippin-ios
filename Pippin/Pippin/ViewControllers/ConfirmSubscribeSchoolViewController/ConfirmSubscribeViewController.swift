@@ -12,7 +12,7 @@ protocol ConfirmSubscribeViewControllerProtocol: Presentable {
     var onDidSubscribeToSchool: (() -> Void)? { get set }
 }
 
-class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewControllerProtocol, LoadingView {
+class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewControllerProtocol, LoadingView, NetworkingFailableView {
     
     // MARK: - ConfirmSubscribeViewControllerProtocol
     
@@ -94,8 +94,8 @@ class ConfirmSubscribeViewController: UIViewController, ConfirmSubscribeViewCont
             self.toggleLoadingView(isLoading)
         }
         
-        viewModel.onNetworkingFailed = {
-//            AnimatedLoader.showFailureHud()
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
         }
         
         viewModel.onNetworkingSuccess = { [weak self] in

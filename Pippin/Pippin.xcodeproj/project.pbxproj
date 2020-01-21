@@ -37,6 +37,11 @@
 		D2C1FE85224E5B7200700E41 /* PippinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C1FE84224E5B7200700E41 /* PippinTests.swift */; };
 		D2D8659623D7618A00418752 /* AccountSchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659523D7618A00418752 /* AccountSchoolViewController.swift */; };
 		D2D8659823D7619200418752 /* AccountSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */; };
+		D2D8659A23D7911B00418752 /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659923D7911B00418752 /* EventsCoordinator.swift */; };
+		D2D8659C23D7913F00418752 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659B23D7913F00418752 /* NewsCoordinator.swift */; };
+		D2D8659F23D7917200418752 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659E23D7917200418752 /* NewsViewController.swift */; };
+		D2D865A123D7917A00418752 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A023D7917A00418752 /* NewsViewModel.swift */; };
+		D2D865A423D791D600418752 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A323D791D600418752 /* EventsViewController.swift */; };
 		D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */; };
 		D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5822529A8C000522E5 /* Coordinator.swift */; };
 		D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */; };
@@ -151,6 +156,11 @@
 		D2C1FE86224E5B7200700E41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2D8659523D7618A00418752 /* AccountSchoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSchoolViewController.swift; sourceTree = "<group>"; };
 		D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSchoolViewModel.swift; sourceTree = "<group>"; };
+		D2D8659923D7911B00418752 /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
+		D2D8659B23D7913F00418752 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		D2D8659E23D7917200418752 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		D2D865A023D7917A00418752 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		D2D865A323D791D600418752 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
 		D2E35F5822529A8C000522E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
@@ -383,7 +393,6 @@
 				D2E35F7E2252B461000522E5 /* Extensions */,
 				D2E35F7022529DBF000522E5 /* Utility */,
 				D268EED9225BE15D00247836 /* Protocols */,
-				D2E35F6522529AAE000522E5 /* ApplicationCoordinator.swift */,
 				D2C1FE7B224E5B7200700E41 /* Info.plist */,
 				D2C1FE76224E5B7200700E41 /* Assets.xcassets */,
 				D2C1FE78224E5B7200700E41 /* LaunchScreen.storyboard */,
@@ -407,6 +416,23 @@
 				D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */,
 			);
 			path = AccountSchoolPicker;
+			sourceTree = "<group>";
+		};
+		D2D8659D23D7916100418752 /* NewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2D8659E23D7917200418752 /* NewsViewController.swift */,
+				D2D865A023D7917A00418752 /* NewsViewModel.swift */,
+			);
+			path = NewsViewController;
+			sourceTree = "<group>";
+		};
+		D2D865A223D791C700418752 /* EventsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2D865A323D791D600418752 /* EventsViewController.swift */,
+			);
+			path = EventsViewController;
 			sourceTree = "<group>";
 		};
 		D2E35F5622529A47000522E5 /* NavigationFlowCoordinator */ = {
@@ -433,6 +459,9 @@
 				D2E35F8E2252BD59000522E5 /* SubscribeToSchoolCoordinator.swift */,
 				D2EC177722637AED00AF69F5 /* HomeCoordinator.swift */,
 				D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */,
+				D2D8659923D7911B00418752 /* EventsCoordinator.swift */,
+				D2D8659B23D7913F00418752 /* NewsCoordinator.swift */,
+				D2E35F6522529AAE000522E5 /* ApplicationCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -440,6 +469,8 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2D865A223D791C700418752 /* EventsViewController */,
+				D2D8659D23D7916100418752 /* NewsViewController */,
 				D2D8659423D7617300418752 /* AccountSchoolPicker */,
 				D21FC239226908AC00D41AF0 /* HomeViewController */,
 				D21FC2362269088700D41AF0 /* SettingsViewController */,
@@ -793,6 +824,7 @@
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
+				D2D865A123D7917A00418752 /* NewsViewModel.swift in Sources */,
 				D229AFA723D2449A00806E21 /* AccountRoleType.swift in Sources */,
 				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
 				D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */,
@@ -817,6 +849,7 @@
 				D2F593B6225AAF1B0097ED4D /* SignUpViewController.swift in Sources */,
 				D2F593D9225B875E0097ED4D /* Result.swift in Sources */,
 				D2BC0A1922637BF6000EF9AB /* ConfirmSubscribeViewController.swift in Sources */,
+				D2D865A423D791D600418752 /* EventsViewController.swift in Sources */,
 				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,
 				D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */,
 				D2EC177422627A8100AF69F5 /* CollectionView+CellLoadableView.swift in Sources */,
@@ -849,6 +882,7 @@
 				D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */,
 				D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */,
 				D229AFAF23D2454C00806E21 /* RemoteConfig.swift in Sources */,
+				D2D8659F23D7917200418752 /* NewsViewController.swift in Sources */,
 				D2F593DA225B875E0097ED4D /* Encodable+ToJsonData.swift in Sources */,
 				D2E41B0823D74299002FFB4B /* ModalPresentable.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
@@ -863,10 +897,12 @@
 				D2E35F6422529A8C000522E5 /* Presentable.swift in Sources */,
 				D229AFA123D2446100806E21 /* SignInRequest.swift in Sources */,
 				D2BC0A1F226388C6000EF9AB /* APIConstants.swift in Sources */,
+				D2D8659C23D7913F00418752 /* NewsCoordinator.swift in Sources */,
 				D2F593BA225AB1070097ED4D /* Account.swift in Sources */,
 				D2D8659623D7618A00418752 /* AccountSchoolViewController.swift in Sources */,
 				D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */,
 				D2BC0A1D2263879E000EF9AB /* MessageApi.swift in Sources */,
+				D2D8659A23D7911B00418752 /* EventsCoordinator.swift in Sources */,
 				D229AFAB23D244E000806E21 /* SchoolSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

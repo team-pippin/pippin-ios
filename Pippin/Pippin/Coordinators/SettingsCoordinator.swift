@@ -21,11 +21,25 @@ final class SettingsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     }
     
     private var settingsViewController: SettingsViewControllerProtocol?
+    private var accountSchoolViewController: AccountSchoolViewControllerProtocol?
     
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
         return createSettingsViewController()
+    }
+    
+    override func handle(flowEvent: FlowEvent) -> Bool {
+        guard let event = flowEvent as? FlowEventType else { return false }
+        
+        switch event {
+        case .didSubscribeToSchool:
+            popToNavigationRoot()
+            return true
+            
+        default:
+            return false
+        }
     }
     
     // MARK: - Private Methods
@@ -48,31 +62,39 @@ final class SettingsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
             showSchoolPicker()
             
         case .logout:
-            handleLogout()
+            showLogoutAlert()
             
-        @unknown default:
+        case .accountInfo:
+            print(UserDefaultsManager.currentAccount)
+            
+        default:
             break
         }
     }
     
     private func showSchoolPicker() {
-        let schoolPicker = AccountSchoolViewController()
+        accountSchoolViewController = AccountSchoolViewController()
         
-        schoolPicker.onDidSelectSchool = { [weak self] _ in
+        accountSchoolViewController?.onDidSelectSchool = { [weak self] _ in
             self?.popToNavigationRoot()
         }
         
-        push(viewController: schoolPicker)
+        accountSchoolViewController?.onTapAddNew = { [weak self] in
+            self?.start(childCoordinator: SubscribeToSchoolCoordinator(), with: .push, animated: true)
+        }
+        
+        guard let controller = accountSchoolViewController?.toPresent() else { return }
+        push(viewController: controller)
     }
     
     private func showLogoutAlert() {
         let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out of your account?", preferredStyle: .alert)
 
-        let handler = { action in
-            
+        let handler: (UIAlertAction) -> Void = { [weak self] _ in
+            self?.handleLogout()
         }
         
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: handler))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 
         navigationController.topViewController?.present(alert, animated: true, completion: nil)

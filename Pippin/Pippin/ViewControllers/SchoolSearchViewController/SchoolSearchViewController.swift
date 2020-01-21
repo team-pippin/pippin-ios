@@ -13,7 +13,7 @@ protocol SchoolSearchViewControllerProtocol: Presentable {
     var onDidSelectSchool: ((SchoolSearch) -> Void)? { get set }
 }
 
-class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerProtocol, LoadingView {
+class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerProtocol, LoadingView, NetworkingFailableView {
     
     // MARK: - Properties
     
@@ -47,7 +47,7 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Find your school"
+        title = "Find your School"
         view.backgroundColor = Style.Color.lightBackground
         
         view.addSubview(searchTextField)
@@ -80,8 +80,8 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
             self?.toggleLoadingView(isLoading)
         }
         
-        viewModel.onNetworkingFailed = {
-            // Show Failure
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
         }
         
         viewModel.requestSchools()

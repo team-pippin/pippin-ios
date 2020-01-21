@@ -51,21 +51,28 @@ class ConfirmSubscribeViewModel: ConfirmSubscribeViewModelProtocol {
         let endpoint = PippinAPI.subscribeToSchool(accountId: UserDefaultsManager.currentAccount?.id ?? "", schools: model)
         
         networkingManager.request(for: endpoint, Account.self) { [weak self] result in
-            self?.onIsLoading?(false)
-            
-            switch result {
-            case .success(let account):
-                UserDefaultsManager.currentAccount = account
-                self?.onNetworkingSuccess?()
-                
-            case .error(let error):
-                if error == .unauthorized {
-                    self?.handleUnauthorized()
-                }
-                
-                print(error.localizedDescription)
-                self?.onNetworkingFailed?()
+            DispatchQueue.main.async {
+                self?.handleApiResult(result)
             }
+        }
+    }
+    
+    private func handleApiResult(_ result: Result<Account, APIError>) {
+        onIsLoading?(false)
+        
+        switch result {
+        case .success(let account):
+            UserDefaultsManager.currentAccount = account
+            onNetworkingSuccess?()
+            
+        case .error(let error):
+            if error == .unauthorized {
+                handleUnauthorized()
+                return
+            }
+            
+            print(error.localizedDescription)
+            onNetworkingFailed?()
         }
     }
 }

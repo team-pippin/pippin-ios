@@ -15,7 +15,9 @@ protocol NetworkingFailableView {
 extension NetworkingFailableView where Self: UIViewController {
     
     func showErrorView(error: ErrorMessageable) {
-        let alert = AlertView(content: AlertViewContent(alert: error.message), style: .standardStyle)
-        view.showModalView(view: alert, allowUserToDismiss: true)
+        DispatchQueue.main.async {
+            let alert = AlertView(content: AlertViewContent(alert: error.message), style: .standardStyle)
+            self.view.showModalView(view: alert, allowUserToDismiss: true)
+        }
     }
 }
