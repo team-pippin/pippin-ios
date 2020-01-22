@@ -20,7 +20,7 @@ final class EventsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
         return mainViewController?.navigationController
     }
     
-    private var eventsViewController: EventsViewControllerProtocol?
+    private var eventsViewController: EventListViewControllerProtocol?
     
     // MARK: - Methods
     
@@ -31,9 +31,18 @@ final class EventsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     // MARK: - Private Methods
     
     private func createHomeViewController() -> UIViewController? {
-        eventsViewController = EventsViewController()
+        eventsViewController = EventListViewController()
+        
+        eventsViewController?.onSelectEvent = { [weak self] eventId in
+            self?.showEventViewController(for: eventId)
+        }
+        
         guard let controller = eventsViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller
+    }
+    
+    private func showEventViewController(for eventId: String) {
+        
     }
 }

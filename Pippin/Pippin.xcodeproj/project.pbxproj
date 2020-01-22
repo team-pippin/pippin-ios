@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		334F65B7D9646750C26A34EE /* Pods_PippinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */; };
+		D21BCBF823D7A46E00363C17 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCBF723D7A46E00363C17 /* EventViewController.swift */; };
+		D21BCBFB23D7A84500363C17 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21BCBFA23D7A84500363C17 /* NewsViewController.swift */; };
 		D21FC2352269088200D41AF0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2342269088200D41AF0 /* SettingsViewController.swift */; };
 		D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */; };
 		D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23A226908B700D41AF0 /* HomeViewController.swift */; };
@@ -39,9 +41,9 @@
 		D2D8659823D7619200418752 /* AccountSchoolViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */; };
 		D2D8659A23D7911B00418752 /* EventsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659923D7911B00418752 /* EventsCoordinator.swift */; };
 		D2D8659C23D7913F00418752 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659B23D7913F00418752 /* NewsCoordinator.swift */; };
-		D2D8659F23D7917200418752 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659E23D7917200418752 /* NewsViewController.swift */; };
-		D2D865A123D7917A00418752 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A023D7917A00418752 /* NewsViewModel.swift */; };
-		D2D865A423D791D600418752 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A323D791D600418752 /* EventsViewController.swift */; };
+		D2D8659F23D7917200418752 /* NewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8659E23D7917200418752 /* NewsListViewController.swift */; };
+		D2D865A123D7917A00418752 /* NewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A023D7917A00418752 /* NewsListViewModel.swift */; };
+		D2D865A423D791D600418752 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D865A323D791D600418752 /* EventListViewController.swift */; };
 		D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */; };
 		D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5822529A8C000522E5 /* Coordinator.swift */; };
 		D2E35F6022529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */; };
@@ -124,6 +126,8 @@
 		8040F415110200638A9576C8 /* Pods-Pippin.production-release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pippin.production-release.xcconfig"; path = "Pods/Target Support Files/Pods-Pippin/Pods-Pippin.production-release.xcconfig"; sourceTree = "<group>"; };
 		95D2D558444152DA9DCA1D5B /* Pods_Pippin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pippin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PippinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D21BCBF723D7A46E00363C17 /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		D21BCBFA23D7A84500363C17 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D21FC2342269088200D41AF0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D21FC2372269089C00D41AF0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D21FC23A226908B700D41AF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -158,9 +162,9 @@
 		D2D8659723D7619200418752 /* AccountSchoolViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSchoolViewModel.swift; sourceTree = "<group>"; };
 		D2D8659923D7911B00418752 /* EventsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCoordinator.swift; sourceTree = "<group>"; };
 		D2D8659B23D7913F00418752 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
-		D2D8659E23D7917200418752 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		D2D865A023D7917A00418752 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
-		D2D865A323D791D600418752 /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		D2D8659E23D7917200418752 /* NewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewController.swift; sourceTree = "<group>"; };
+		D2D865A023D7917A00418752 /* NewsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListViewModel.swift; sourceTree = "<group>"; };
+		D2D865A323D791D600418752 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		D2E35F5722529A8C000522E5 /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
 		D2E35F5822529A8C000522E5 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		D2E35F5922529A8C000522E5 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
@@ -251,6 +255,22 @@
 				CB3ABBDDFA67F43127F7D3AC /* Pods_PippinTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D21BCBF623D7A45F00363C17 /* EventViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21BCBF723D7A46E00363C17 /* EventViewController.swift */,
+			);
+			path = EventViewController;
+			sourceTree = "<group>";
+		};
+		D21BCBF923D7A83400363C17 /* NewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D21BCBFA23D7A84500363C17 /* NewsViewController.swift */,
+			);
+			path = NewsViewController;
 			sourceTree = "<group>";
 		};
 		D21FC2362269088700D41AF0 /* SettingsViewController */ = {
@@ -418,21 +438,21 @@
 			path = AccountSchoolPicker;
 			sourceTree = "<group>";
 		};
-		D2D8659D23D7916100418752 /* NewsViewController */ = {
+		D2D8659D23D7916100418752 /* NewsListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D2D8659E23D7917200418752 /* NewsViewController.swift */,
-				D2D865A023D7917A00418752 /* NewsViewModel.swift */,
+				D2D8659E23D7917200418752 /* NewsListViewController.swift */,
+				D2D865A023D7917A00418752 /* NewsListViewModel.swift */,
 			);
-			path = NewsViewController;
+			path = NewsListViewController;
 			sourceTree = "<group>";
 		};
-		D2D865A223D791C700418752 /* EventsViewController */ = {
+		D2D865A223D791C700418752 /* EventListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D2D865A323D791D600418752 /* EventsViewController.swift */,
+				D2D865A323D791D600418752 /* EventListViewController.swift */,
 			);
-			path = EventsViewController;
+			path = EventListViewController;
 			sourceTree = "<group>";
 		};
 		D2E35F5622529A47000522E5 /* NavigationFlowCoordinator */ = {
@@ -469,8 +489,10 @@
 		D2E35F6A22529BEF000522E5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				D2D865A223D791C700418752 /* EventsViewController */,
-				D2D8659D23D7916100418752 /* NewsViewController */,
+				D21BCBF923D7A83400363C17 /* NewsViewController */,
+				D21BCBF623D7A45F00363C17 /* EventViewController */,
+				D2D865A223D791C700418752 /* EventListViewController */,
+				D2D8659D23D7916100418752 /* NewsListViewController */,
 				D2D8659423D7617300418752 /* AccountSchoolPicker */,
 				D21FC239226908AC00D41AF0 /* HomeViewController */,
 				D21FC2362269088700D41AF0 /* SettingsViewController */,
@@ -817,6 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D21BCBFB23D7A84500363C17 /* NewsViewController.swift in Sources */,
 				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
 				D2E41B0A23D742DA002FFB4B /* AlertView.swift in Sources */,
 				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
@@ -824,7 +847,7 @@
 				D2E35F6F22529C46000522E5 /* TabCoordinatable.swift in Sources */,
 				D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */,
 				D2E35F6222529A8C000522E5 /* FlowEvent.swift in Sources */,
-				D2D865A123D7917A00418752 /* NewsViewModel.swift in Sources */,
+				D2D865A123D7917A00418752 /* NewsListViewModel.swift in Sources */,
 				D229AFA723D2449A00806E21 /* AccountRoleType.swift in Sources */,
 				D2F593E4225B89CB0097ED4D /* AppDelegate+Configuration.swift in Sources */,
 				D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */,
@@ -849,7 +872,7 @@
 				D2F593B6225AAF1B0097ED4D /* SignUpViewController.swift in Sources */,
 				D2F593D9225B875E0097ED4D /* Result.swift in Sources */,
 				D2BC0A1922637BF6000EF9AB /* ConfirmSubscribeViewController.swift in Sources */,
-				D2D865A423D791D600418752 /* EventsViewController.swift in Sources */,
+				D2D865A423D791D600418752 /* EventListViewController.swift in Sources */,
 				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,
 				D2E35F7222529DE5000522E5 /* UserDefaultsManager.swift in Sources */,
 				D2EC177422627A8100AF69F5 /* CollectionView+CellLoadableView.swift in Sources */,
@@ -862,6 +885,7 @@
 				D2F593D5225B875E0097ED4D /* APIError.swift in Sources */,
 				D2E41B0623D74265002FFB4B /* ModalPresenter.swift in Sources */,
 				D2EC176D2262711D00AF69F5 /* SchoolSearchViewModel.swift in Sources */,
+				D21BCBF823D7A46E00363C17 /* EventViewController.swift in Sources */,
 				D2F593DD225B875E0097ED4D /* NetworkRouter.swift in Sources */,
 				D2E35F5F22529A8C000522E5 /* Coordinator.swift in Sources */,
 				D2E35F5E22529A8C000522E5 /* CoordinatorsTracker.swift in Sources */,
@@ -882,7 +906,7 @@
 				D2F593D3225B875E0097ED4D /* JSONParameterEncoder.swift in Sources */,
 				D21FC2382269089C00D41AF0 /* SettingsViewModel.swift in Sources */,
 				D229AFAF23D2454C00806E21 /* RemoteConfig.swift in Sources */,
-				D2D8659F23D7917200418752 /* NewsViewController.swift in Sources */,
+				D2D8659F23D7917200418752 /* NewsListViewController.swift in Sources */,
 				D2F593DA225B875E0097ED4D /* Encodable+ToJsonData.swift in Sources */,
 				D2E41B0823D74299002FFB4B /* ModalPresentable.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,

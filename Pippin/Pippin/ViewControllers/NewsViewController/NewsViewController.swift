@@ -8,21 +8,10 @@
 
 import UIKit
 
-protocol NewsViewControllerProtocol: Presentable {
+protocol NewsViewControllerProtocol: Presentable, LoadingView, NetworkingFailableView {
     
 }
 
-class NewsViewController: UIViewController, NewsViewControllerProtocol, NetworkingFailableView {
-    
-    // MARK: - Properties
-    
-    // MARK: - Life Cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "News"
-        view.backgroundColor = .red
-    }
+class NewsViewController: UIViewController, NewsViewControllerProtocol {
     
 }

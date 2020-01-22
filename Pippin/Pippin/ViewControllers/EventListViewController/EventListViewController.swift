@@ -8,13 +8,15 @@
 
 import UIKit
 
-protocol EventsViewControllerProtocol: Presentable {
-    
+protocol EventListViewControllerProtocol: Presentable, LoadingView, NetworkingFailableView {
+    var onSelectEvent: ((String) -> Void)? { get set }
 }
 
-class EventsViewController: UIViewController, EventsViewControllerProtocol, NetworkingFailableView {
+class EventListViewController: UIViewController, EventListViewControllerProtocol {
     
     // MARK: - Properties
+    
+    var onSelectEvent: ((String) -> Void)?
     
     // MARK: - Life Cycle
     

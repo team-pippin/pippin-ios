@@ -1,5 +1,5 @@
 //
-//  NewsViewModel.swift
+//  NewsListViewModel.swift
 //  Pippin
 //
 //  Created by Will Brandin on 1/21/20.

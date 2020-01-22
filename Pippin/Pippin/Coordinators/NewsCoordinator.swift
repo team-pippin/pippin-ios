@@ -20,20 +20,29 @@ final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
         return mainViewController?.navigationController
     }
     
-    private var newsViewController: NewsViewControllerProtocol?
+    private var newsViewController: NewsListViewControllerProtocol?
     
     // MARK: - Methods
     
     override func createMainViewController() -> UIViewController? {
-        return createHomeViewController()
+        return createNewsListViewController()
     }
     
     // MARK: - Private Methods
     
-    private func createHomeViewController() -> UIViewController? {
-        newsViewController = NewsViewController()
+    private func createNewsListViewController() -> UIViewController? {
+        newsViewController = NewsListViewController()
+        
+        newsViewController?.onSelectArticle = { [weak self] articleId in
+            self?.showNewsViewController(for: articleId)
+        }
+        
         guard let controller = newsViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller
+    }
+    
+    private func showNewsViewController(for articleId: String) {
+        
     }
 }
