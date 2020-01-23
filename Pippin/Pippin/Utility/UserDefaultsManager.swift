@@ -14,14 +14,37 @@ class UserDefaultsManager {
     
     private static let signedInAccountTokenKey = "signedInAccountTokenKey"
     private static let signedInAccountKey = "signedInAccountKey"
-    
+    private static let activeSchoolIdKey = "activeSchoolIdKey"
+
     // MARK: - Account Default Values
+    
+    static var activeSchoolId: String? {
+        get {
+            guard let value = UserDefaults.standard.string(forKey: activeSchoolIdKey), !value.isEmpty else {
+                return nil
+            }
+            
+            return value
+        }
+        set {
+            if let value = UserDefaults.standard.string(forKey: activeSchoolIdKey) {
+                if newValue != value {
+                    UserDefaults.standard.set(newValue, forKey: activeSchoolIdKey)
+                    NotificationCenter.default.post(name: .schoolChanged, object: nil)
+                }
+            } else {
+                UserDefaults.standard.set(newValue, forKey: activeSchoolIdKey)
+                NotificationCenter.default.post(name: .schoolChanged, object: nil)
+            }
+        }
+    }
     
     static var signedInAccountToken: String? {
         get {
             guard let value = UserDefaults.standard.string(forKey: signedInAccountTokenKey), !value.isEmpty else {
                 return nil
             }
+            
             return value
         }
         set {

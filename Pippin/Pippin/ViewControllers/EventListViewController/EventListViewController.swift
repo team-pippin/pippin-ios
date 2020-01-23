@@ -18,6 +18,19 @@ class EventListViewController: UIViewController, EventListViewControllerProtocol
     
     var onSelectEvent: ((String) -> Void)?
     
+    private var viewModel: EventListViewModelProtocol
+    
+    // MARK: - Initializer
+    
+    init(viewModel: EventListViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -25,6 +38,24 @@ class EventListViewController: UIViewController, EventListViewControllerProtocol
         
         title = "Events"
         view.backgroundColor = .blue
+        subscribeToViewModel()
     }
     
+    // MARK: - Private Methods
+    
+    private func subscribeToViewModel() {
+        viewModel.onStateChanged = {
+            // LOAD HOME
+        }
+        
+        viewModel.onIsLoading = { [weak self] isLoading in
+            self?.toggleLoadingView(isLoading)
+        }
+        
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
+        }
+                
+        viewModel.requestData()
+    }
 }

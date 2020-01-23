@@ -28,5 +28,33 @@ struct APIConstants {
     struct School {
         static let schools = "schools"
         static let schoolSubscriptions = "school-subscriptions"
+        
+        static func school(with id: String) -> String {
+            return schools + "/" + id
+        }
+    }
+    
+    struct News {
+        static let articles = "articles"
+        
+        static func schoolNews(with schoolId: String) -> String {
+            return School.school(with: schoolId) + "/" + articles
+        }
+        
+        static func schoolNewsArticle(from schoolId: String, with articleId: String) -> String {
+            return schoolNews(with: schoolId) + "/" + articleId
+        }
+    }
+    
+    struct Events {
+        static let events = "events"
+        
+        static func schoolEvents(with schoolId: String) -> String {
+            return School.school(with: schoolId) + "/" + events
+        }
+        
+        static func schoolEventL(from schoolId: String, with eventId: String) -> String {
+            return schoolEvents(with: schoolId) + "/" + eventId
+        }
     }
 }

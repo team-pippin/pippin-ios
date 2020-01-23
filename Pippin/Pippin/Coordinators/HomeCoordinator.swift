@@ -31,7 +31,12 @@ final class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     // MARK: - Private Methods
     
     private func createHomeViewController() -> UIViewController? {
-        homeViewController = HomeViewController()
+        guard let viewModel = HomeViewModel() else {
+            print("Could not initialize HomeViewModel")
+            return nil
+        }
+        
+        homeViewController = HomeViewController(viewModel: viewModel)
         guard let controller = homeViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller

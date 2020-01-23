@@ -10,5 +10,6 @@ import Foundation
 
 extension Notification.Name {
     static let unauthorized = Notification.Name("unauthorized")
+    static let schoolChanged = Notification.Name("school-changed")
     static let logout = Notification.Name("logout")
 }

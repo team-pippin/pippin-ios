@@ -31,7 +31,12 @@ final class EventsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     // MARK: - Private Methods
     
     private func createHomeViewController() -> UIViewController? {
-        eventsViewController = EventListViewController()
+        guard let viewModel = EventListViewModel() else {
+            print("Could not initialize EventListViewModel")
+            return nil
+        }
+        
+        eventsViewController = EventListViewController(viewModel: viewModel)
         
         eventsViewController?.onSelectEvent = { [weak self] eventId in
             self?.showEventViewController(for: eventId)

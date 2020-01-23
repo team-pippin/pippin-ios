@@ -18,6 +18,19 @@ class NewsListViewController: UIViewController, NewsListViewControllerProtocol {
     
     var onSelectArticle: ((String) -> Void)?
     
+    private var viewModel: NewsListViewModelProtocol
+    
+    // MARK: - Initializer
+    
+    init(viewModel: NewsListViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -25,6 +38,24 @@ class NewsListViewController: UIViewController, NewsListViewControllerProtocol {
         
         title = "News"
         view.backgroundColor = .red
+        subscribeToViewModel()
     }
     
+    // MARK: - Private Methods
+    
+    private func subscribeToViewModel() {
+        viewModel.onStateChanged = {
+            // LOAD HOME
+        }
+        
+        viewModel.onIsLoading = { [weak self] isLoading in
+            self?.toggleLoadingView(isLoading)
+        }
+        
+        viewModel.onNetworkingFailed = { [weak self] in
+            self?.showErrorView(error: APIError.requestFailed)
+        }
+                
+        viewModel.requestData()
+    }
 }

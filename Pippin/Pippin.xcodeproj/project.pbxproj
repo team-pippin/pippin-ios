@@ -15,6 +15,11 @@
 		D21FC23B226908B700D41AF0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23A226908B700D41AF0 /* HomeViewController.swift */; };
 		D21FC23D226908C000D41AF0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23C226908C000D41AF0 /* HomeViewModel.swift */; };
 		D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */; };
+		D225514B23D91EE2005A025D /* SchoolIdObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225514A23D91EE2005A025D /* SchoolIdObservable.swift */; };
+		D225514D23D91F9F005A025D /* SchoolIdObservableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225514C23D91F9F005A025D /* SchoolIdObservableViewModel.swift */; };
+		D225514F23D922B1005A025D /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225514E23D922B1005A025D /* EventListViewModel.swift */; };
+		D225515223D92BCB005A025D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515123D92BCB005A025D /* Article.swift */; };
+		D225515523D92C7F005A025D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515423D92C7F005A025D /* Event.swift */; };
 		D229AF9823D241F100806E21 /* UIViewController+LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9723D241F100806E21 /* UIViewController+LoadingView.swift */; };
 		D229AF9D23D2441F00806E21 /* AccountSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9C23D2441F00806E21 /* AccountSignUp.swift */; };
 		D229AF9F23D2443700806E21 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9E23D2443700806E21 /* SignInResponse.swift */; };
@@ -133,6 +138,11 @@
 		D21FC23A226908B700D41AF0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D21FC23C226908C000D41AF0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D21FC23E2269095000D41AF0 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		D225514A23D91EE2005A025D /* SchoolIdObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolIdObservable.swift; sourceTree = "<group>"; };
+		D225514C23D91F9F005A025D /* SchoolIdObservableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolIdObservableViewModel.swift; sourceTree = "<group>"; };
+		D225514E23D922B1005A025D /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
+		D225515123D92BCB005A025D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		D225515423D92C7F005A025D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		D229AF9723D241F100806E21 /* UIViewController+LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingView.swift"; sourceTree = "<group>"; };
 		D229AF9C23D2441F00806E21 /* AccountSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSignUp.swift; sourceTree = "<group>"; };
 		D229AF9E23D2443700806E21 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
@@ -291,6 +301,22 @@
 			path = HomeViewController;
 			sourceTree = "<group>";
 		};
+		D225515023D92BC0005A025D /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				D225515123D92BCB005A025D /* Article.swift */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		D225515323D92C77005A025D /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				D225515423D92C7F005A025D /* Event.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		D229AF9923D243C200806E21 /* Pippin */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +394,7 @@
 			children = (
 				D2E41B0723D74299002FFB4B /* ModalPresentable.swift */,
 				D268EEDA225BE17100247836 /* ViewModelNetworker.swift */,
+				D225514A23D91EE2005A025D /* SchoolIdObservable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -451,6 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				D2D865A323D791D600418752 /* EventListViewController.swift */,
+				D225514E23D922B1005A025D /* EventListViewModel.swift */,
 			);
 			path = EventListViewController;
 			sourceTree = "<group>";
@@ -508,6 +536,8 @@
 		D2E35F6B22529BF7000522E5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D225515323D92C77005A025D /* Event */,
+				D225515023D92BC0005A025D /* Article */,
 				D229AFA923D244B700806E21 /* ApiUtility */,
 				D229AFA823D244AA00806E21 /* School */,
 				D229AF9B23D2441000806E21 /* Account */,
@@ -522,6 +552,7 @@
 				D2E35F7122529DE5000522E5 /* UserDefaultsManager.swift */,
 				D2E35F882252B78D000522E5 /* Style.swift */,
 				D2E35F8A2252B914000522E5 /* CustomButton.swift */,
+				D225514C23D91F9F005A025D /* SchoolIdObservableViewModel.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -865,6 +896,8 @@
 				D2E41B1023D744AB002FFB4B /* UIView+ShowModalView.swift in Sources */,
 				D21FC23F2269095000D41AF0 /* SettingsCoordinator.swift in Sources */,
 				D2EC17762262856900AF69F5 /* Notification+Name.swift in Sources */,
+				D225515523D92C7F005A025D /* Event.swift in Sources */,
+				D225515223D92BCB005A025D /* Article.swift in Sources */,
 				D2F593D7225B875E0097ED4D /* NetworkResponseResult.swift in Sources */,
 				D2F593BC225AB6B80097ED4D /* UIView+Frame.swift in Sources */,
 				D2BC0A1B22637C04000EF9AB /* ConfirmSubscribeViewModel.swift in Sources */,
@@ -910,7 +943,9 @@
 				D2F593DA225B875E0097ED4D /* Encodable+ToJsonData.swift in Sources */,
 				D2E41B0823D74299002FFB4B /* ModalPresentable.swift in Sources */,
 				D2E35F6322529A8C000522E5 /* NavigationFlowCoordinator.swift in Sources */,
+				D225514B23D91EE2005A025D /* SchoolIdObservable.swift in Sources */,
 				D2E35F8D2252B972000522E5 /* UIView+Shadow.swift in Sources */,
+				D225514D23D91F9F005A025D /* SchoolIdObservableViewModel.swift in Sources */,
 				D229AF9823D241F100806E21 /* UIViewController+LoadingView.swift in Sources */,
 				D2E35F802252B474000522E5 /* UIFont+CustomFonts.swift in Sources */,
 				D2C1FE70224E5B7000700E41 /* AppDelegate.swift in Sources */,
@@ -922,6 +957,7 @@
 				D229AFA123D2446100806E21 /* SignInRequest.swift in Sources */,
 				D2BC0A1F226388C6000EF9AB /* APIConstants.swift in Sources */,
 				D2D8659C23D7913F00418752 /* NewsCoordinator.swift in Sources */,
+				D225514F23D922B1005A025D /* EventListViewModel.swift in Sources */,
 				D2F593BA225AB1070097ED4D /* Account.swift in Sources */,
 				D2D8659623D7618A00418752 /* AccountSchoolViewController.swift in Sources */,
 				D2E35F932253A610000522E5 /* UIViewController+NavigationStyle.swift in Sources */,

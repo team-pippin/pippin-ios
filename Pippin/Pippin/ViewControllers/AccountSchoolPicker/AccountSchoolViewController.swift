@@ -87,6 +87,8 @@ class AccountSchoolViewController: UIViewController, AccountSchoolViewController
             self?.showErrorView(error: APIError.requestFailed)
         }
         
+        viewModel.onSelectSchool = onDidSelectSchool
+        
         viewModel.requestSchools()
     }
     
@@ -117,12 +119,7 @@ extension AccountSchoolViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let school = viewModel.getSelectedSchool(at: indexPath) else {
-            print("Could not select school with index path \(indexPath)")
-            return
-        }
-        
-        onDidSelectSchool?(school)
+        viewModel.didSelectRow(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

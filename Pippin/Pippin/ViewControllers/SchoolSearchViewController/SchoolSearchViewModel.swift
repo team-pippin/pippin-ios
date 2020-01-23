@@ -10,6 +10,7 @@ import UIKit
 
 protocol SchoolSearchViewModelProtocol: ViewModelNetworker {
     var onStateChange: (() -> Void)? { get set }
+    var onSelectSchool: ((SchoolSearch) -> Void)? { get set }
     
     var numberOfRows: Int { get }
     var numberOfSections: Int { get }
@@ -17,7 +18,7 @@ protocol SchoolSearchViewModelProtocol: ViewModelNetworker {
     func requestSchools()
     func updateSearchFilter(with text: String?)
     func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
-    func getSelectedSchool(at indexPath: IndexPath) -> SchoolSearch?
+    func didSelectRow(at indexPath: IndexPath)
 }
 
 class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
@@ -25,6 +26,7 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     // MARK: - Properties
     
     var onStateChange: (() -> Void)?
+    var onSelectSchool: ((SchoolSearch) -> Void)?
     
     var numberOfRows: Int {
         return filteredSchools?.count ?? 0
@@ -98,7 +100,11 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
         return cell
     }
     
-    func getSelectedSchool(at indexPath: IndexPath) -> SchoolSearch? {
-        return filteredSchools?[indexPath.row]
+    func didSelectRow(at indexPath: IndexPath) {
+        guard let selected = filteredSchools?[indexPath.row] else {
+            return
+        }
+        
+        onSelectSchool?(selected)
     }
 }

@@ -13,6 +13,7 @@ class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
     // MARK: - Properties
     
     var onStateChange: (() -> Void)?
+    var onSelectSchool: ((SchoolSearch) -> Void)?
     
     var numberOfRows: Int {
         return filteredSchools?.count ?? 0
@@ -41,8 +42,6 @@ class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
             onStateChange?()
         }
     }
-    
-    // mutable data source that when changed, table view is refreshed.
     
     // MARK: - ViewModelNetworker
     
@@ -90,7 +89,12 @@ class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
         return cell
     }
     
-    func getSelectedSchool(at indexPath: IndexPath) -> SchoolSearch? {
-        return filteredSchools?[indexPath.row]
+    func didSelectRow(at indexPath: IndexPath) {
+        guard let selected = filteredSchools?[indexPath.row] else {
+            return
+        }
+        
+        UserDefaultsManager.activeSchoolId = selected.id
+        onSelectSchool?(selected)
     }
 }

@@ -1,20 +1,21 @@
 //
-//  NewsListViewModel.swift
+//  EventListViewModel.swift
 //  Pippin
 //
-//  Created by Will Brandin on 1/21/20.
+//  Created by Will Brandin on 1/22/20.
 //  Copyright © 2020 SchoolConnect. All rights reserved.
 //
 
 import Foundation
 
-protocol NewsListViewModelProtocol: ViewModelNetworker {
+protocol EventListViewModelProtocol: ViewModelNetworker {
     var onStateChanged: (() -> Void)? { get set }
+    
     func requestData()
 }
 
-private typealias ArticleResult = Result<[Article], APIError>
-class NewsListViewModel: SchoolIdObservableViewModel, NewsListViewModelProtocol {
+private typealias EventResult = Result<[Event], APIError>
+class EventListViewModel: SchoolIdObservableViewModel, EventListViewModelProtocol {
     
     // MARK: - Properties
     
@@ -29,8 +30,8 @@ class NewsListViewModel: SchoolIdObservableViewModel, NewsListViewModelProtocol 
     // MARK: - Methods
     
     func requestData() {
-        getSchoolNews { [weak self] result in
-            self?.handleNewsResult(result)
+        getSchoolEvents { [weak self] result in
+            self?.handleEventResult(result)
         }
     }
     
@@ -40,15 +41,15 @@ class NewsListViewModel: SchoolIdObservableViewModel, NewsListViewModelProtocol 
     
     // MARK: - Private Methods
     
-    private func getSchoolNews(completion: @escaping (ArticleResult) -> Void) {
-        let endPoint = PippinAPI.getNews(schoolId: schoolId)
+    private func getSchoolEvents(completion: @escaping (EventResult) -> Void) {
+        let endPoint = PippinAPI.getEvents(schoolId: schoolId)
         let networkManager = NetworkManager.sharedInstance
         
         onIsLoading?(true)
-        networkManager.request(for: endPoint, [Article].self, completion: completion)
+        networkManager.request(for: endPoint, [Event].self, completion: completion)
     }
     
-    private func handleNewsResult(_ result: ArticleResult) {
+    private func handleEventResult(_ result: EventResult) {
         onIsLoading?(false)
         
         switch result {

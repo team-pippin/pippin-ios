@@ -31,7 +31,12 @@ final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     // MARK: - Private Methods
     
     private func createNewsListViewController() -> UIViewController? {
-        newsViewController = NewsListViewController()
+        guard let viewModel = NewsListViewModel() else {
+            print("Could not initialize NewsListViewModel")
+            return nil
+        }
+        
+        newsViewController = NewsListViewController(viewModel: viewModel)
         
         newsViewController?.onSelectArticle = { [weak self] articleId in
             self?.showNewsViewController(for: articleId)
