@@ -8,6 +8,7 @@
 
 import UIKit
 
+private typealias SearchResult = Result<[SchoolSearch], APIError>
 class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
     
     // MARK: - Properties
@@ -62,20 +63,7 @@ class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
         let endpoint = PippinAPI.getAccountSchools(accountId: accountId)
         
         networkingManager.request(for: endpoint, [SchoolSearch].self) { [weak self] result in
-            self?.onIsLoading?(false)
-            
-            switch result {
-            case .success(let response):
-                self?.schools = response
-                self?.onNetworkingSuccess?()
-            case .error(let error):
-                if error == .unauthorized {
-                    self?.handleUnauthorized()
-                } else {
-                    print(error.localizedDescription)
-                    self?.onNetworkingFailed?()
-                }
-            }
+            self?.handleSchoolResult(result)
         }
     }
     
@@ -96,5 +84,25 @@ class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
         
         UserDefaultsManager.activeSchoolId = selected.id
         onSelectSchool?(selected)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleSchoolResult(_ result: SearchResult) {
+        onIsLoading?(false)
+        
+        switch result {
+        case .success(let schools):
+            self.schools = schools
+            onNetworkingSuccess?()
+            
+        case .error(let error):
+            if error == .unauthorized {
+                handleUnauthorized()
+            } else {
+                print(error.localizedDescription)
+                onNetworkingFailed?()
+            }
+        }
     }
 }

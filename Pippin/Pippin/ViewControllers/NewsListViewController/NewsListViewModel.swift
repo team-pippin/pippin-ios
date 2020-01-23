@@ -20,6 +20,12 @@ class NewsListViewModel: SchoolIdObservableViewModel, NewsListViewModelProtocol 
     
     var onStateChanged: (() -> Void)?
     
+    private var articles: [Article] = [] {
+        didSet {
+            onStateChanged?()
+        }
+    }
+    
     // MARK: - ViewModelNetworker
     
     var onIsLoading: ((Bool) -> Void)?
@@ -53,11 +59,15 @@ class NewsListViewModel: SchoolIdObservableViewModel, NewsListViewModelProtocol 
         
         switch result {
         case .success(let articles):
-            print(articles)
-            onStateChanged?()
+            self.articles = articles
             
-        case .error:
-            onNetworkingFailed?()
+        case .error(let error):
+            if error == .unauthorized {
+                handleUnauthorized()
+            } else {
+                print(error.localizedDescription)
+                onNetworkingFailed?()
+            }
         }
     }
 }

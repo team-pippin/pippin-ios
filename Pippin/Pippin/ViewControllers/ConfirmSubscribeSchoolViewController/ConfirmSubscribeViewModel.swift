@@ -68,11 +68,10 @@ class ConfirmSubscribeViewModel: ConfirmSubscribeViewModelProtocol {
         case .error(let error):
             if error == .unauthorized {
                 handleUnauthorized()
-                return
+            } else {
+                print(error.localizedDescription)
+                onNetworkingFailed?()
             }
-            
-            print(error.localizedDescription)
-            onNetworkingFailed?()
         }
     }
 }

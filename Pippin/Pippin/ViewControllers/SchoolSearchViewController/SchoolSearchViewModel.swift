@@ -21,6 +21,7 @@ protocol SchoolSearchViewModelProtocol: ViewModelNetworker {
     func didSelectRow(at indexPath: IndexPath)
 }
 
+private typealias SearchResult = Result<[SchoolSearch], APIError>
 class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     
     // MARK: - Properties
@@ -56,8 +57,6 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
         }
     }
     
-    // mutable data source that when changed, table view is refreshed.
-    
     // MARK: - ViewModelNetworker
     
     var onIsLoading: ((Bool) -> Void)?
@@ -72,20 +71,7 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
         let endpoint = PippinAPI.getSchoolsForSearch
         
         networkingManager.request(for: endpoint, [SchoolSearch].self) { [weak self] result in
-            self?.onIsLoading?(false)
-            
-            switch result {
-            case .success(let response):
-                self?.schools = response
-                self?.onNetworkingSuccess?()
-            case .error(let error):
-                if error == .unauthorized {
-                    self?.handleUnauthorized()
-                } else {
-                    print(error.localizedDescription)
-                    self?.onNetworkingFailed?()
-                }
-            }
+            self?.handleSearchResult(result)
         }
     }
     
@@ -106,5 +92,25 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
         }
         
         onSelectSchool?(selected)
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleSearchResult(_ result: SearchResult) {
+        onIsLoading?(false)
+        
+        switch result {
+        case .success(let schools):
+            self.schools = schools
+            onNetworkingSuccess?()
+            
+        case .error(let error):
+            if error == .unauthorized {
+                handleUnauthorized()
+            } else {
+                print(error.localizedDescription)
+                onNetworkingFailed?()
+            }
+        }
     }
 }

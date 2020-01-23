@@ -20,6 +20,8 @@
 		D225514F23D922B1005A025D /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225514E23D922B1005A025D /* EventListViewModel.swift */; };
 		D225515223D92BCB005A025D /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515123D92BCB005A025D /* Article.swift */; };
 		D225515523D92C7F005A025D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515423D92C7F005A025D /* Event.swift */; };
+		D225515723D937E3005A025D /* EventListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515623D937E3005A025D /* EventListViewController+CollectionView.swift */; };
+		D225515923D9D576005A025D /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D225515823D9D576005A025D /* EventCollectionViewCell.swift */; };
 		D229AF9823D241F100806E21 /* UIViewController+LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9723D241F100806E21 /* UIViewController+LoadingView.swift */; };
 		D229AF9D23D2441F00806E21 /* AccountSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9C23D2441F00806E21 /* AccountSignUp.swift */; };
 		D229AF9F23D2443700806E21 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229AF9E23D2443700806E21 /* SignInResponse.swift */; };
@@ -143,6 +145,8 @@
 		D225514E23D922B1005A025D /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		D225515123D92BCB005A025D /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D225515423D92C7F005A025D /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		D225515623D937E3005A025D /* EventListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventListViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		D225515823D9D576005A025D /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
 		D229AF9723D241F100806E21 /* UIViewController+LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LoadingView.swift"; sourceTree = "<group>"; };
 		D229AF9C23D2441F00806E21 /* AccountSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSignUp.swift; sourceTree = "<group>"; };
 		D229AF9E23D2443700806E21 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
@@ -479,6 +483,7 @@
 			children = (
 				D2D865A323D791D600418752 /* EventListViewController.swift */,
 				D225514E23D922B1005A025D /* EventListViewModel.swift */,
+				D225515623D937E3005A025D /* EventListViewController+CollectionView.swift */,
 			);
 			path = EventListViewController;
 			sourceTree = "<group>";
@@ -610,6 +615,7 @@
 				D2E41B1123D744F4002FFB4B /* ModalPresenter */,
 				D2EC177122627A1C00AF69F5 /* SingleLineTextTableViewCell.swift */,
 				D2E41B0923D742DA002FFB4B /* AlertView.swift */,
+				D225515823D9D576005A025D /* EventCollectionViewCell.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -871,6 +877,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D21BCBFB23D7A84500363C17 /* NewsViewController.swift in Sources */,
+				D225515923D9D576005A025D /* EventCollectionViewCell.swift in Sources */,
 				D2F593E2225B87D40097ED4D /* PippinAPI.swift in Sources */,
 				D2E41B0A23D742DA002FFB4B /* AlertView.swift in Sources */,
 				D2F593DB225B875E0097ED4D /* NetworkManager.swift in Sources */,
@@ -904,6 +911,7 @@
 				D2EC177222627A1C00AF69F5 /* SingleLineTextTableViewCell.swift in Sources */,
 				D2F593B6225AAF1B0097ED4D /* SignUpViewController.swift in Sources */,
 				D2F593D9225B875E0097ED4D /* Result.swift in Sources */,
+				D225515723D937E3005A025D /* EventListViewController+CollectionView.swift in Sources */,
 				D2BC0A1922637BF6000EF9AB /* ConfirmSubscribeViewController.swift in Sources */,
 				D2D865A423D791D600418752 /* EventListViewController.swift in Sources */,
 				D2E35F872252B636000522E5 /* LandingViewController.swift in Sources */,

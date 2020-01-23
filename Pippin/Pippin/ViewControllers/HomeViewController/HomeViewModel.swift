@@ -14,12 +14,14 @@ protocol HomeViewModelProtocol: ViewModelNetworker {
     func requestData()
 }
 
+private typealias SchoolResult = Result<School, APIError>
 class HomeViewModel: SchoolIdObservableViewModel, HomeViewModelProtocol {
     
     // MARK: - Properties
     
     var onStateChanged: (() -> Void)?
     
+    private var school: School?
     private var dispatchGroup = DispatchGroup()
     
     // MARK: - ViewModelNetworker
@@ -33,7 +35,9 @@ class HomeViewModel: SchoolIdObservableViewModel, HomeViewModelProtocol {
     func requestData() {
         onIsLoading?(true)
         
-        getSchool()
+        getSchool { [weak self] result in
+            self?.handleSchoolResult(result)
+        }
         
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.onIsLoading?(false)
@@ -47,23 +51,29 @@ class HomeViewModel: SchoolIdObservableViewModel, HomeViewModelProtocol {
     
     // MARK: - Private Methods
     
-    private func getSchool() {
+    private func getSchool(completion: @escaping (SchoolResult) -> Void) {
         let endPoint = PippinAPI.getSchool(schoolId: schoolId)
         let networkManager = NetworkManager.sharedInstance
         
         dispatchGroup.enter()
-        networkManager.request(for: endPoint, School.self) { [weak self] (result) in
+        networkManager.request(for: endPoint, School.self, completion: completion)
+    }
+    
+    private func handleSchoolResult(_ result: SchoolResult) {
+        switch result {
+        case .success(let school):
+            self.school = school
             
-            switch result {
-            case .success(let school):
-                print(school)
-                
-            case .error:
-                self?.onNetworkingFailed?()
+        case .error(let error):
+            if error == .unauthorized {
+                handleUnauthorized()
+            } else {
+                print(error.localizedDescription)
+                onNetworkingFailed?()
             }
-            
-            self?.dispatchGroup.leave()
         }
+        
+        dispatchGroup.leave()
     }
     
     private func getSchoolLinks() {

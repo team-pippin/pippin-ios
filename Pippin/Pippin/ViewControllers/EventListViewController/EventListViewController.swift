@@ -14,11 +14,15 @@ protocol EventListViewControllerProtocol: Presentable, LoadingView, NetworkingFa
 
 class EventListViewController: UIViewController, EventListViewControllerProtocol {
     
+    // MARK: - SubViews
+    
+    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    
     // MARK: - Properties
     
     var onSelectEvent: ((String) -> Void)?
     
-    private var viewModel: EventListViewModelProtocol
+    var viewModel: EventListViewModelProtocol
     
     // MARK: - Initializer
     
@@ -37,15 +41,18 @@ class EventListViewController: UIViewController, EventListViewControllerProtocol
         super.viewDidLoad()
         
         title = "Events"
-        view.backgroundColor = .blue
+        addCollectionView()
         subscribeToViewModel()
     }
     
     // MARK: - Private Methods
     
     private func subscribeToViewModel() {
-        viewModel.onStateChanged = {
+        viewModel.onStateChanged = { [weak self] in
             // LOAD HOME
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
         }
         
         viewModel.onIsLoading = { [weak self] isLoading in
@@ -57,5 +64,22 @@ class EventListViewController: UIViewController, EventListViewControllerProtocol
         }
                 
         viewModel.requestData()
+    }
+    
+    private func addCollectionView() {
+        collectionView.backgroundColor = .white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(EventCollectionViewCell.self)
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
+        }
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(collectionView)
+        
+        collectionView.pinToSuperview()
     }
 }

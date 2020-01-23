@@ -9,7 +9,26 @@
 import UIKit
 
 struct Style {
+    
+    public static var screenWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    public static var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    struct Table {
+        static let listCellHeight: CGFloat = 64.0
+        static let defaultSectionHeaderHeight: CGFloat = 32.0
+        static let cardHeight: CGFloat = 72.0
+    }
    
+    struct Separator {
+        static let height: CGFloat = 1.0
+    }
+    
+    // TODO: - Pallete
     struct Color {
         
         private static let blue = UIColor(hex: "0090C1")
