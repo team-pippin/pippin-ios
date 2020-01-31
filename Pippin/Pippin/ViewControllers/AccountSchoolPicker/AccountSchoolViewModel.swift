@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol AccountSchoolViewModelProtocol: SchoolSearchViewModelProtocol {
+    func requestSchools()
+}
+
 private typealias SearchResult = Result<[SchoolSearch], APIError>
-class AccountSchoolViewModel: SchoolSearchViewModelProtocol {
+class AccountSchoolViewModel: AccountSchoolViewModelProtocol {
     
     // MARK: - Properties
     

@@ -15,7 +15,6 @@ protocol SchoolSearchViewModelProtocol: ViewModelNetworker {
     var numberOfRows: Int { get }
     var numberOfSections: Int { get }
     
-    func requestSchools()
     func updateSearchFilter(with text: String?)
     func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell
     func didSelectRow(at indexPath: IndexPath)
@@ -30,30 +29,35 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     var onSelectSchool: ((SchoolSearch) -> Void)?
     
     var numberOfRows: Int {
-        return filteredSchools?.count ?? 0
+        return schools?.count ?? 0
     }
     
     var numberOfSections: Int {
         return 1
     }
     
+    // MARK: - Private Properties
+    
+    private var pendingRequestWorkItem: DispatchWorkItem?
+
     private var schools: [SchoolSearch]? {
         didSet {
             onStateChange?()
         }
     }
     
-    private var filteredSchools: [SchoolSearch]? {
-        if let filter = textFilter, !filter.isEmpty {
-            return schools?.filter({ $0.name.contains(filter) }).sorted(by: { $0.name < $1.name })
-        } else {
-            return schools
-        }
-    }
-    
-    private var textFilter: String? {
+    private var searchTerm: String? {
         didSet {
-            onStateChange?()
+            
+            pendingRequestWorkItem?.cancel()
+            
+            let requestWorkItem = DispatchWorkItem { [weak self] in
+                self?.requestSchools(with: self?.searchTerm?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "")
+            }
+            
+            pendingRequestWorkItem = requestWorkItem
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(250), execute: requestWorkItem)
+
         }
     }
     
@@ -65,10 +69,11 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     
     // MARK: - Methods
     
-    func requestSchools() {
+    func requestSchools(with query: String) {
         onIsLoading?(true)
         let networkingManager = NetworkManager.sharedInstance
-        let endpoint = PippinAPI.getSchoolsForSearch
+        networkingManager.cancelRequest()
+        let endpoint = PippinAPI.searchSchools(query: query)
         
         networkingManager.request(for: endpoint, [SchoolSearch].self) { [weak self] result in
             self?.handleSearchResult(result)
@@ -76,18 +81,22 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     }
     
     func updateSearchFilter(with text: String?) {
-        textFilter = text
+        if text == searchTerm {
+            return
+        }
+        
+        searchTerm = text
     }
     
     func cellFor(for tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
         let cell: SingleLineTextTableViewCell = tableView.deqeueReusableCell(for: indexPath)
-        cell.setCellContent(filteredSchools?[indexPath.row].name ?? "")
+        cell.setCellContent(schools?[indexPath.row].name ?? "")
         cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        guard let selected = filteredSchools?[indexPath.row] else {
+        guard let selected = schools?[indexPath.row] else {
             return
         }
         

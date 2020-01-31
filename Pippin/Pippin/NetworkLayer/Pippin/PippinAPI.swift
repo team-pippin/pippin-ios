@@ -25,6 +25,7 @@ public enum PippinAPI {
     case getSchool(schoolId: String)
     case getNews(schoolId: String)
     case getEvents(schoolId: String)
+    case searchSchools(query: String)
 }
 
 extension PippinAPI: EndPointType {
@@ -50,7 +51,7 @@ extension PippinAPI: EndPointType {
             return APIConstants.Account.signUp
         case .signIn:
             return APIConstants.Account.signIn
-        case .getSchoolsForSearch:
+        case .getSchoolsForSearch, .searchSchools:
             return APIConstants.School.schools
         case .subscribeToSchool(accountId: let accountId, schools: _):
             return APIConstants.Account.accountSubscriptions(id: accountId)
@@ -69,7 +70,7 @@ extension PippinAPI: EndPointType {
         switch self {
         case .signUp, .signIn:
             return .post
-        case .getSchoolsForSearch, .getAccountSchools, .getSchool, .getNews, .getEvents:
+        case .getSchoolsForSearch, .getAccountSchools, .getSchool, .getNews, .getEvents, .searchSchools:
             return .get
         case .subscribeToSchool:
             return .put
@@ -86,6 +87,11 @@ extension PippinAPI: EndPointType {
             
         case .getSchoolsForSearch, .getAccountSchools, .getSchool, .getNews, .getEvents:
             return .requestParametersAndHeaders(bodyParameters: nil, urlParameters: nil, additionalHeaders: headers)
+            
+        case .searchSchools(query: let name):
+            return .requestParametersAndHeaders(bodyParameters: nil,
+                                                urlParameters: ["name": name],
+                                                additionalHeaders: headers)
             
         case .subscribeToSchool(accountId: _, schools: let schools):
             return .requestParametersAndHeaders(bodyParameters: schools, urlParameters: nil, additionalHeaders: headers)

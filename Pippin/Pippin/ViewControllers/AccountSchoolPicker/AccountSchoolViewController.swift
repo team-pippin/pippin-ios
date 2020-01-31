@@ -42,7 +42,7 @@ class AccountSchoolViewController: UIViewController, AccountSchoolViewController
     }()
     
     private let tableView = UITableView(frame: .zero, style: .grouped)
-    private var viewModel: SchoolSearchViewModelProtocol = AccountSchoolViewModel()
+    private var viewModel: AccountSchoolViewModelProtocol = AccountSchoolViewModel()
 
     // MARK: - Life Cycle
     

@@ -30,7 +30,10 @@ class UserDefaultsManager {
             if let value = UserDefaults.standard.string(forKey: activeSchoolIdKey) {
                 if newValue != value {
                     UserDefaults.standard.set(newValue, forKey: activeSchoolIdKey)
-                    NotificationCenter.default.post(name: .schoolChanged, object: nil)
+                    
+                    if value != nil {
+                        NotificationCenter.default.post(name: .schoolChanged, object: nil)
+                    }
                 }
             } else {
                 UserDefaults.standard.set(newValue, forKey: activeSchoolIdKey)
@@ -59,6 +62,14 @@ class UserDefaultsManager {
         set {
             saveCodable(with: newValue, for: signedInAccountKey)
         }
+    }
+    
+    // MARK: - Methods
+    
+    public static func clear() {
+        currentAccount = nil
+        signedInAccountToken = nil
+        activeSchoolId = nil
     }
     
     // MARK: - Private Methods

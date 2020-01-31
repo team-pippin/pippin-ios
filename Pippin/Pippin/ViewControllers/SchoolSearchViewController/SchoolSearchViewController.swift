@@ -22,14 +22,10 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
     private var searchTextField: SkyFloatingLabelTextField = {
         let textField = SkyFloatingLabelTextField()
         textField.placeholder = "Search"
-        
         textField.tintColor = Style.Color.interactiveTint
         textField.textColor = Style.Color.primaryTextDark
-        
         textField.lineView.isHidden = true
-        
         textField.selectedTitleColor = Style.Color.interactiveTint
-        
         textField.font = Style.Font.p1
         textField.titleFont = Style.Font.mini
         textField.placeholderFont = Style.Font.p1
@@ -84,7 +80,7 @@ class SchoolSearchViewController: UIViewController, SchoolSearchViewControllerPr
             self?.showErrorView(error: APIError.requestFailed)
         }
         
-        viewModel.requestSchools()
+        viewModel.onSelectSchool = onDidSelectSchool
     }
     
     // MARK: - Actions

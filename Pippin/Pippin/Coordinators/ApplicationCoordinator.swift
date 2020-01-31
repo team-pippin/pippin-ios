@@ -90,8 +90,7 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     @objc private func handleUnauthorized() {
         DispatchQueue.main.async { [weak self] in
-            UserDefaultsManager.currentAccount = nil
-            UserDefaultsManager.signedInAccountToken = nil
+            UserDefaultsManager.clear()
             self?.startLandingCoordinator(animated: false)
         }
     }
